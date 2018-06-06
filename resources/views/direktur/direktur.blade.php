@@ -10,6 +10,12 @@
         <li class="breadcrumb-item active">Direktur</li> -->
       </ol>
 
+      <div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-primary padding-spacing pull-right">Tambah</button>
+		</div>      	
+      </div>
+
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
@@ -50,7 +56,7 @@
                   <td>2011/04/25</td>
                   <td>$320,800</td>
                   <td>2011/04/25</td>
-                  <td>$320,800</td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>

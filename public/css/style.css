@@ -1,3 +1,11 @@
  .padding-spacing{
  	margin-bottom: 15px;
  }
+
+ .float-left{
+ 	float: left;
+ }
+
+ .float-right{
+ 	float: right;
+ }

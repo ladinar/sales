@@ -4,13 +4,15 @@
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        
-        <li class="breadcrumb-item active">Presales</li>
+        <li class="breadcrumb-item">
+          <a href="#">Presales</a>
+        </li><!-- 
+        <li class="breadcrumb-item active">Direktur</li> -->
       </ol>
 
 <div class="card mb-3">
         <div class="card-header">
-          <i ></i> Lead Table</div>
+          <i class="fa fa-table"></i> Lead Table</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -20,24 +22,22 @@
                   <th>Sales name</th>
                   <th>Contact</th>
                   <th>Opty name</th>
-                  <th>Close date</th>
+                  <th>Closing date</th>
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               
               <tbody>
                 <tr>
-                  <td>AA/BB/CC</td>
-                  <td>Hendy</td>
-                  <td>Bank BJB</td>
-                  <td>Hendy</td>
+                  <td>Tiger Nixon</td>
+                  <td>System Architect</td>
+                  <td>Edinburgh</td>
+                  <td>61</td>
                   <td>2011/04/25</td>
-                  <td>Bank BJB</td>
-                  <td>Rp. 20.000.000</td>
-                  <td></td>
+                  <td>$320,800</td>
+                  <td>2011/04/25</td>
                   <td></td>
                 </tr>
               </tbody>

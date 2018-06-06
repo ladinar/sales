@@ -18,16 +18,15 @@
   <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-
+<body class="fixed-nav sticky-footer" id="page-top">
+    @show
+    @section('header')
+    @include('template.header')
+    @show
   <!--content-->
-  <section id="main-content">
-  <section class="wrapper">
     <div class="">
-      @yield('content')
+        @yield('content')
     </div>
-  </section>
-  
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
@@ -51,7 +50,7 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('endor/jquery/jquery.min.js')}}v"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>

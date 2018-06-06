@@ -52,7 +52,7 @@
               </tfoot>
               <tbody>
                 <tr>
-                  <td>Tiger Nixon</td>
+                  <td><a href="{{url('/detail_sales')}}">Tiger Nixon</a></td>
                   <td>System Architect</td>
                   <td>Edinburgh</td>
                   <td>61</td>

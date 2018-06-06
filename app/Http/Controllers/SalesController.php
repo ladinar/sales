@@ -16,6 +16,21 @@ class SalesController extends Controller
         return view('dashboard/dashboard');
     }
 
+    public function sales()
+    {
+        return view('sales/sales');
+    }
+
+    public function presales()
+    {
+        return view('presales/presales');
+    }
+
+    public function detail_sales()
+    {
+        return view('sales/detail_sales');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

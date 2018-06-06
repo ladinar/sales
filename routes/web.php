@@ -12,3 +12,7 @@
 */
 
 Route::get('/','salesController@index');
+Route::get('/sales','salesController@sales');
+Route::get('/presales','salesController@presales');
+Route::get('/detail_sales','salesController@detail_sales');
+

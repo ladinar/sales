@@ -30,7 +30,7 @@
               
               <tbody>
                 <tr>
-                  <td>AA/BB/CC</td>
+                  <td><a href="{{url('/detail_presales')}}">AA/BB/CC</a></td>
                   <td>Hendy</td>
                   <td>Bank BJB</td>
                   <td>Hendy</td>

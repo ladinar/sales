@@ -53,18 +53,18 @@
       				<fieldset disabled="disabled">
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">--Assesment--</label>
-		            <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/>
+		           <!--  <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/> -->
+		            <textarea class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"></textarea>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right">
-		            <label for="proof of value" class="margin-top-form">--Proof Of Value--</label>
-		            <input class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov"/>
+		            <label for="proof of value" class="margin-top-form">--Proof Of Value--</label><!--<input class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov"/> -->
+		             <textarea class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov"></textarea>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
-		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
+		           <div class="form-group margin-left-right">
 		            <label for="propossed_design" class="margin-top-form">--Propposed Design--</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design"/>
-		            <i class="" aria-hidden="true">Rp.</i>
+		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design" onkeypress="myFunction()" />
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
@@ -104,8 +104,8 @@
       			<form>
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">--No Doc. Lelang--</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" disabled="disabled" id="lelang"/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('lelang'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" disabled="disabled" id="lelang" onkeypress=""/>
+		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('lelang'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"  />
 		          </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
 		            <label for="submitted price" class="margin-top-form">--Submitted Price--</label>
@@ -144,3 +144,22 @@
   </div>
 </div>
 @endsection
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content modal-md">
+        <div class="modal-header">
+          <h4 class="modal-title">Propossed Design</h4>
+        </div>
+        <div class="modal-body">
+          <textarea class="form-control" type="text" aria-describedby="emailHelp" placeholder="Enter propossed design" name="proposs" id="proposs"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

@@ -65,6 +65,7 @@
     <!-- Custom scripts for this page-->
     <script src="{{asset('js/sb-admin-datatables.min.js')}}"></script>
     <script src="{{asset('js/sb-admin-charts.min.js')}}"></script>
+    <script src="{{asset('js/style.js')}}"></script>
   </div>
 </body>
 </html>

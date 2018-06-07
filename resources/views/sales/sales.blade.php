@@ -12,8 +12,8 @@
 
       <div class="row">
 		<div class="col-md-12">
-			<button class="btn btn-primary padding-spacing float-left">Tambah</button>
-      <button class="btn btn-warning padding-spacing float-right">Attend</button>
+			<button class="btn btn-primary margin-bottom float-left">Tambah</button>
+      <button class="btn btn-warning margin-bottom float-right">Attend</button>
 		</div>
       </div>
 

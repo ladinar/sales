@@ -16,7 +16,8 @@
   <link href="{{asset('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
-  <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+  
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">

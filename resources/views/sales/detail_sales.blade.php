@@ -52,40 +52,40 @@
       			<form >
       				<fieldset disabled="disabled">
 		          <div class="form-group margin-left-right">
-		            <label for="assesment">Assesment</label>
+		            <label for="assesment">--Assesment--</label>
 		            <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right">
-		            <label for="proof of value" class="margin-top-form">Proof Of Value</label>
+		            <label for="proof of value" class="margin-top-form">--Proof Of Value--</label>
 		            <input class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
-		            <label for="propossed_design" class="margin-top-form">Propposed Design</label>
+		            <label for="propossed_design" class="margin-top-form">--Propposed Design--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design"/>
 		            <i class="" aria-hidden="true">Rp.</i>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
-		            <label for="project_management" class="margin-top-form">Project Management</label>
+		            <label for="project_management" class="margin-top-form">--Project Management--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_management" disabled="disabled" id="project_management"/>
 		            <i class="" aria-hidden="true">Rp.</i>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_management'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
-		          <div class="form-group margin-left-right inputWithIcon inputIconBg">
-		            <label for="maintenance" class="margin-top-form">Maintenance</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Maintenance" name="maintenance" disabled="disabled" id="maintenance"/>
+		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
+		            <label for="maintenance" class="margin-top-form">--Maintenance--</label>
+		            <input class="form-control-medium float-left" type="text" aria-describedby="" placeholder="Enter Maintenance" name="maintenance" disabled="disabled" id="maintenance"/>
 		            <i class="" aria-hidden="true">Rp.</i>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('maintenance'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
-		          <div class="form-group margin-left-right ">
-		            <label for="priority" class="margin-top-form">Priority</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Priority" name="priority" disabled="disabled" id="priority"/>
+		           <div class="form-group margin-left-right">
+		            <label for="priority" class="margin-top-form">--Priority--</label>
+		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" disabled="disabled" id="priority"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('priority'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		          <div class="form-group margin-left-right ">
-		            <label for="proyek_size" class="margin-top-form">Project size</label>
+		            <label for="proyek_size" class="margin-top-form">--Project size--</label>
 		            <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" disabled="disabled" id="proyek_size"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('proyek_size'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div><!-- 
@@ -103,33 +103,33 @@
       			<hr class="">
       			<form>
 		          <div class="form-group margin-left-right">
-		            <label for="assesment">No Doc. Lelang</label>
+		            <label for="assesment">--No Doc. Lelang--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" disabled="disabled" id="lelang"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('lelang'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
-		            <label for="submitted price" class="margin-top-form">Submitted Price</label>
+		            <label for="submitted price" class="margin-top-form">--Submitted Price--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="" placeholder="Enter Submitted Price" name="submit_price" disabled="disabled" id="submit_price"/>
 		            <i class="" aria-hidden="true">Rp.</i>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('submit_price'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right">
-		            <label for="win probability" class="margin-top-form">Win Probability</label>
+		            <label for="win probability" class="margin-top-form">--Win Probability--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Win Probability" name="win_prob" disabled="disabled" id="win_prob"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('win_prob'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right">
-		            <label for="project_name" class="margin-top-form">Project Name</label>
+		            <label for="project_name" class="margin-top-form">--Project Name--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Name" name="project_name" disabled="disabled" id="project_name"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_name'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		          <div class="form-group margin-left-right">
-		            <label for="date" class="margin-top-form">Submit Date</label>
+		            <label for="date" class="margin-top-form">--Submit Date--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Submit Date" name="date" disabled="disabled" id="date"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('date'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		          <div class="form-group margin-left-right ">
-		            <label for="quote number" class="margin-top-form">Quote Number</label>
+		            <label for="quote number" class="margin-top-form">--Quote Number--</label>
 		            <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Quote Number" name="q_num" disabled="disabled" id="q_num"/>
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('q_num'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>

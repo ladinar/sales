@@ -140,7 +140,7 @@
 		          </div>
 		          <div class="margin-left-right margin-top">
 		          	<button class="btn btn-md btn-primary float-left margin-bottom">Submit</button>
-		          	<button class="btn btn-md btn-success float-right margin-bottom">Result</button>
+		          	<button class="btn btn-md btn-success float-right margin-bottom" >Result</button>
 		          </div>
         		</form>
       		</div>	

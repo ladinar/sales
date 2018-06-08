@@ -36,6 +36,16 @@ class SalesController extends Controller
         return view('presales/detail_presales');
     }
 
+    public function sho()
+    {
+        return view('sales/sho');
+    }
+
+    public function detail_sho()
+    {
+        return view('sales/detail_sho');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

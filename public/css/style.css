@@ -109,6 +109,35 @@ input[type=text]:focus{
     transition:.3s;
   }
 
+/*for modal*/
+.modalwithicon.inputIconBg input[type=text]:focus + i{
+    color:#fff;
+    background-color:dodgerBlue;
+  }
+
+ .modalwithicon.inputIconBg i{
+    background-color:
+#67c6ef
+;
+    color:#fff;
+    padding:7px 4px;
+    border-radius:4px 0 0 4px;
+  }
+
+.modalwithicon{
+    position:relative;
+  }
+
+ .modalwithicon i{
+    position:absolute;
+    left:0;
+    top:32px;
+    padding:9px 8px;
+    color:#aaa;
+    transition:.3s;
+  }
+
+
 .form-control-medium{
     display: block;
     width: 90%;
@@ -175,3 +204,96 @@ input[type=text]:focus{
   transform: translate(-0.6em,-2.4em);
   color:  #1b3868; 
  }
+
+.tooltip {
+    background-color:#000;
+    border:1px solid #fff;
+    padding:10px 15px;
+    width:200px;
+    display:none;
+    color:#fff;
+    text-align:left;
+    font-size:12px;
+ 
+    /* outline radius for mozilla/firefox only */
+    -moz-box-shadow:0 0 10px #000;
+    -webkit-box-shadow:0 0 10px #000;
+}
+
+button{
+  width: 90px;
+}
+
+.btn-warning{
+  color: white;
+}
+
+.btn-warning:hover{
+  color: white;
+}
+
+.status-initial{
+    border-radius: 10%;
+    background-color: #7735a3;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    color: white;
+    padding-top: 3px;
+}
+
+.status-open{
+    border-radius: 10%;
+    background-color: #57ed40
+;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    color: white;
+    padding-top: 3px;
+}
+.status-pending{
+    border-radius: 10%;
+    background-color: #e5ce22;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    color: white;
+    padding-top: 3px;
+}
+.status-sd{
+    border-radius: 10%;
+    background-color: #22e5c1;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    color: white;
+    padding-top: 3px;
+}
+.status-tp{
+    border-radius: 10%;
+    background-color: #21c682;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    color: white;
+    padding-top: 3px;
+}
+.status-win{
+    border-radius: 10%;
+    background-color: #b79114;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    color: white;
+    padding-top: 3px;
+}
+.status-lose{
+    border-radius: 10%;
+    background-color: #e5140d;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    color: white;
+    padding-top: 3px;
+}

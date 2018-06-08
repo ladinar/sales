@@ -15,10 +15,15 @@
       		<div class="col-md-6">
       			<div class='circle-container padding-right'>
 				    <a href='#' class='deg315'><span class="dot active"></span></a>
-				    <a href='#' class='deg45'><span class="dot"></span></a>
-				    <a href='#' class='deg135'><span class="dot"></span></a>
+				    <span class="deginitial"><b>Initial</b></span> 
+				    <a href='#' class='deg45'><span class="dot active"></span></a>
+				    <span class="degopen"><b>Open/Pending</b></span>
 				    <a href='#' class='deg180'><span class="dot"></span></a>
+				    <span class="degSD"><b>Sales Design</b></span>
 				    <a href='#' class='deg225'><span class="dot"></span></a>
+				    <span class="degTP"><b>Tender Project</b></span>
+				    <a href='#' class='deg135'><span class="dot"></span></a>
+				    <span class="degwin"><b>Win/Lose</b></span>
 				</div>
       		</div>
       		<div class="col-md-6">
@@ -63,7 +68,7 @@
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		           <div class="form-group margin-left-right">
-		            <label for="propossed_design" class="margin-top-form">--Propposed Design--</label>
+		            <label for="propossed_design" class="margin-top-form">--Proposed Design--</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design" onkeypress="myFunction()" />
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>

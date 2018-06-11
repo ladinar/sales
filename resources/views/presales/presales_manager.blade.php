@@ -32,7 +32,7 @@
               
               <tbody>
                 <tr>
-                  <td><a href="{{url('/detail_presales')}}">AA/BB/CC</a></td>
+                  <td>AA/BB/CC</td>
                   <td>Hendy</td>
                   <td>Bank BJB</td>
                   <td>Hendy</td>
@@ -40,7 +40,7 @@
                   <td>Bank BJB</td>
                   <td>Rp. 20.000.000</td>
                   <td><div class="status-initial">Open</div></td>
-                  <td><a class="btn btn-primary margin-bottom" id="btn-asign">Asign</a></td>
+                  <td><button class="btn btn-primary margin-bottom" id="btn-asign">Asign</button></td>
                 </tr>
               </tbody>
             </table>

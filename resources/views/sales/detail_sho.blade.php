@@ -61,8 +61,8 @@
               <tbody>
                 <tr>
                   <td><a href="{{url('/detail_sales')}}">A/BB/CC/DD/EE/F</a></td>
-                  <td>System Architect</td>
-                  <td>61</td>
+                  <td>Maulana</td>
+                  <td>Pengadaan Jaringan di Bank BCA</td>
                   <td>24-06-2018</td>
                 </tr>
               </tbody>

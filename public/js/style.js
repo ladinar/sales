@@ -24,3 +24,7 @@ $("#myform").tooltip({
       opacity: 0.7
  
       });
+
+$("#btn-result").click(function(){
+        $("#ModalResult").modal({backdrop: true});
+    });

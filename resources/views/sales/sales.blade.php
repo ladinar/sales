@@ -57,7 +57,7 @@
                   <td>$320,800</td>
                   <td>2011/04/25</td>
                   <td><div class="status-initial">Initial</div></td>
-                  <td></td>
+                  <td><a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a></td>
                 </tr>
               </tbody>
             </table>

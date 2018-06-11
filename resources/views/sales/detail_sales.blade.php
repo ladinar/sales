@@ -109,38 +109,37 @@
       			<form>
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">--No Doc. Lelang--</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" disabled="disabled" id="lelang" onkeypress=""/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('lelang'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"  />
+		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" id="lelang" onkeypress="" required/>
+		            <!-- <input type="checkbox" class="float-right" onclick="var input = document.getElementById('lelang'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"  /> -->
 		          </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
 		            <label for="submitted price" class="margin-top-form">--Submitted Price--</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="" placeholder="Enter Submitted Price" name="submit_price" disabled="disabled" id="submit_price"/>
+		            <input class="form-control float-left" type="text" aria-describedby="" placeholder="Enter Submitted Price" name="submit_price" id="submit_price"  pattern="[0-9]*" required />
 		            <i class="" aria-hidden="true">Rp.</i>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('submit_price'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <!-- <input type="checkbox" class="float-right" onclick="var input = document.getElementById('submit_price'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" /> -->
 		          </div>
-		           <div class="form-group margin-left-right">
+		           <div class="form-group margin-left-right  percentageIcon inputIconBg">
 		            <label for="win probability" class="margin-top-form">--Win Probability--</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Win Probability" name="win_prob" disabled="disabled" id="win_prob"/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('win_prob'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Win Probability" name="win_prob" id="win_prob" maxlength="3" required />
+		            <i class="" aria-hidden="true">%</i>
+		            <!-- <input type="checkbox" class="float-right" onclick="var input = document.getElementById('win_prob'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" /> -->
 		          </div>
 		           <div class="form-group margin-left-right">
 		            <label for="project_name" class="margin-top-form">--Project Name--</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Name" name="project_name" disabled="disabled" id="project_name"/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_name'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Name" name="project_name" id="project_name"/>
+		           <!--  <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_name'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" /> -->
 		          </div>
 		          <div class="form-group margin-left-right">
 		            <label for="date" class="margin-top-form">--Submit Date--</label>
-		            <input class="form-control-medium float-left" type="date" aria-describedby="emailHelp" placeholder="Enter Submit Date" name="date" disabled="disabled" id="date"/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('date'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <input class="form-control float-left" type="date" aria-describedby="emailHelp" placeholder="Enter Submit Date" name="date"  id="date"/>
+		           <!--  <input type="checkbox" class="float-right" onclick="var input = document.getElementById('date'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" /> -->
 		          </div>
-		          <div class="form-group margin-left-right ">
+		          <div class="form-group margin-left-right">
 		            <label for="quote number" class="margin-top-form">--Quote Number--</label>
-		            <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Quote Number" name="q_num" disabled="disabled" id="q_num"/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('q_num'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <input class="form-control float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Quote Number" name="q_num" disabled="disabled" id="q_num"/>
+		           <!--  <input type="checkbox" class="float-right" onclick="var input = document.getElementById('q_num'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" /> -->
 		          </div>
 		          <div class="margin-left-right margin-top">
-		          	<button class="btn btn-md btn-primary float-left margin-bottom" >Submit</button>
-		          	<button class="btn btn-md btn-success float-right margin-bottom" >Result</button>
 		          </div>
         		</form>
       		</div>	
@@ -163,6 +162,23 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="modal fade" id="ModalResult" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h4 class="modal-title">Result</h4>
+        </div>
+        <div class="modal-body center">
+          <a href="" class="btn btn-danger btn-lose"><b>LOSE</b></a>
+          <a href="{{url('/sales')}}" class="btn btn-success btn-win margin-left"><b>WIN</b></a>
         </div>
       </div>
       

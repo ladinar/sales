@@ -20,4 +20,6 @@ Route::get('/sho','salesController@sho');
 Route::get('/detail_sho','salesController@detail_sho');
 Route::get('/login', 'salesController@login');
 Route::get('/register', 'salesController@register');
+Route::get('/forgot', 'salesController@forgot');
 Route::get('/hu_rec','salesController@hr');
+Route::get('/presales_manager','salesController@presales_manager');

@@ -8,6 +8,9 @@ function myFunction() {
   $("#modalabsen").click(function(){
         $("#ModalAttendee").modal({backdrop: true});
     });
+  $("#btn_asign").click(function(){
+        $("#modalAsign").modal({backdrop: true});
+    });
 
 $("#myform").tooltip({
  
@@ -32,4 +35,26 @@ $("#btn-result").click(function(){
 $("#btn-View").click(function(){
         $("#modalView").modal({backdrop: true});
     });
+
+    });
+
+var rangeSlider = function(){
+  var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
+rangeSlider();
 

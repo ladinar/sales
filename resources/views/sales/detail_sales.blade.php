@@ -86,13 +86,13 @@
 		          </div>
 		           <div class="form-group margin-left-right">
 		            <label for="priority" class="margin-top-form">-- Priority --</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" disabled="disabled" id="priority"/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('priority'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" id="priority"/>
+		            
 		          </div>
 		          <div class="form-group margin-left-right ">
 		            <label for="proyek_size" class="margin-top-form">-- Project size --</label>
-		            <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" disabled="disabled" id="proyek_size"/>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('proyek_size'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" id="proyek_size"/>
+		            
 		          </div><!-- 
 		          <div class="margin-left-right margin-top">
 		          	<button class="btn btn-md btn-primary float-left margin-bottom">Submit</button>
@@ -116,6 +116,8 @@
 		            <label for="submitted price" class="margin-top-form">--Submitted Price--</label>
 		            <input class="form-control float-left" type="text" aria-describedby="" placeholder="Enter Submitted Price" name="submit_price" id="submit_price"  pattern="[0-9]*" required />
 		            <i class="" aria-hidden="true">Rp.</i>
+		            
+
 		            <!-- <input type="checkbox" class="float-right" onclick="var input = document.getElementById('submit_price'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" /> -->
 		          </div>
 		           <div class="form-group margin-left-right  percentageIcon inputIconBg">

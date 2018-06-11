@@ -36,6 +36,11 @@ class SalesController extends Controller
         return view('presales/detail_presales');
     }
 
+    public function presales_manager()
+    {
+        return view('presales/presales_manager');
+    }
+
     public function sho()
     {
         return view('sales/sho');
@@ -59,6 +64,11 @@ class SalesController extends Controller
     public function register()
     {
         return view('login/register');
+    }
+
+    public function forgot()
+    {
+        return view('login/forgot');
     }
 
     /**

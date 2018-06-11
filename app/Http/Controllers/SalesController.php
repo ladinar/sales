@@ -46,6 +46,11 @@ class SalesController extends Controller
         return view('sales/detail_sho');
     }
 
+     public function hr()
+    {
+        return view('HR/human_resource');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

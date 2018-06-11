@@ -359,3 +359,7 @@ button:hover.disabled {
   padding-top: 5px;
   font-size: 30px;
 }
+
+button.btn-sd{
+  width: 150px;
+}

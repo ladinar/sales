@@ -5,9 +5,9 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Detail Sales</a>
-        </li><!-- 
-        <li class="breadcrumb-item active">Direktur</li> -->
+          <a href="#">Detail</a>
+        </li>
+        <li class="breadcrumb-item active">Sales</li>
       </ol>
 
       <!--content-->

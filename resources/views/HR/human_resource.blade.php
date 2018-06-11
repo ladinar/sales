@@ -5,7 +5,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Sales</a>
+          <a href="#">Human Resource</a>
         </li><!-- 
         <li class="breadcrumb-item active">Direktur</li> -->
       </ol>
@@ -26,28 +26,28 @@
               <thead>
                 <tr>
                   <th>Lead id</th>
-                  <th>Contact</th>
-                  <th>Opty name</th>
-                  <th>Closing date</th>
-                  <th>Owner</th>
-                  <th>Amount</th>
+                  <th>Employees Name</th>
+                  <th>Division</th>
+                  <th>Position</th>
+                  <th>Address</th>
+                  <th>Salary</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>Lead id</th>
-                  <th>Contact</th>
-                  <th>Opty name</th>
-                  <th>Closing date</th>
-                  <th>Owner</th>
-                  <th>Amount</th>
+                  <th>Employees Name</th>
+                  <th>Division</th>
+                  <th>Position</th>
+                  <th>Address</th>
+                  <th>Salary</th>
                   <th>Action</th>
                 </tr>
               </tfoot>
               <tbody>
                 <tr>
-                  <td>Tiger Nixon</td>
+                  <td>A/BB/CC/DD/EE/F</td>
                   <td>System Architect</td>
                   <td>61</td>
                   <td>2011/04/25</td>
@@ -56,7 +56,7 @@
                   <td>
                     <button class="btn btn-sm btn-danger fa fa-trash fa-lg" style="width: 40px;height: 40px"></button>
                     <button class="btn btn-sm btn-warning fa fa-pencil fa-lg" style="width: 40px;height: 40px"></button>
-                    <button  class="btn btn-sm btn-primary fa fa-search-plus fa-lg" style="width: 40px;height: 40px"></button>
+                    <button  class="btn btn-sm btn-primary fa fa-search-plus fa-lg" style="width: 40px;height: 40px" id="btn-View"></button>
                   </td>
                 </tr>
               </tbody>
@@ -76,7 +76,7 @@
       <!-- Modal content-->
       <div class="modal-content modal-md">
         <div class="modal-header">
-          <h4 class="modal-title">Sales Attendee</h4>
+          <h4 class="modal-title">Add Employees</h4>
         </div>
         <div class="modal-body">
           <div class="form-group">
@@ -84,22 +84,92 @@
             <input type="text" class="form-control" id="lead_id" disabled="disabled" placeholder="Lead Id">
           </div>
           <div class="form-group">
-          <label for="">Sales Name</label>
-          <input type="text" class="form-control" placeholder="Enter Sales Name">
+          <label for="">Employees Name</label>
+          <input type="text" class="form-control" placeholder="Enter Name" required>
          </div>
          <div class="form-group">
-          <label for="">Name Project</label>
-          <input type="text" class="form-control" placeholder="Enter Name Project">
+          <label for="">Division</label>
+          <select class="form-control">
+            <option>-- Select Division --</option>
+          </select>
          </div>
           <div class="form-group">
-            <label for="">Date</label>
-            <input type="date" class="form-control" >
+          <label for="">Position</label>
+          <select class="form-control" required>
+            <option>-- Select Position --</option>
+          </select>
+         </div>
+          <div class="form-group">
+          <label for="">Address</label>
+          <textarea type="text" class="form-control" placeholder="Enter Address" required></textarea>
+         </div>
+          <div class="form-group modalIcon inputIconBg">
+          <label for="">Salary</label>
+          <input type="text" class="form-control" placeholder="Enter Salary" required>
+          <i class="" aria-hidden="true">Rp.</i>
+         </div>
+         <div class="form-group">
+          <label for="filebutton">Upload Foto</label>
+          <div class="">
+            <input id="filebutton" name="filebutton" class="input-file" type="file" required="">
           </div>
+        </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Submit</button>
         </div>
       </div>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="modalView" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content modal-md">
+        <div class="modal-header">
+          <h4 class="modal-title">Detail Employees</h4>
+        </div>
+        <div class="modal-body">
+          <div class="card">
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-6 margin-bottom margin-top margin-right-80"> 
+                    <img src="https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2F%2Fcdn-img.instyle.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F684xflex%2Fpublic%2Fimages%2F2017%2F08%2F080817-shawn-mendes-lead.jpg%3Fitok%3DUFqhB4bh&w=700&q=85" alt="Avatar" style="width:75%" >
+                  </div>
+                  <div class="col-md-6 margin-top ">
+                      <h6><b>Name : </b></h6>
+                      <input type="" name="" class="input-style" value="Shawn Mendes"><br>
+                      <h6><b>Division : </b></h6>
+                      <input type="" name="" class="input-style" value="Software Engineer"><br>
+                      <h6><b>Salary : </b></h6>
+                      <input type="" name="" class="input-style" value="Rp 4.000.000,00">
+                  </div>
+              </div>
+           
+            <!--   <table class="table table-bordered">
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Division</th>
+                  <th>Salary</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Shawn Mendes</td>
+                  <td>Software Engineer</td>
+                  <td>Rp. 4000.000,00</td>
+                </tr>
+              </table> -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
     </div>
   </div>

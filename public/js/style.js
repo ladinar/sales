@@ -28,3 +28,8 @@ $("#myform").tooltip({
 $("#btn-result").click(function(){
         $("#ModalResult").modal({backdrop: true});
     });
+
+$("#btn-View").click(function(){
+        $("#modalView").modal({backdrop: true});
+    });
+

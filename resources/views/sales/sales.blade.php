@@ -104,15 +104,15 @@
               <option>-- Choose Owner</option>
             </select>
           </div>
-          <div class="form-group  modalwithicon inputIconBg">
+          <div class="form-group  modalIcon inputIconBg">
             <label for="">Amount</label>
+            <input type="text" class="form-control" placeholder="Enter Amount" >
             <i class="" aria-hidden="true">Rp.</i>
-            <input type="text" class="form-control" style="border-color:dodgerBlue;
-             box-shadow:0 0 8px 0 dodgerBlue;padding-left:40px;" placeholder="Enter Amount" >
           </div>
-          <div class="form-group">
-            <label for="">Kurs</label>
+          <div class="form-group modalIcon inputIconBg">
+            <label for="">Kurs To Dollar</label>
             <input type="text" class="form-control" disabled="disabled" placeholder="Kurs">
+            <i class="" aria-hidden="true">&nbsp$&nbsp </i>
           </div>
         </div>
         <div class="modal-footer">

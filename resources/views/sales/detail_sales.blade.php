@@ -139,8 +139,10 @@
 		            <input class="form-control float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Quote Number" name="q_num" disabled="disabled" id="q_num"/>
 		           <!--  <input type="checkbox" class="float-right" onclick="var input = document.getElementById('q_num'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" /> -->
 		          </div>
-		          <div class="margin-left-right margin-top">
-		          </div>
+		      <div class="margin-left-right margin-top">
+                <button class="btn btn-md btn-primary float-left margin-bottom">Submit</button>
+                <button class="btn btn-md btn-success float-right margin-bottom disabled" id="btn-result">Result</button>
+              </div>
         		</form>
       		</div>	
       	</div>

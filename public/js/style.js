@@ -2,13 +2,13 @@ function myFunction() {
     $("#myModal").modal();
 }
 
- $("#modalAdd").click(function(){
+  $("#modalAdd").click(function(){
         $("#ModalAdd").modal({backdrop: true});
     });
   $("#modalabsen").click(function(){
         $("#ModalAttendee").modal({backdrop: true});
     });
-  $("#btn_asign").click(function(){
+  $("#btn-asign").click(function(){
         $("#modalAsign").modal({backdrop: true});
     });
 
@@ -34,8 +34,6 @@ $("#btn-result").click(function(){
 
 $("#btn-View").click(function(){
         $("#modalView").modal({backdrop: true});
-    });
-
     });
 
 var rangeSlider = function(){

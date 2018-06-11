@@ -40,7 +40,7 @@
                   <td>Bank BJB</td>
                   <td>Rp. 20.000.000</td>
                   <td><div class="status-initial">Open</div></td>
-                  <td><button class="btn btn-primary margin-bottom" id="btn_asign">Asign</button></td>
+                  <td><a class="btn btn-primary margin-bottom" id="btn-asign">Asign</a></td>
                 </tr>
               </tbody>
             </table>
@@ -57,7 +57,7 @@
     <div class="modal-dialog modal-md">
     
       <!-- Modal content-->
-      <div class="modal-content modal-md">
+      <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Asign To</h4>
         </div>

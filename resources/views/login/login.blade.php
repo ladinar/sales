@@ -40,7 +40,7 @@
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="{{ url('/register')}}">Register an Account</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+          <a class="d-block small" href="{{ url('/forgot')}}">Forgot Password?</a>
         </div>
       </div>
     </div>

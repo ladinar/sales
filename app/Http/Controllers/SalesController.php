@@ -51,6 +51,11 @@ class SalesController extends Controller
         return view('HR/human_resource');
     }
 
+    public function login()
+    {
+        return view('login/login');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

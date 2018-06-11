@@ -58,7 +58,7 @@
               
               <div class="form-group margin-left-right">
                 <label for="assesment">--Assesment--</label>
-                <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/>
+                <textarea class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/></textarea>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
                <div class="form-group margin-left-right">
@@ -86,12 +86,13 @@
               </div>
                <div class="form-group margin-left-right">
                 <label for="priority" class="margin-top-form">--Priority--</label>
-                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" disabled="disabled" id="priority"/>
+                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" id="priority"/>
+
                 
               </div>
               <div class="form-group margin-left-right ">
                 <label for="proyek_size" class="margin-top-form">--Project size--</label>
-                <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" disabled="disabled" id="proyek_size"/>
+                <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" id="proyek_size"/>
                 
               </div>
               <div class="margin-left-right margin-top">
@@ -116,6 +117,7 @@
                <div class="form-group margin-left-right inputWithIcon inputIconBg">
                 <label for="submitted price" class="margin-top-form">--Submitted Price--</label>
                 <input class="form-control-medium float-left" type="text" aria-describedby="" placeholder="Enter Submitted Price" name="submit_price" disabled="disabled" id="submit_price"/>
+                
                 <i class="" aria-hidden="true">Rp.</i>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('submit_price'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>

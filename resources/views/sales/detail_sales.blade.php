@@ -139,7 +139,7 @@
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('q_num'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
 		          <div class="margin-left-right margin-top">
-		          	<button class="btn btn-md btn-primary float-left margin-bottom">Submit</button>
+		          	<button class="btn btn-md btn-primary float-left margin-bottom" >Submit</button>
 		          	<button class="btn btn-md btn-success float-right margin-bottom" >Result</button>
 		          </div>
         		</form>

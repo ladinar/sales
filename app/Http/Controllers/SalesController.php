@@ -46,6 +46,16 @@ class SalesController extends Controller
         return view('sales/detail_sho');
     }
 
+    public function login()
+    {
+        return view('login/login');
+    }
+
+    public function register()
+    {
+        return view('login/register');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

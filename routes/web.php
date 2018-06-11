@@ -18,3 +18,5 @@ Route::get('/detail_sales','salesController@detail_sales');
 Route::get('/detail_presales','salesController@detail_presales');
 Route::get('/sho','salesController@sho');
 Route::get('/detail_sho','salesController@detail_sho');
+Route::get('/login', 'salesController@login');
+Route::get('/register', 'salesController@register');

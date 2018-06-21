@@ -17,6 +17,7 @@
   <!-- Custom styles for this template-->
   <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-slider.css')}}">
   
 </head>
 
@@ -65,6 +66,7 @@
     <!-- Custom scripts for this page-->
     <script src="{{asset('js/sb-admin-datatables.min.js')}}"></script>
     <script src="{{asset('js/sb-admin-charts.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-slider.js')}}"></script>
     <script src="{{asset('js/style.js')}}"></script>
   </div>
 </body>

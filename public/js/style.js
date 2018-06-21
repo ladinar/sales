@@ -36,23 +36,44 @@ $("#btn-View").click(function(){
         $("#modalView").modal({backdrop: true});
     });
 
-var rangeSlider = function(){
-  var slider = $('.range-slider'),
-      range = $('.range-slider__range'),
-      value = $('.range-slider__value');
-    
-  slider.each(function(){
 
-    value.each(function(){
-      var value = $(this).prev().attr('value');
-      $(this).html(value);
-    });
+var slider = new Slider("#ex6");
 
-    range.on('input', function(){
-      $(this).next(value).html(this.value);
-    });
-  });
-};
+$("#ex6-enabled").click(function() {
+  if(this.checked) {
+    // With JQuery
+    $("#ex6").slider("enable");
 
-rangeSlider();
+    // Without JQuery
+    slider.enable();
+  }
+  else {
+    // With JQuery
+    $("#ex6").slider("disable");
 
+    // Without JQuery
+    slider.disable();
+  }
+});
+
+var slider = new Slider("#ex7");
+slider.on("slide", function(sliderValue) {
+  document.getElementById("ex7SliderVal").textContent = sliderValue;
+});
+
+$("#ex7-enabled").click(function() {
+  if(this.checked) {
+    // With JQuery
+    $("#ex7").slider("enable");
+
+    // Without JQuery
+    slider.enable();
+  }
+  else {
+    // With JQuery
+    $("#ex7").slider("disable");
+
+    // Without JQuery
+    slider.disable();
+  }
+});

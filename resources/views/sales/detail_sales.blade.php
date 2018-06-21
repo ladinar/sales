@@ -55,7 +55,7 @@
       				<h3 class="margin-left-right margin-top">Solution Design</h3>
       			<hr class="">
       			<form id="myForm" title="Please Fill Tender Project Form !!!">
-      				<fieldset disabled="disabled">
+      				<fieldset>
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">-- Assesment --</label>
 		           <!--  <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/> -->
@@ -72,17 +72,25 @@
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design" onkeypress="myFunction()" />
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		          </div>
-		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
+		           <div class="form-group margin-left-right ">
 		            <label for="project_management" class="margin-top-form">-- Project Management --</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_management" disabled="disabled" id="project_management"/>
-		            <i class="" aria-hidden="true">Rp.</i>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_management'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <div class="slider-control float-left">
+		            	 <b>Rp 10.000 &nbsp </b>
+		            	<input id="ex6" type="text" data-slider-min="10000" data-slider-max="100000" data-slider-step="1" data-slider-value="0" data-slider-enabled="false"/>
+		            	 <b>&nbsp Rp 100.000 </b><br>
+						<span id="ex6CurrentSliderValLabel">Current Slider Value: <span id="ex6SliderVal">0</span></span>
+		            </div>
+        			<!-- <input id="ex6-enabled" type="checkbox" class="float-right" />  -->
 		          </div>
-		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
+		           <div class="form-group margin-left-right">
 		            <label for="maintenance" class="margin-top-form">-- Maintenance --</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="" placeholder="Enter Maintenance" name="maintenance" disabled="disabled" id="maintenance"/>
-		            <i class="" aria-hidden="true">Rp.</i>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('maintenance'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+		            <div class="slider-control float-left">
+		            	 <b>Rp 10.000 &nbsp </b>
+		            	<input id="ex7" type="text" data-slider-min="10000" data-slider-max="100000" data-slider-step="1" data-slider-value="0" data-slider-enabled="false"/>
+		            	 <b>&nbsp Rp 100.000 </b><br>
+						<span id="ex7CurrentSliderValLabel">Current Slider Value: <span id="ex7SliderVal">0</span></span>
+		            </div>
+        			<input id="ex7-enabled" type="checkbox" class="float-right" />
 		          </div>
 		           <div class="form-group margin-left-right">
 		            <label for="priority" class="margin-top-form">-- Priority --</label>

@@ -95,6 +95,9 @@
           <label for="">Company</label>
           <select class="form-control">
             <option>-- Select Company --</option>
+            @foreach($company as $data)
+            <option value="{{$data->id_company}}">{{$data->name_company}}</option>
+            @endforeach
           </select>
          </div>
          <div class="form-group">
@@ -107,6 +110,9 @@
           <label for="">Position</label>
           <select class="form-control" required>
             <option>-- Select Position --</option>
+            @foreach($position as $data)
+            <option value="{{$data->id_position}}">{{$data->name_position}}</option>
+            @endforeach
           </select>
          </div>
          <div class="form-group">

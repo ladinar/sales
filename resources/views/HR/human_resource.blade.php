@@ -79,13 +79,23 @@
           <h4 class="modal-title">Add Employees</h4>
         </div>
         <div class="modal-body">
-          <div class="form-group">
-            <label for="lead_id">Lead Id</label>
-            <input type="text" class="form-control" id="lead_id" disabled="disabled" placeholder="Lead Id">
-          </div>
-          <div class="form-group">
+         <div class="form-group">
           <label for="">Employees Name</label>
           <input type="text" class="form-control" placeholder="Enter Name" required>
+         </div>
+         <div class="form-group">
+          <label for="">Email</label>
+          <input type="email" class="form-control" placeholder="Enter Email" required>
+         </div>
+         <div class="form-group">
+          <label for="">Password</label>
+          <input type="password" class="form-control" placeholder="Enter Password" required>
+         </div>
+         <div class="form-group">
+          <label for="">Company</label>
+          <select class="form-control">
+            <option>-- Select Company --</option>
+          </select>
          </div>
          <div class="form-group">
           <label for="">Division</label>
@@ -99,21 +109,22 @@
             <option>-- Select Position --</option>
           </select>
          </div>
-          <div class="form-group">
+         <div class="form-group">
+            <label for="">Date Of Entry</label>
+            <input type="date" class="form-control" >
+         </div>
+         <div class="form-group">
+            <label for="">Date Of Birth</label>
+            <input type="date" class="form-control" >
+         </div>
+         <div class="form-group">
           <label for="">Address</label>
           <textarea type="text" class="form-control" placeholder="Enter Address" required></textarea>
          </div>
-          <div class="form-group modalIcon inputIconBg">
-          <label for="">Salary</label>
-          <input type="text" class="form-control" placeholder="Enter Salary" required>
-          <i class="" aria-hidden="true">Rp.</i>
-         </div>
          <div class="form-group">
-          <label for="filebutton">Upload Foto</label>
-          <div class="">
-            <input id="filebutton" name="filebutton" class="input-file" type="file" required="">
-          </div>
-        </div>
+          <label for="">Phone Number</label>
+          <input type="text" class="form-control" placeholder="Enter Phone Number" required>
+         </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/','salesController@index');
-Route::get('/sales','salesController@sales');
-Route::get('/presales','salesController@presales');
-Route::get('/detail_sales','salesController@detail_sales');
-Route::get('/detail_presales','salesController@detail_presales');
-Route::get('/sho','salesController@sho');
-Route::get('/detail_sho','salesController@detail_sho');
-Route::get('/login', 'salesController@login');
-Route::get('/register', 'salesController@register');
-Route::get('/forgot', 'salesController@forgot');
-Route::get('/hu_rec','salesController@hr');
-Route::get('/presales_manager','salesController@presales_manager');
+Route::get('/','DASHBOARDController@index');
+
+Route::get('/sales','SALESController@index');
+Route::get('/detail_sales','SALESController@detail_sales');
+
+Route::get('/presales','PRESALESController@index');
+Route::get('/detail_presales','PRESALESController@detail_presales');
+Route::get('/presales_manager','PRESALES_MANAGERController@index');
+
+Route::get('/sho','SHOController@index');
+Route::get('/detail_sho','SHOController@detail_sho');
+
+Route::get('/hu_rec','HRController@index');

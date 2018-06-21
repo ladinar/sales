@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SalesController extends Controller
+class SALESController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,62 +13,12 @@ class SalesController extends Controller
      */
     public function index()
     {
-        return view('dashboard/dashboard');
-    }
-
-    public function sales()
-    {
         return view('sales/sales');
-    }
-
-    public function presales()
-    {
-        return view('presales/presales');
     }
 
     public function detail_sales()
     {
         return view('sales/detail_sales');
-    }
-
-    public function detail_presales()
-    {
-        return view('presales/detail_presales');
-    }
-
-    public function presales_manager()
-    {
-        return view('presales/presales_manager');
-    }
-
-    public function sho()
-    {
-        return view('sales/sho');
-    }
-
-    public function detail_sho()
-    {
-        return view('sales/detail_sho');
-    }
-
-     public function hr()
-    {
-        return view('HR/human_resource');
-    }
-
-    public function login()
-    {
-        return view('login/login');
-    }
-
-    public function register()
-    {
-        return view('login/register');
-    }
-
-    public function forgot()
-    {
-        return view('login/forgot');
     }
 
     /**

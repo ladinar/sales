@@ -10,6 +10,12 @@
         
       </ol>
 
+      <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-warning margin-bottom float-right">Attend</button>
+    </div>
+      </div>
+
 <div class="card mb-3">
         <div class="card-header">
           <i ></i> Lead Table</div>

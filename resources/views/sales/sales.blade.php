@@ -13,7 +13,6 @@
       <div class="row">
 		<div class="col-md-12">
 			<button class="btn btn-primary margin-bottom float-left" id="modalAdd">Add</button>
-      <button class="btn btn-warning margin-bottom float-right">Attend</button>
 		</div>
       </div>
 

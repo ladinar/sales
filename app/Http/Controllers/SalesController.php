@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sales;
 
 class SALESController extends Controller
 {
@@ -13,7 +14,8 @@ class SALESController extends Controller
      */
     public function index()
     {
-        return view('sales/sales');
+        $lead = Sales::all();
+        return view('sales/sales')->with('lead', $lead);
     }
 
     public function detail_sales()

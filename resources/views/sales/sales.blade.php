@@ -48,16 +48,18 @@
                 </tr>
               </tfoot>
               <tbody>
+                @foreach($lead as $data)
                 <tr>
-                  <td><a href="{{url('/detail_sales')}}">Tiger Nixon</a></td>
-                  <td>System Architect</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                  <td>2011/04/25</td>
+                  <td><a href="{{url('/detail_sales')}}">{{$data->lead_id}}</a></td>
+                  <td>{{$data->nik}}</td>
+                  <td>{{$data->contact}}</td>
+                  <td>{{$data->opp_name}}</td>
+                  <td>{{$data->closing_date}}</td>
+                  <td>{{$data->amount}}</td>
                   <td><div class="status-initial">Initial</div></td>
                   <td><a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a></td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

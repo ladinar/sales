@@ -455,6 +455,10 @@ img{
   border-radius: 5%;
 }
 
+#ex6Slider .slider-selection {
+  background: #BABABA;
+}
+
 #ex7Slider .slider-selection {
   background: #BABABA;
 }

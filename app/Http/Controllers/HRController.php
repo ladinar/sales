@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\HRCrud;
 
 class HRController extends Controller
 {
@@ -34,7 +35,7 @@ class HRController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

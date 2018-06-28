@@ -20,15 +20,15 @@
   <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
-      <div class="card-body">
-        <form>
+      <!-- <div class="card-body">
+        <form action="custom-login" method="POST">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input class="form-control" id="email" type="email" aria-describedby="emailHelp" placeholder="Enter email" required="">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+            <input class="form-control" id="password" type="password" placeholder="Password" required="">
           </div>
           <div class="form-group">
             <div class="form-check">
@@ -36,15 +36,61 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="{{ url('/register')}}">Register an Account</a>
           <a class="d-block small" href="{{ url('/forgot')}}">Forgot Password?</a>
         </div>
+      </div> -->
+      <div class="panel-body">
+        <form class="form-horizontal" role="form" method="POST" action="{{ route('custom.attempt') }}">
+            {{ csrf_field() }}
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <label for="email" class="col-md-12 control-label text-center">E-Mail Address</label>
+                <div class="col-md-12">
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <label for="password" class="col-md-12 control-label text-center">Password</label>
+                <div class="col-md-12">
+                    <input id="password" type="password" class="form-control" name="password" required>
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-4">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-md-offset-4">
+                    <button type="submit" class="btn btn-primary">
+                        Login
+                    </button>
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        Forgot Your Password?
+                    </a>
+                </div>
+            </div>
+        </form>
       </div>
-    </div>
   </div>
+
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

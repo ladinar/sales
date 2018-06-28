@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\HRCrud;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
+    protected $email = 'email';
 
     /**
      * Create a new controller instance.
@@ -49,9 +51,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'employees_name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'company' => 'required|string|max:191',
+            'division' => 'required|string|max:191',
+            'position' => 'required|string|max:191',
+            'date_of_entry' => 'required|string|max:191',
+            'date_of_birth' => 'required|string|max:191',
+            'address' => 'required|string|max:510',
+            'phone_number' => 'required|string|max:191',
+
         ]);
     }
 
@@ -63,10 +73,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $kode_perusahaan = 'id_company';
+        $tgl_masuk = 'date_of_entry';
+        $sub_tahun_masuk = substr($tgl_masuk, 3, 2);
+        $sub_bln_masuk = substr($tgl_masuk, 6, 2);
+        $tgl_lahir = 'date_of_birth';
+        $sub_tahun_lahir = substr($tgl_lahir, 3, 2);
+        $sub_bln_lahir = substr($tgl_lahir, 6, 2);
+
         return User::create([
-            'name' => $data['name'],
+            'employees_name' => $data['employees_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'company' => $data['company'],
+            'division' => $data['division'],
+            'position' => $data['position'],
+            'date_of_entry' => $data['date_of_entry'],
+            'date_of_birth' => $data['date_of_birth'],
+            'address' => $data['address'],
+            'phone_number' => $data['phone_number'],
         ]);
     }
 }

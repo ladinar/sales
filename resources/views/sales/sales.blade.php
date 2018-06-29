@@ -6,8 +6,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="#">Sales</a>
-        </li><!-- 
-        <li class="breadcrumb-item active">Direktur</li> -->
+        </li>
       </ol>
 
       <div class="row">
@@ -15,8 +14,6 @@
 			<button class="btn btn-primary margin-bottom float-left" id="modalAdd">Add</button>
 		</div>
       </div>
-
-      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Lead Table</div>
@@ -50,7 +47,7 @@
               <tbody>
                 @foreach($lead as $data)
                 <tr>
-                  <td><a href="{{url('/detail_sales')}}">{{$data->lead_id}}</a></td>
+                  <td><a href="{{url('/detail_sales', $data->lead_id)}}">{{$data->lead_id}}</a></td>
                   <td>{{$data->contact}}</td>
                   <td>{{$data->opp_name}}</td>
                   <td>{{$data->closing_date}}</td>

@@ -18,10 +18,10 @@ Route::post('custom-attempt', 'LOGINController@attempt')->name('custom.attempt')
 Route::get('/','DASHBOARDController@index');
 
 Route::get('/sales','SALESController@index');
-Route::get('/detail_sales','SALESController@detail_sales');
+Route::get('/detail_sales/{lead_id}','SALESController@detail_sales');
 
 Route::get('/presales','PRESALESController@index');
-Route::get('/detail_presales','PRESALESController@detail_presales');
+Route::get('/detail_presales/{lead_id}','PRESALESController@detail_presales');
 Route::get('/presales_manager','PRESALES_MANAGERController@index');
 
 Route::get('/sho','SHOController@index');

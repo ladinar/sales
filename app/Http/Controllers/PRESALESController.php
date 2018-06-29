@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App/Sales;
+use App\Sales;
 
 class PRESALESController extends Controller
 {
@@ -14,12 +14,14 @@ class PRESALESController extends Controller
      */
     public function index()
     {
-        return view('presales/presales');
+        $lead = Sales::all();
+        return view('presales/presales')->with('lead', $lead);
     }
 
-    public function detail_presales()
+    public function detail_presales($lead_id)
     {
-        return view('presales/detail_presales');
+        $tampilkan = Sales::find($lead_id);
+        return view('presales/detail_presales')->with('tampilkan',$tampilkan);
     }
 
     /**
@@ -51,8 +53,7 @@ class PRESALESController extends Controller
      */
     public function show($lead_id)
     {
-        $tampilkan = Sales::find($lead_id);
-        return view('presales/detail_presales')->with('tampilkan',$tampilkan);
+       
         //
     }
 

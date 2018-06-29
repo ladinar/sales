@@ -32,18 +32,6 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>Lead id</th>
-                  <th>Contact</th>
-                  <th>Opty name</th>
-                  <th>Closing date</th>
-                  <th>Owner</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </tfoot>
               <tbody>
                 @foreach($lead as $data)
                 <tr>
@@ -102,7 +90,7 @@
           <div class="form-group">
             <label for="">Owner</label>
             <select class="form-control">
-              <option>-- Choose Owner</option>
+              <option>-- Choose Owner --</option>
             </select>
           </div>
           <div class="form-group  modalIcon inputIconBg">

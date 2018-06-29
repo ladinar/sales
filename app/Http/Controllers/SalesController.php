@@ -18,9 +18,10 @@ class SALESController extends Controller
         return view('sales/sales')->with('lead', $lead);
     }
 
-    public function detail_sales()
+    public function detail_sales($lead_id)
     {
-        return view('sales/detail_sales');
+        $tampilkan = Sales::find($lead_id);
+        return view('sales/detail_sales')->with('tampilkan',$tampilkan);
     }
 
     /**
@@ -52,6 +53,7 @@ class SALESController extends Controller
      */
     public function show($id)
     {
+
         //
     }
 

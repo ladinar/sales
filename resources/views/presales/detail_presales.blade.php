@@ -29,19 +29,18 @@
           <div class="col-md-6">
             <div class="card mb-3">
               <div class="card-body">
-                <h6 class="card-title mb-1 pull-left">A/BB/CC/DD/E/F</h6>
-                <h6 class="card-title mb-1 pull-right">06-06-2018</h6>
+                <h6 class="card-title mb-1 pull-left">NIK : {{ $tampilkan->lead_id }}</h6>
+                <h6 class="card-title mb-1 pull-right">{{ $tampilkan->closing_date}}</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small">
-                <h2>BANK BJB</h2>
-                <h5>Hadi Wijaya</h5>
+                <h4 class="pull-left">{{ $tampilkan->contact }}</h4>
+                <h5 class="pull-right">Owner : <i>Ladinar Nanda</i></h5>
               </div>
               <div class="card-body small bg-faded">
                 <div class="media">
                   <div class="media-body">
-                    <h6>What is Lorem Ipsum?
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h6>
+                    <h6></h6>
                   </div>
                 </div>
               </div>
@@ -78,11 +77,15 @@
                 <i class="" aria-hidden="true">Rp.</i>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_management'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
-               <div class="form-group margin-left-right inputWithIcon inputIconBg">
+               <div class="form-group margin-left-right">
                 <label for="maintenance" class="margin-top-form">-- Maintenance --</label>
-                <input class="form-control-medium float-left" type="text" aria-describedby="" placeholder="Enter Maintenance" name="maintenance" disabled="disabled" id="maintenance"/>
-                <i class="" aria-hidden="true">Rp.</i>
-                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('maintenance'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+                   <div class="slider-control float-left">
+                   <b>Rp 10.000 &nbsp </b>
+                  <input id="maintenance" type="text" data-slider-min="10000" data-slider-max="100000" data-slider-step="1" data-slider-value="0" data-slider-enabled="false"/>
+                   <b>&nbsp Rp 100.000 </b><br>
+                  <span id="ex7CurrentSliderValLabel">Current Slider Value: <span id="ex7SliderVal">0</span></span>
+                </div>
+              <input id="ex7-enabled" type="checkbox" class="float-right" />
               </div>
                <div class="form-group margin-left-right">
                 <label for="priority" class="margin-top-form">-- Priority --</label>

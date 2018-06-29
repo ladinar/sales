@@ -13,10 +13,12 @@
       <!--content-->
       <div class="row">
       		<div class="col-md-6">
-      			<div class='circle-container padding-right'>
-				    <a href='#' class='deg315'><span class="dot active"></span></a>
-				    <span class="deginitial"><b>Initial</b></span> 
-				    <a href='#' class='deg45'><span class="dot active"></span></a>
+      	<div class='circle-container padding-right'>
+				    <a href='#'>
+              <span class="deg315 dot"></span>
+              <span class="deginitial"><b>Initial</b></span> 
+            </a>
+				    <a href='#' class='deg45'><span class="dot"></span></a>
 				    <span class="degopen"><b>Open/Pending</b></span>
 				    <a href='#' class='deg180'><span class="dot"></span></a>
 				    <span class="degSD"><b>Sales Design</b></span>
@@ -24,24 +26,28 @@
 				    <span class="degTP"><b>Tender Project</b></span>
 				    <a href='#' class='deg135'><span class="dot"></span></a>
 				    <span class="degwin"><b>Win/Lose</b></span>
+            <div class="step-content">
+              
+            </div>
 				</div>
+        <button class="btn btn-primary" type="button" name="next" class="active">Next Step</button>
       		</div>
       		<div class="col-md-6">
       			<div class="card mb-3">
               <div class="card-body">
-                <h6 class="card-title mb-1 pull-left">A/BB/CC/DD/E/F</h6>
-                <h6 class="card-title mb-1 pull-right">06-06-2018</h6>
+                <h6 class="card-title mb-1 pull-left">NIK : {{ $tampilkan->lead_id }}</h6>
+                <h6 class="card-title mb-1 pull-right">{{ $tampilkan->closing_date }}</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small">
-                <h2>BANK BJB</h2>
-                <h5>Hadi Wijaya</h5>
+                <h4 class="pull-left">{{ $tampilkan->contact }}</h4>
+                <h5 class="pull-right">Owner : <i>Ladinar Nanda</i></h5>
               </div>
               <div class="card-body small bg-faded">
                 <div class="media">
                   <div class="media-body">
-                    <h6>What is Lorem Ipsum?
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h6>
+                    <h6>{{ $tampilkan->opp_name}}</h6>
+                    <h6><b>Amount : Rp {{ $tampilkan->amount}}</b></h6>
                   </div>
                 </div>
               </div>
@@ -55,7 +61,7 @@
       				<h3 class="margin-left-right margin-top">Solution Design</h3>
       			<hr class="">
       			<form id="myForm" title="Please Fill Tender Project Form !!!">
-      				<fieldset>
+      				<fieldset disabled="disabled">
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">-- Assesment --</label>
 		           <!--  <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/> -->
@@ -74,7 +80,7 @@
 		         </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
                 	<label for="project_management" class="margin-top-form">-- Project Management --</label>
-                	<input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_management" disabled="disabled" id="project_management"/>
+                	<input class="form-control-medium float-left" id="trucated" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_management" disabled="disabled" id="project_management" />
                 	<i class="" aria-hidden="true">Rp.</i>
                 	<input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_management'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               	   </div>

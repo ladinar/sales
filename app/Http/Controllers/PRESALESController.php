@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App/Sales;
 
 class PRESALESController extends Controller
 {
@@ -48,8 +49,10 @@ class PRESALESController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($lead_id)
     {
+        $tampilkan = Sales::find($lead_id);
+        return view('presales/detail_presales')->with('tampilkan',$tampilkan);
         //
     }
 

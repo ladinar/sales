@@ -51,10 +51,10 @@
                 @foreach($lead as $data)
                 <tr>
                   <td><a href="{{url('/detail_sales')}}">{{$data->lead_id}}</a></td>
-                  <td>{{$data->nik}}</td>
                   <td>{{$data->contact}}</td>
                   <td>{{$data->opp_name}}</td>
                   <td>{{$data->closing_date}}</td>
+                  <td></td>
                   <td>{{$data->amount}}</td>
                   <td><div class="status-initial">Initial</div></td>
                   <td><a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a></td>
@@ -88,7 +88,10 @@
           <div class="form-group">
             <label for="">Contact</label>
             <select class="form-control">
-              <option value="">-- Choose Contact --</option>
+              <option>-- Choose Contact --</option>
+              @foreach($contact_name as $data)
+              <option value="">{{$data->contact}}</option>
+              @endforeach
             </select>
           </div>
           <div class="form-group">

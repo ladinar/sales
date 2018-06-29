@@ -4,6 +4,7 @@
 	use App\TB_Division;
 	use App\TB_Position;
 	use App\TB_Territory;
+	use App\Sales;
 	use Illuminate\Support\ServiceProvider;
 
 	class DynamicClassname extends ServiceProvider
@@ -24,6 +25,9 @@
 
 			view()->composer('*', function($view){
 				$view->with('territory', TB_Territory::all());		
+			});
+			view()->composer('*', function($view){
+				$view->with('contact_name', Sales::all());
 			});
 		}
 	}

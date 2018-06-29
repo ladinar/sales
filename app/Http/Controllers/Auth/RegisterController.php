@@ -73,15 +73,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $kode_perusahaan = 'id_company';
-        $tgl_masuk = 'date_of_entry';
-        $sub_tahun_masuk = substr($tgl_masuk, 3, 2);
-        $sub_bln_masuk = substr($tgl_masuk, 6, 2);
-        $tgl_lahir = 'date_of_birth';
-        $sub_tahun_lahir = substr($tgl_lahir, 3, 2);
-        $sub_bln_lahir = substr($tgl_lahir, 6, 2);
-
         return User::create([
+            'nik' => $data['nik'],
             'employees_name' => $data['employees_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

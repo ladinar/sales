@@ -16,6 +16,8 @@ class User extends Authenticatable
      */
     protected $table = 'users';
 
+    protected $primaryKey = 'nik';
+
     protected $fillable = [
         'id_company', 'id_position', 'id_division', 'name', 'email', 'date_of_entry', 'date_of_birth', 'address', 'phone',
     ];

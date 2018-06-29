@@ -28,6 +28,5 @@ Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');
 
 Route::get('/hu_rec','HRController@index');
-Route::post('/store','HRController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');

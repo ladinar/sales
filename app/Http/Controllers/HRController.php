@@ -14,7 +14,8 @@ class HRController extends Controller
      */
     public function index()
     {
-        return view('HR/human_resource');
+        $hr = HRCrud::all();
+        return view('HR/human_resource')->with('hr', $hr);
     }
 
     /**
@@ -35,7 +36,7 @@ class HRController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**

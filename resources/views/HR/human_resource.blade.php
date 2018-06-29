@@ -25,40 +25,36 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Lead id</th>
+                  <th>NIK</th>
                   <th>Employees Name</th>
-                  <th>Division</th>
-                  <th>Position</th>
-                  <th>Address</th>
-                  <th>Salary</th>
+                  <th>Company</th>
+                  <th>Phone Number</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Lead id</th>
+                  <th>NIK</th>
                   <th>Employees Name</th>
-                  <th>Division</th>
-                  <th>Position</th>
-                  <th>Address</th>
-                  <th>Salary</th>
+                  <th>Company</th>
+                  <th>Phone Number</th>
                   <th>Action</th>
                 </tr>
               </tfoot>
               <tbody>
+                @foreach($hr as $data)
                 <tr>
-                  <td>A/BB/CC/DD/EE/F</td>
-                  <td>System Architect</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                  <td>2011/04/25</td>
+                  <td>{{ $data->nik }}</td>
+                  <td>{{ $data->name }}</td>
+                  <td>{{ $data->id_company }}</td>
+                  <td>{{ $data->phone }}</td>
                   <td>
                     <button class="btn btn-sm btn-danger fa fa-trash fa-lg" style="width: 40px;height: 40px"></button>
                     <button class="btn btn-sm btn-warning fa fa-pencil fa-lg" style="width: 40px;height: 40px"></button>
-                    <button  class="btn btn-sm btn-primary fa fa-search-plus fa-lg" style="width: 40px;height: 40px" id="btn-View"></button>
+                    <button class="btn btn-sm btn-primary fa fa-search-plus fa-lg" style="width: 40px;height: 40px" id="btn-View"></button>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -81,33 +77,33 @@
         <div class="modal-body">
          <div class="form-group">
           <label for="">NIK</label>
-          <input id="nik" type="text" class="form-control" placeholder="Your NIK" disabled required>
+          <input id="nik" name="nik" type="text" class="form-control" placeholder="Your NIK" disabled required>
          </div>
          <div class="form-group">
           <label for="">Employees Name</label>
-          <input id="epmloyees_name" type="text" class="form-control" placeholder="Enter Name" required>
+          <input id="name" name="name" type="text" class="form-control" placeholder="Enter Name" required>
          </div>
          <div class="form-group">
           <label for="">Email</label>
-          <input id="email" type="email" class="form-control" placeholder="Enter Email" required>
+          <input id="email" name="email" type="email" class="form-control" placeholder="Enter Email" required>
          </div>
          <div class="form-group">
           <label for="">Password</label>
-          <input id="password" type="password" class="form-control" placeholder="Enter Password" required>
+          <input id="password" name="password" type="password" class="form-control" placeholder="Enter Password" required>
          </div>
          <div class="form-group">
           <label for="">Company</label>
-          <select id="company" class="form-control" onkeyup="copytextbox();">
-            <option>-- Select Company --</option>
+          <select id="company" name="company" class="form-control" onkeyup="copytextbox();" required>
+            <option value="">-- Select Company --</option>
             @foreach($company as $data)
-            <option value="{{$data->id_company}}">{{$data->name_company}}</option>
+            <option value="{{$data->code_company}}">{{$data->id_company}}</option>
             @endforeach
           </select>
          </div>
          <div class="form-group">
           <label for="">Division</label>
-          <select id="division" class="form-control">
-            <option>-- Select Division --</option>
+          <select id="division" name="division" class="form-control" required>
+            <option value="">-- Select Division --</option>
             @foreach($division as $data)
             <option value="{{$data->id_division}}">{{$data->name_division}} ({{$data->name_sub_division}})</option>
             @endforeach
@@ -115,8 +111,8 @@
          </div>
          <div class="form-group">
           <label for="">Position</label>
-          <select id="position" class="form-control" required>
-            <option>-- Select Position --</option>
+          <select id="position" name="position" class="form-control" required>
+            <option value="">-- Select Position --</option>
             @foreach($position as $data)
             <option value="{{$data->id_position}}">{{$data->name_position}}</option>
             @endforeach
@@ -124,8 +120,8 @@
          </div>
          <div class="form-group">
           <label for="">Territory</label>
-          <select id="territory" class="form-control" onkeyup="copytextbox();">
-            <option>-- Select Territory --</option>
+          <select id="territory" name="territory" class="form-control" onkeyup="copytextbox();">
+            <option value="">-- Select Territory --</option>
             @foreach($territory as $data)
             <option value="{{$data->id_territory}}">{{$data->name_territory}}</option>
             @endforeach
@@ -133,24 +129,24 @@
          </div>
          <div class="form-group">
             <label for="">Date Of Entry</label>
-            <input id="date_of_entry" type="date" class="form-control" onkeyup="copytextbox();">
+            <input id="date_of_entry" name="date_of_entry" type="date" class="form-control" onkeyup="copytextbox();" required>
          </div>
          <div class="form-group">
             <label for="">Date Of Birth</label>
-            <input id="date_of_birth" type="date" class="form-control" onkeyup="copytextbox();">
+            <input id="date_of_birth" name="date_of_birth" type="date" class="form-control" onkeyup="copytextbox();" required>
          </div>
          <div class="form-group">
           <label for="">Address</label>
-          <textarea id="address" type="text" class="form-control" placeholder="Enter Address" required></textarea>
+          <textarea id="address" name="address" type="text" class="form-control" placeholder="Enter Address" required></textarea>
          </div>
          <div class="form-group">
           <label for="">Phone Number</label>
-          <input id="phone_number" type="text" class="form-control" placeholder="Enter Phone Number" required>
+          <input id="phone" name="phone" type="text" class="form-control" placeholder="Enter Phone Number" required>
          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-primary">Add</button>
         </div>
       </div>
     </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sales;
+use DB;
+use Illuminate\Support\Collection;
 
 class SALESController extends Controller
 {
@@ -19,7 +21,10 @@ class SALESController extends Controller
     
     public function index()
     {
-        $lead = Sales::all();
+        $lead = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->select('sales_lead_register.lead_id', 'sales_lead_register.contact', 'sales_lead_register.opp_name', 'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                ->get();
         return view('sales/sales')->with('lead', $lead);
     }
 

@@ -3,11 +3,11 @@ function myFunction() {
 }
 
   $("#btnAdd").click(function(){
-        $("#ModalAdd").modal({backdrop: true});
+        $("#modalAdd").modal({backdrop: true});
     });
 
   $("#modalabsen").click(function(){
-        $("#ModalAttendee").modal({backdrop: true});
+        $("#modalAttendee").modal({backdrop: true});
     });
   $("#btn-asign").click(function(){
         $("#modalAsign").modal({backdrop: true});

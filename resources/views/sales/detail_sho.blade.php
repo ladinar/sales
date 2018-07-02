@@ -50,14 +50,6 @@
                   <th>Date</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>Lead id</th>
-                  <th>Sales Name</th>
-                  <th>Name Project</th>
-                  <th>Date</th>
-                </tr>
-              </tfoot>
               <tbody>
                 <tr>
                   <td>A/BB/CC/DD/EE/F</td>

@@ -58,7 +58,6 @@ class PRESALESController extends Controller
      */
     public function show($lead_id)
     {
-       
         //
     }
 

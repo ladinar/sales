@@ -11,7 +11,7 @@
 
       <div class="row">
 		<div class="col-md-12">
-			<button class="btn btn-primary margin-bottom float-left" id="modalAdd">Add</button>
+			<button class="btn btn-primary margin-bottom float-left" id="btnAdd">Add</button>
 		</div>
       </div>
       <div class="card mb-3">
@@ -39,7 +39,7 @@
                   <td>{{$data->contact}}</td>
                   <td>{{$data->opp_name}}</td>
                   <td>{{$data->closing_date}}</td>
-                  <td></td>
+                  <td>{{$data->name}}</td>
                   <td>{{$data->amount}}</td>
                   <td><div class="status-initial">Initial</div></td>
                   <td><a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a></td>
@@ -57,7 +57,7 @@
 @endsection
 
 <!--MODAL ADD PROJECT-->
-<div class="modal fade" id="ModalAdd" role="dialog">
+<div class="modal fade" id="modalAdd" role="dialog">
     <div class="modal-dialog modal-lg">
     
       <!-- Modal content-->
@@ -91,6 +91,9 @@
             <label for="">Owner</label>
             <select class="form-control">
               <option>-- Choose Owner --</option>
+               @foreach($owner as $data)
+              <option value="">{{$data->name}}</option>
+              @endforeach
             </select>
           </div>
           <div class="form-group  modalIcon inputIconBg">

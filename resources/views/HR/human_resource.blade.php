@@ -32,15 +32,6 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>NIK</th>
-                  <th>Employees Name</th>
-                  <th>Division</th>
-                  <th>Territory</th>
-                  <th>Action</th>
-                </tr>
-              </tfoot>
               <tbody>
                 @foreach($hr as $data)
                 <tr>
@@ -78,7 +69,7 @@
         <!-- <form class="form-horizontal" role="form">
           <div class="form-group">
           <label for="">NIK</label>
-          <input id="nik" name="nik" type="text" class="form-control" placeholder="Your NIK" disabled required>
+          <input id="nik" name="nik" type="text" class="form-control" placeholder="Your NIK" disabled>
          </div>
          <div class="form-group">
           <label for="">Employees Name</label>
@@ -97,7 +88,7 @@
           <select id="company" name="company" class="form-control" onkeyup="copytextbox();" required>
             <option value="">-- Select Company --</option>
             @foreach($company as $data)
-            <option value="{{$data->code_company}}">{{$data->id_company}}</option>
+            <option value="{{$data->id_company}}">{{$data->name_company}}</option>
             @endforeach
           </select>
          </div>

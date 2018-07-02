@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\HRCrud;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,8 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-    protected $email = 'email';
+    protected $redirectTo = '/hu_rec';
 
     /**
      * Create a new controller instance.
@@ -51,16 +49,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'employees_name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users',
+            'nik' => 'required|unique:users',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'company' => 'required|string|max:191',
-            'division' => 'required|string|max:191',
-            'position' => 'required|string|max:191',
-            'date_of_entry' => 'required|string|max:191',
-            'date_of_birth' => 'required|string|max:191',
-            'address' => 'required|string|max:510',
-            'phone_number' => 'required|string|max:191',
+            'company' => 'required',
+            'date_of_entry' => 'required',
+            'date_of_birth' => 'required',
 
         ]);
     }
@@ -75,16 +70,17 @@ class RegisterController extends Controller
     {
         return User::create([
             'nik' => $data['nik'],
-            'employees_name' => $data['employees_name'],
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'company' => $data['company'],
-            'division' => $data['division'],
-            'position' => $data['position'],
+            'id_company' => $data['company'],
+            'id_division' => $data['division'],
+            'id_position' => $data['position'],
+            'id_territory' => $data['territory'],
             'date_of_entry' => $data['date_of_entry'],
             'date_of_birth' => $data['date_of_birth'],
             'address' => $data['address'],
-            'phone_number' => $data['phone_number'],
+            'phone' => $data['phone_number'],
         ]);
     }
 }

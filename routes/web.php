@@ -12,6 +12,8 @@
 */
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('custom-login', 'LOGINController@showLoginForm')->name('custom.login');
 Route::post('custom-attempt', 'LOGINController@attempt')->name('custom.attempt');
 
@@ -28,5 +30,3 @@ Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');
 
 Route::get('/hu_rec','HRController@index');
-
-Route::get('/home', 'HomeController@index')->name('home');

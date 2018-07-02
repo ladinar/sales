@@ -2,9 +2,10 @@ function myFunction() {
     $("#myModal").modal();
 }
 
-  $("#modalAdd").click(function(){
+  $("#btnAdd").click(function(){
         $("#ModalAdd").modal({backdrop: true});
     });
+
   $("#modalabsen").click(function(){
         $("#ModalAttendee").modal({backdrop: true});
     });

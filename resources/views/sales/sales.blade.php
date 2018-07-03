@@ -51,7 +51,6 @@
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-
   </div>
 </div>
 @endsection
@@ -59,46 +58,47 @@
 <!--MODAL ADD PROJECT-->
 <div class="modal fade" id="modalAdd" role="dialog">
     <div class="modal-dialog modal-lg">
-    
       <!-- Modal content-->
       <div class="modal-content modal-md">
         <div class="modal-header">
           <h4 class="modal-title">Add Project</h4>
         </div>
         <div class="modal-body">
+          <form method="POST" action="{{url('store')}}">
+            @csrf
           <div class="form-group">
             <label for="lead_id">Lead Id</label>
             <input type="text" class="form-control" id="lead_id" disabled="disabled" placeholder="Lead Id">
           </div>
           <div class="form-group">
             <label for="">Contact</label>
-            <select class="form-control">
+            <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact">
               <option>-- Choose Contact --</option>
               @foreach($contact_name as $data)
-              <option value="">{{$data->contact}}</option>
+              <option value="{{$data->contact}}">{{$data->contact}}</option>
               @endforeach
             </select>
           </div>
           <div class="form-group">
           <label for="">Opportunity Name</label>
-          <input type="text" class="form-control" placeholder="Enter Opportunity Name">
+          <input type="text" class="form-control" placeholder="Enter Opportunity Name" name="opp_name">
          </div>
           <div class="form-group">
             <label for="">Closing Date</label>
-            <input type="date" class="form-control" >
+            <input type="date" id="closing_date" class="form-control" name="closing_date" onkeyup="copytextbox();" name="closing_date">
           </div>
           <div class="form-group">
             <label for="">Owner</label>
-            <select class="form-control">
+            <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner">
               <option>-- Choose Owner --</option>
                @foreach($owner as $data)
-              <option value="">{{$data->name}}</option>
+              <option value="{{$data->nik}}">{{$data->name}}</option>
               @endforeach
             </select>
           </div>
           <div class="form-group  modalIcon inputIconBg">
             <label for="">Amount</label>
-            <input type="text" class="form-control" placeholder="Enter Amount" >
+            <input type="text" class="form-control" placeholder="Enter Amount" name="amount">
             <i class="" aria-hidden="true">Rp.</i>
           </div>
           <div class="form-group modalIcon inputIconBg">
@@ -106,10 +106,11 @@
             <input type="text" class="form-control" disabled="disabled" placeholder="Kurs">
             <i class="" aria-hidden="true">&nbsp$&nbsp </i>
           </div>
+        </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" value="add" id="btn-save" data-dismiss="modal">Submit</button>
         </div>
       </div>
     </div>
@@ -150,3 +151,17 @@
     </div>
   </div>
 
+  <script type="text/javascript">
+    function copytextbox(){
+        var contact = document.getElementById('contact').value;
+        var owner = document.getElementById('owner').value;
+        var d = new Date();
+        var year = d.getUTCFullYear();
+        var month = d.getUTCMonth() + 1; 
+        var number = 0;
+        var numbers = number++;
+
+        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + document.getElementById('contact').value + "/"+ document.getElementById('owner').value + "/" + year + month + numbers;
+    }
+  </script>
+  <script src="{{asset('js/ajaxscript.js')}}"></script>

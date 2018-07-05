@@ -21,11 +21,12 @@ class SALESController extends Controller
     
     public function index()
     {
-        $lead = DB::table('sales_lead_register')
+       /* $lead = DB::table('sales_lead_register')
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                 ->select('sales_lead_register.lead_id', 'sales_lead_register.contact', 'sales_lead_register.opp_name', 'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
                 ->get();
-        return view('sales/sales')->with('lead', $lead);
+        return view('sales/sales')->with('lead', $lead);*/
+        return view('/sales/sales');
     }
 
     public function detail_sales($lead_id)

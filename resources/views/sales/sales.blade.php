@@ -10,9 +10,9 @@
       </ol>
 
       <div class="row">
-		<div class="col-md-12">
-			<button class="btn btn-primary margin-bottom float-left" id="btn_add_sales">Add</button>
-		</div>
+		    <div class="col-md-12">
+			     <button class="btn btn-primary margin-bottom float-left" id="btn_add_sales">Add</button>
+		    </div>
       </div>
       <div class="card mb-3">
         <div class="card-header">
@@ -37,7 +37,7 @@
                 <tr>
                   <td><a href="{{url('/detail_sales', $data->lead_id)}}">{{$data->lead_id}}
                   </a></td>
-                  <td>{{$data->contact}}</td>
+                  <td>{{$data->name_contact}}</td>
                   <td>{!!substr($data->opp_name,0,5)!!}...</td>
                   <td>{{$data->closing_date}}</td>
                   <td>{{$data->name}}</td>
@@ -77,7 +77,7 @@
             <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact">
               <option>-- Choose Contact --</option>
               @foreach($contact_name as $data)
-              <option value="{{$data->contact}}">{{$data->contact}}</option>
+              <option value="{{$data->id_contact}}">{{$data->name_contact}}</option>
               @endforeach
             </select>
           </div>
@@ -162,12 +162,17 @@
 
   <script type="text/javascript">
     function copytextbox(){
-        var contact = document.getElementById('contact').value;
-        var owner = document.getElementById('owner').value;
+        var contact = $("#contact option:selected").text();
+        var owner = $("#owner option:selected").text();
         var d = new Date();
         var year = d.getUTCFullYear();
         var month = d.getUTCMonth() + 1; 
+        var number = 0;
+        var numbers = number++;
 
-        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + document.getElementById('contact').value + "/"+ document.getElementById('owner').value + "/" + year + month;
+
+        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + contact + "/"+ owner + "/" + year + month + numbers;
+
+        console.log();
     }
   </script>

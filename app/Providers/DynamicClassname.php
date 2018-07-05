@@ -4,6 +4,7 @@
 	use App\TB_Division;
 	use App\TB_Position;
 	use App\TB_Territory;
+	use App\TB_Contact;
 	use App\Sales;
 	use App\User;
 	use Illuminate\Support\ServiceProvider;
@@ -28,7 +29,7 @@
 				$view->with('territory', TB_Territory::all());		
 			});
 			view()->composer('*', function($view){
-				$view->with('contact_name', Sales::all());
+				$view->with('contact_name', TB_Contact::all());
 			});
 			view()->composer('*', function($view){
 				$view->with('owner', User::all());

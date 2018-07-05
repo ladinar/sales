@@ -23,11 +23,14 @@ class SALESController extends Controller
     {
        /* $lead = DB::table('sales_lead_register')
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
-                ->select('sales_lead_register.lead_id', 'sales_lead_register.contact', 'sales_lead_register.opp_name', 'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.name_contact', 'sales_lead_register.opp_name', 'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
                 ->get();
         return view('sales/sales')->with('lead', $lead);*/
         return view('/sales/sales');
     }
+
+
 
     public function detail_sales($lead_id)
     {

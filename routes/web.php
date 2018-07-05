@@ -18,7 +18,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('custom-login', 'LOGINController@showLoginForm')->name('custom.login');
 Route::post('custom-attempt', 'LOGINController@attempt')->name('custom.attempt');
 
-Route::post('/store', 'CrudController@store');
+Route::post('/store', 'SALESController@store');
+Route::post('/add_tp','SALESController@add_tender_process');
 Route::get('/salesAddLead', 'SALESController@store');
 
 Route::get('/','DASHBOARDController@index');

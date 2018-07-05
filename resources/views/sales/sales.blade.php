@@ -11,7 +11,7 @@
 
       <div class="row">
 		<div class="col-md-12">
-			<button class="btn btn-primary margin-bottom float-left" id="btnAdd">Add</button>
+			<button class="btn btn-primary margin-bottom float-left" id="btn_add_sales">Add</button>
 		</div>
       </div>
       <div class="card mb-3">
@@ -32,12 +32,13 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="products-list" name="products-list">
                 @foreach($lead as $data)
                 <tr>
-                  <td><a href="{{url('/detail_sales', $data->lead_id)}}">{{$data->lead_id}}</a></td>
+                  <td><a href="{{url('/detail_sales', $data->lead_id)}}">{{$data->lead_id}}
+                  </a></td>
                   <td>{{$data->contact}}</td>
-                  <td>{{$data->opp_name}}</td>
+                  <td>{!!substr($data->opp_name,0,5)!!}...</td>
                   <td>{{$data->closing_date}}</td>
                   <td>{{$data->name}}</td>
                   <td>{{$data->amount}}</td>
@@ -56,7 +57,7 @@
 @endsection
 
 <!--MODAL ADD PROJECT-->
-<div class="modal fade" id="modalAdd" role="dialog">
+<div class="modal fade" id="modal_lead" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content modal-md">
@@ -64,12 +65,13 @@
           <h4 class="modal-title">Add Project</h4>
         </div>
         <div class="modal-body">
-          <form method="POST" action="{{url('store')}}">
+          <form method="POST" action="{{url('store')}}" id="modalSalesLead" name="modalSalesLead">
             @csrf
           <div class="form-group">
             <label for="lead_id">Lead Id</label>
-            <input type="text" class="form-control" id="lead_id" disabled="disabled" placeholder="Lead Id">
+            <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id">
           </div>
+
           <div class="form-group">
             <label for="">Contact</label>
             <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact">
@@ -79,14 +81,17 @@
               @endforeach
             </select>
           </div>
+
           <div class="form-group">
           <label for="">Opportunity Name</label>
-          <input type="text" class="form-control" placeholder="Enter Opportunity Name" name="opp_name">
+          <input type="text" class="form-control" placeholder="Enter Opportunity Name" name="opp_name" id="opp_name">
          </div>
+
           <div class="form-group">
             <label for="">Closing Date</label>
             <input type="date" id="closing_date" class="form-control" name="closing_date" onkeyup="copytextbox();" name="closing_date">
           </div>
+
           <div class="form-group">
             <label for="">Owner</label>
             <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner">
@@ -96,32 +101,36 @@
               @endforeach
             </select>
           </div>
+
           <div class="form-group  modalIcon inputIconBg">
             <label for="">Amount</label>
-            <input type="text" class="form-control" placeholder="Enter Amount" name="amount">
+            <input type="text" class="form-control" placeholder="Enter Amount" name="amount" id="amount">
             <i class="" aria-hidden="true">Rp.</i>
           </div>
+
           <div class="form-group modalIcon inputIconBg">
             <label for="">Kurs To Dollar</label>
             <input type="text" class="form-control" disabled="disabled" placeholder="Kurs">
             <i class="" aria-hidden="true">&nbsp$&nbsp </i>
           </div>
+          
         </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" value="add" id="btn-save" data-dismiss="modal">Submit</button>
+          <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
+          <input type="hidden" id="lead_id" name="lead_id" value="0">
         </div>
       </div>
     </div>
   </div>
 
   <!--Modal Attend-->
-  <div class="modal fade" id="ModalAttendee" role="dialog">
+  <!-- <div class="modal fade" id="ModalAttendee" role="dialog">
     <div class="modal-dialog modal-md">
-    
+     -->
       <!-- Modal content-->
-      <div class="modal-content modal-md">
+   <!--    <div class="modal-content modal-md">
         <div class="modal-header">
           <h4 class="modal-title">Sales Attendee</h4>
         </div>
@@ -149,7 +158,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <script type="text/javascript">
     function copytextbox(){
@@ -158,10 +167,7 @@
         var d = new Date();
         var year = d.getUTCFullYear();
         var month = d.getUTCMonth() + 1; 
-        var number = 0;
-        var numbers = number++;
 
-        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + document.getElementById('contact').value + "/"+ document.getElementById('owner').value + "/" + year + month + numbers;
+        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + document.getElementById('contact').value + "/"+ document.getElementById('owner').value + "/" + year + month;
     }
   </script>
-  <script src="{{asset('js/ajaxscript.js')}}"></script>

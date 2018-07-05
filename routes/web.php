@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -18,6 +19,7 @@ Route::get('custom-login', 'LOGINController@showLoginForm')->name('custom.login'
 Route::post('custom-attempt', 'LOGINController@attempt')->name('custom.attempt');
 
 Route::post('/store', 'CrudController@store');
+Route::get('/salesAddLead', 'SALESController@store');
 
 Route::get('/','DASHBOARDController@index');
 
@@ -32,3 +34,6 @@ Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');
 
 Route::get('/hu_rec','HRController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

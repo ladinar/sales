@@ -35,19 +35,19 @@
       		<div class="col-md-6">
       			<div class="card mb-3">
               <div class="card-body">
-                <h6 class="card-title mb-1 pull-left">NIK : {{ $tampilkan->lead_id }}</h6>
+                <h6 class="card-title mb-1 pull-left">{{ $tampilkan->lead_id }}</h6>
                 <h6 class="card-title mb-1 pull-right">{{ $tampilkan->closing_date }}</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small">
                 <h4 class="pull-left">{{ $tampilkan->contact }}</h4>
-                <h5 class="pull-right">Owner : <i>Ladinar Nanda</i></h5>
+                <h5 class="pull-right">Owner : <i>{{$tampilkan->name}}</i></h5>
               </div>
               <div class="card-body small bg-faded">
                 <div class="media">
                   <div class="media-body">
-                    <h6>{{ $tampilkan->opp_name}}</h6>
-                    <h6><b>Amount : Rp {{ $tampilkan->amount}}</b></h6>
+                    <h6>{{ $tampilkan->opp_name }}</h6>
+                    <h6><b>Amount : Rp {{ $tampilkan->amount }}</b></h6>
                   </div>
                 </div>
               </div>

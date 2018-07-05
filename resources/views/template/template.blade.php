@@ -56,7 +56,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- Bootstrap core JavaScript-->
+    
+    <script src="{{asset('js/bootstrap-slider.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-slider.js')}}"></script>
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('vendor/jquery/jquery.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
@@ -71,6 +75,11 @@
     <script src="{{asset('js/sb-admin-charts.min.js')}}"></script>
     <script src="{{asset('js/bootstrap-slider.js')}}"></script>
     <script src="{{asset('js/style.js')}}"></script>
+    <script src="{{asset('js/ajaxscript.js')}}"></script>
+    <script type="" src="{{asset('js/jquery.samask-masker.js')}}"></script>
+    <script src="{{asset('js/sb-admin-charts.min.js')}}"></script>
+    <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+     
   </div>
 </body>
 </html>

@@ -1,17 +1,33 @@
-function myFunction() {
-    $("#myModal").modal();
-}
+  function myFunction() {
+      $("#myModal").modal();
+  }
 
   $("#btnAdd").click(function(){
         $("#modalAdd").modal({backdrop: true});
     });
-
   $("#modalabsen").click(function(){
         $("#modalAttendee").modal({backdrop: true});
     });
   $("#btn-asign").click(function(){
         $("#modalAsign").modal({backdrop: true});
     });
+
+ $("#btn-View").click(function(){
+      $("#modalView").modal({backdrop: true});
+
+        var nik = $(this).val();
+       
+        $.get(url + '/' + nik, function (data) {
+            //success data
+            console.log(data);
+            $('#nik').val(data.nik);
+            $('#name').val(data.name);
+            $('#email').val(data.email);
+            $('#address').val(data.address);
+            $('#btn-save').val("update");
+            $('#modalView').modal('show');
+        }) 
+  });
 
 $("#myform").tooltip({
  
@@ -33,48 +49,32 @@ $("#btn-result").click(function(){
         $("#ModalResult").modal({backdrop: true});
     });
 
-$("#btn-View").click(function(){
-        $("#modalView").modal({backdrop: true});
-    });
+/*var step = 0;
+  var stepItem = $('.step-progress .step-slider .step-slider-item');
+
+  // Step Next
+  $('.step-content .step-content-foot button[name="next"]').on('click', function() {
+    var instance = $(this);
+    if (stepItem.length - 1 < step) {
+      return;
+    }
+    $(stepItem[step]).addClass('active');
+    $('#' + stepItem[step + 1].dataset.id).removeClass('out');
+    step++;
+  });*/
 
 
-var slider = new Slider("#ex6");
+var step = 0;
+  var stepItem = $('.circle-container .dot');
 
-$("#ex6-enabled").click(function() {
-  if(this.checked) {
-    // With JQuery
-    $("#ex6").slider("enable");
+  // Step Next
+  $('button[name="next"]').on('click', function() {
+    var instance = $(this);
+    if (stepItem.length - 1 < step) {
+      return;
+    }
+    $(stepItem[step]).addClass('active');
+    $('#' + stepItem[step + 1].dataset.id).removeClass('out');
+    step++;
+  });
 
-    // Without JQuery
-    slider.enable();
-  }
-  else {
-    // With JQuery
-    $("#ex6").slider("disable");
-
-    // Without JQuery
-    slider.disable();
-  }
-});
-
-var slider = new Slider("#ex7");
-slider.on("slide", function(sliderValue) {
-  document.getElementById("ex7SliderVal").textContent = sliderValue;
-});
-
-$("#ex7-enabled").click(function() {
-  if(this.checked) {
-    // With JQuery
-    $("#ex7").slider("enable");
-
-    // Without JQuery
-    slider.enable();
-  }
-  else {
-    // With JQuery
-    $("#ex7").slider("disable");
-
-    // Without JQuery
-    slider.disable();
-  }
-});

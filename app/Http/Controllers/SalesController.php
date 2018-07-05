@@ -52,25 +52,30 @@ class SALESController extends Controller
      */
     public function store(Request $request)
     {
+        // echo "bisa";
+
+        /*$product = Sales::create($request->all());
+        return view('/sales/sales');*/
         $this->validate($request, [
             'lead_id' => 'required',
             'contact' => 'required',
             'opp_name' => 'required',
             'closing_date' => 'required',
-            'nik'   => 'required',
+            'owner'   => 'required',
             'amount' => 'required'
         ]); 
 
         $tambah = new Sales();
-        $tambah->lead_id = $request('lead_id');
+        $tambah->lead_id = $request['lead_id'];
         $tambah->nik = $request['owner'];
         $tambah->contact = $request['contact'];
         $tambah->opp_name = $request['opp_name'];
         $tambah->closing_date = $request['closing_date'];
         $tambah->amount = $request['amount'];
         $tambah->save();
+        /*
 
-        return redirect()->to('/sales/sales');
+        return redirect()->to('/sales/sales');*/
     }
 
     /**
@@ -118,4 +123,5 @@ class SALESController extends Controller
     {
         //
     }
+
 }

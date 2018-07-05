@@ -8,6 +8,7 @@ use Validator;
 use Response;
 use Illuminate\Support\Facades\input;
 use App\http\Requests;
+use DB;
 
 class HRController extends Controller
 {
@@ -23,7 +24,13 @@ class HRController extends Controller
     
     public function index()
     {
-        $hr = HRCrud::all();
+        // $hr = HRCrud::all();
+        // return view('HR/human_resource')->with('hr', $hr);
+
+        $hr = DB::table('users')
+                ->join('tb_company', 'tb_company.id_company', '=', 'users.id_company')
+                ->select('users.nik', 'users.name', 'users.id_position', 'users.id_division', 'users.id_territory', 'tb_company.code_company')
+                ->get();
         return view('HR/human_resource')->with('hr', $hr);
     }
 

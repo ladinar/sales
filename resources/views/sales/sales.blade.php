@@ -36,7 +36,7 @@
                 @foreach($lead as $data)
                 <tr>
                   <td><a href="{{ url ('/detail_sales', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
-                  <td>{{ $data->id_contact }}</td>
+                  <td>{{ $data->name_contact }}</td>
                   <td>{!!substr($data->opp_name,0,5)!!}...</td>
                   <td>{{ $data->closing_date }}</td>
                   <td>{{ $data->name }}</td>
@@ -68,12 +68,12 @@
             @csrf
           <div class="form-group">
             <label for="lead_id">Lead Id</label>
-            <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id">
+            <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id" required>
           </div>
 
           <div class="form-group">
             <label for="">Contact</label>
-            <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact">
+            <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact" required>
               <option>-- Choose Contact --</option>
               @foreach($contact_name as $data)
               <option value="{{$data->id_contact}}">{{$data->name_contact}}</option>
@@ -83,12 +83,17 @@
 
           <div class="form-group">
           <label for="">Opportunity Name</label>
-          <input type="text" class="form-control" placeholder="Enter Opportunity Name" name="opp_name" id="opp_name">
+          <input type="text" class="form-control" placeholder="Enter Opportunity Name" name="opp_name" id="opp_name" required>
          </div>
 
           <div class="form-group">
-            <label for="">Owner</label>
-            <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner">
+<<<<<<< .mine            <label for="">Closing Date</label>
+            <input type="date" id="closing_date" class="form-control" name="closing_date" onkeyup="copytextbox();" name="closing_date" required>
+          </div>
+
+          <div class="form-group">
+=======>>>>>>> .theirs            <label for="">Owner</label>
+            <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner" required>
               <option>-- Choose Owner --</option>
                @foreach($owner as $data)
               <option value="{{$data->nik}}">{{$data->name}}</option>
@@ -103,7 +108,7 @@
 
           <div class="form-group  modalIcon inputIconBg">
             <label for="">Amount</label>
-            <input type="text" class="form-control" placeholder="Enter Amount" name="amount" id="amount">
+            <input type="text" class="form-control" placeholder="Enter Amount" name="amount" id="amount" required>
             <i class="" aria-hidden="true">Rp.</i>
           </div>
 
@@ -111,14 +116,14 @@
             <label for="">Kurs To Dollar</label>
             <input type="text" class="form-control" disabled="disabled" placeholder="Kurs">
             <i class="" aria-hidden="true">&nbsp$&nbsp </i>
-          </div>
-          
+          </div>       
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <!--  <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
+              <input type="hidden" id="lead_id" name="lead_id" value="0"> -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
-          <input type="hidden" id="lead_id" name="lead_id" value="0">
         </div>
       </div>
     </div>
@@ -135,5 +140,11 @@
         document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "-" + contact + "-"+ owner + "-" + year + month;
 
         console.log();
+    }
+
+    function s_replace(){
+        var s_r = $("#dataTable #lead_replace").text();
+        console.log(s_r);
+
     }
   </script>

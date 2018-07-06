@@ -24,7 +24,7 @@ class SALESController extends Controller
         $lead = DB::table('sales_lead_register')
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
-                ->select('sales_lead_register.lead_id', 'tb_contact.name_contact', 'sales_lead_register.opp_name',
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.name_contact', 'sales_lead_register.opp_name',
                 'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
                 ->get();
         return view('sales/sales')->with('lead', $lead);
@@ -36,7 +36,7 @@ class SALESController extends Controller
     public function detail_sales($lead_id)
     {
         $tampilkan = Sales::find($lead_id);
-        return view('sales/detail_sales')->with('tampilkan',$tampilkan);
+        return view('sales/detail_sales')->with('tampilkan', $tampilkan);
         // $tampilkan = DB::table('sales_lead_register')
         //         ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
         //         ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
@@ -64,10 +64,6 @@ class SALESController extends Controller
      */
     public function store(Request $request)
     {
-        /*echo "bisa";*/
-
-        /*$product = Sales::create($request->all());
-        return view('/sales/sales');*/
         $this->validate($request, [
             'lead_id' => 'required',
             'contact' => 'required',
@@ -85,9 +81,8 @@ class SALESController extends Controller
         $tambah->closing_date = $request['closing_date'];
         $tambah->amount = $request['amount'];
         $tambah->save();
-        /*
 
-        return redirect()->to('/sales/sales');*/
+        return redirect('sales');
     }
 
     /**

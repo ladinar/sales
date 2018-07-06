@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HRCrud;
+use App\User;
 use Validator;
 use Response;
 use Illuminate\Support\Facades\input;
@@ -52,7 +53,32 @@ class HRController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nik' => 'required|unique:users',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'company' => 'required',
+            'date_of_entry' => 'required',
+            'date_of_birth' => 'required',
+        ]); 
+
+        $tambah = new User();
+        $tambah->nik = $request['nik'];
+        $tambah->name = $request['name'];
+        $tambah->password = $request['password'];
+        $tambah->email = $request['email'];
+        $tambah->id_company = $request['company'];
+        $tambah->id_division = $request['division'];
+        $tambah->id_position = $request['position'];
+        $tambah->id_territory = $request['territory'];
+        $tambah->date_of_entry = $request['date_of_entry'];
+        $tambah->date_of_birth = $request['date_of_birth'];
+        $tambah->address = $request['address'];
+        $tambah->phone = $request['phone_number'];
+        $tambah->save();
+
+        return redirect('hu_rec');
     }
 
     /**

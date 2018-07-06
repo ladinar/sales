@@ -20,7 +20,7 @@ Route::post('custom-attempt', 'LOGINController@attempt')->name('custom.attempt')
 
 Route::post('/store', 'SALESController@store');
 Route::post('/add_tp','SALESController@add_tender_process');
-Route::get('/salesAddLead', 'SALESController@store');
+Route::post('/salesAddLead', 'SALESController@store');
 
 Route::get('/','DASHBOARDController@index');
 
@@ -35,6 +35,7 @@ Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');
 
 Route::get('/hu_rec','HRController@index');
+Route::post('/hu_rec/store', 'HRController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

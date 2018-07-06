@@ -140,7 +140,7 @@
           <input id="phone" name="phone" type="number" class="form-control" placeholder="Enter Phone Number" required>
          </div>
         </form> -->
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{url('hu_rec/store')}}">
                         @csrf
 
                         <div class="form-group row">
@@ -389,10 +389,10 @@
 
   <script type="text/javascript">
     function copytextbox(){
-        var date_of_entry = document.getElementById('date_of_entry').value;
-        var date_of_birth = document.getElementById('date_of_birth').value;
+      var date_of_entry = document.getElementById('date_of_entry').value;
+      var date_of_birth = document.getElementById('date_of_birth').value;
 
-        document.getElementById('nik').value = document.getElementById('company').value + date_of_entry.substr(2, 2) + date_of_entry.substr(5, 2) + date_of_birth.substr(2, 2) + date_of_birth.substr(5, 2);
+      document.getElementById('nik').value = document.getElementById('company').value + date_of_entry.substr(2, 2) + date_of_entry.substr(5, 2) + date_of_birth.substr(2, 2) + date_of_birth.substr(5, 2);
     }
 
   </script>

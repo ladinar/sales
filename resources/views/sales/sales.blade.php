@@ -35,13 +35,12 @@
               <tbody id="products-list" name="products-list">
                 @foreach($lead as $data)
                 <tr>
-                  <td><a href="{{url('/detail_sales', $data->lead_id)}}">{{$data->lead_id}}
-                  </a></td>
-                  <td>{{$data->name_contact}}</td>
+                  <td><a href="{{ url ('/detail_sales', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
+                  <td>{{ $data->id_contact }}</td>
                   <td>{!!substr($data->opp_name,0,5)!!}...</td>
-                  <td>{{$data->closing_date}}</td>
-                  <td>{{$data->name}}</td>
-                  <td>{{$data->amount}}</td>
+                  <td>{{ $data->closing_date }}</td>
+                  <td>{{ $data->name }}</td>
+                  <td>{{ $data->amount }}</td>
                   <td><div class="status-initial">Initial</div></td>
                   <td><a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a></td>
                 </tr>
@@ -50,7 +49,7 @@
             </table>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        <div class="card-footer small text-muted">Updated yesterday at 00:01 AM</div>
       </div>
   </div>
 </div>
@@ -131,12 +130,9 @@
         var owner = $("#owner option:selected").text();
         var d = new Date();
         var year = d.getUTCFullYear();
-        var month = d.getUTCMonth() + 1; 
-        var number = 0;
-        var numbers = number++;
+        var month = d.getUTCMonth() + 1;
 
-
-        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "-" + contact + "-"+ owner + "-" + year + month + numbers;
+        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "-" + contact + "-"+ owner + "-" + year + month;
 
         console.log();
     }

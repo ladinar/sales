@@ -87,12 +87,7 @@
          </div>
 
           <div class="form-group">
-<<<<<<< .mine            <label for="">Closing Date</label>
-            <input type="date" id="closing_date" class="form-control" name="closing_date" onkeyup="copytextbox();" name="closing_date" required>
-          </div>
-
-          <div class="form-group">
-=======>>>>>>> .theirs            <label for="">Owner</label>
+            <label for="">Owner</label>
             <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner" required>
               <option>-- Choose Owner --</option>
                @foreach($owner as $data)

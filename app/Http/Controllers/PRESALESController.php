@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\solution_design;
 use App\Sales;
+use DB;
 
 class PRESALESController extends Controller
 {
@@ -19,7 +21,12 @@ class PRESALESController extends Controller
     
     public function index()
     {
-        $lead = Sales::all();
+        $lead = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                ->get();
         return view('presales/presales')->with('lead', $lead);
     }
 
@@ -47,8 +54,30 @@ class PRESALESController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'assesment' => 'required',
+            'pov' => 'required',
+            'propossed_design' => 'required',
+            'project_management' => 'required',
+            'maintenance'   => 'required',
+            'priority' => 'required',
+            'proyek_size' => 'required'
+        ]); 
+
+        $tambah = new solution_design();
+        $tambah->assesment = $request('assesment');
+        $tambah->pov = $request['pov'];
+        $tambah->pd = $request['propossed_design'];
+        $tambah->pm = $request['project_management'];
+        $tambah->ms = $request['maintenance'];
+        $tambah->priority = $request['priority'];
+        $tambah->project_size = $request['proyek_size'];
+        $tambah->save();
+
+        return redirect()->to('sales/sales');
         //
     }
+    
 
     /**
      * Display the specified resource.
@@ -93,5 +122,14 @@ class PRESALESController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+      public function s_replace(){
+
+        $s_r = DB::table('sales_lead_register')
+                        ->select('lead_id')
+                        ->get();
+
+        return view('sales/sales')->with('s_r', $s_r);
     }
 }

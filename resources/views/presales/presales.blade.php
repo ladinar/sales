@@ -38,8 +38,8 @@
                 @foreach($lead as $data)
                 <tr>
                   <td><a href="{{url('/detail_presales', $data->lead_id)}}">{{$data->lead_id}}</a></td>
-                  <td>{{$data->contact}}</td>
-                  <td>{{$data->opp_name}}</td>
+                  <td>{{$data->name_contact}}</td>
+                  <td>{!!substr($data->opp_name,0,25)!!}...</td>
                   <td>{{$data->closing_date}}</td>
                   <td></td>
                   <td>{{$data->amount}}</td>
@@ -55,3 +55,11 @@
       </div>
   </div>
 </div>
+
+<script type="text/javascript">
+   function s_replace(){
+        var s_r = $("#dataTable #lead_replace").text();
+        console.log(s_r);
+
+    }
+</script>

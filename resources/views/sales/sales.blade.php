@@ -125,49 +125,18 @@
     </div>
   </div>
 
-  <!--Modal Attend-->
-  <!-- <div class="modal fade" id="ModalAttendee" role="dialog">
-    <div class="modal-dialog modal-md">
-     -->
-      <!-- Modal content-->
-   <!--    <div class="modal-content modal-md">
-        <div class="modal-header">
-          <h4 class="modal-title">Sales Attendee</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="lead_id">Lead Id</label>
-            <input type="text" class="form-control" id="lead_id" disabled="disabled" placeholder="Lead Id">
-          </div>
-          <div class="form-group">
-          <label for="">Sales Name</label>
-          <input type="text" class="form-control" placeholder="Enter Sales Name">
-         </div>
-         <div class="form-group">
-          <label for="">Name Project</label>
-          <input type="text" class="form-control" placeholder="Enter Name Project">
-         </div>
-          <div class="form-group">
-            <label for="">Date</label>
-            <input type="date" class="form-control" >
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <script type="text/javascript">
     function copytextbox(){
-        var closing_date = document.getElementById('closing_date').value;
-        var nik = document.getElementById('owner').value;
         var contact = $("#contact option:selected").text();
         var owner = $("#owner option:selected").text();
+        var d = new Date();
+        var year = d.getUTCFullYear();
+        var month = d.getUTCMonth() + 1; 
+        var number = 0;
+        var numbers = number++;
 
-        document.getElementById('lead_id').value = contact.substr(0, 1) + contact.substr(4, 4) + "/" + contact + "/" + owner + "/" + closing_date;
+
+        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + contact + "/"+ owner + "/" + year + month + numbers;
 
         console.log();
     }

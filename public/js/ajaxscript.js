@@ -10,11 +10,11 @@ var url = "http://localhost/sales/trunk/public/salesAddLead"
 
 //create and update
   $("#btn-save").click(function (e) {
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-        //     }
-        // })
+       /* $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })*/
         e.preventDefault();
         var formData = {
             lead_id: $('#lead_id').val(),

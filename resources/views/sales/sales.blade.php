@@ -162,16 +162,12 @@
 
   <script type="text/javascript">
     function copytextbox(){
+        var closing_date = document.getElementById('closing_date').value;
+        var nik = document.getElementById('owner').value;
         var contact = $("#contact option:selected").text();
         var owner = $("#owner option:selected").text();
-        var d = new Date();
-        var year = d.getUTCFullYear();
-        var month = d.getUTCMonth() + 1; 
-        var number = 0;
-        var numbers = number++;
 
-
-        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + contact + "/"+ owner + "/" + year + month + numbers;
+        document.getElementById('lead_id').value = contact.substr(0, 1) + contact.substr(4, 4) + "/" + contact + "/" + owner + "/" + closing_date;
 
         console.log();
     }

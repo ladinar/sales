@@ -391,10 +391,8 @@
     function copytextbox(){
         var date_of_entry = document.getElementById('date_of_entry').value;
         var date_of_birth = document.getElementById('date_of_birth').value;
-        var number = 0;
-        var numbers = number++;
 
-        document.getElementById('nik').value = document.getElementById('company').value + date_of_entry.substr(2, 2) + date_of_entry.substr(5, 2) + date_of_birth.substr(2, 2) + date_of_birth.substr(5, 2) + numbers;
+        document.getElementById('nik').value = document.getElementById('company').value + date_of_entry.substr(2, 2) + date_of_entry.substr(5, 2) + date_of_birth.substr(2, 2) + date_of_birth.substr(5, 2);
     }
 
   </script>

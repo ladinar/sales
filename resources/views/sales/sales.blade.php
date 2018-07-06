@@ -88,11 +88,6 @@
          </div>
 
           <div class="form-group">
-            <label for="">Closing Date</label>
-            <input type="date" id="closing_date" class="form-control" name="closing_date" onkeyup="copytextbox();" name="closing_date">
-          </div>
-
-          <div class="form-group">
             <label for="">Owner</label>
             <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner">
               <option>-- Choose Owner --</option>
@@ -100,6 +95,11 @@
               <option value="{{$data->nik}}">{{$data->name}}</option>
               @endforeach
             </select>
+          </div>
+
+          <div class="form-group">
+            <label for="">Closing Date</label>
+            <input type="date" id="closing_date" class="form-control" name="closing_date" onkeyup="copytextbox();" name="closing_date">
           </div>
 
           <div class="form-group  modalIcon inputIconBg">
@@ -136,7 +136,7 @@
         var numbers = number++;
 
 
-        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "/" + contact + "/"+ owner + "/" + year + month + numbers;
+        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "-" + contact + "-"+ owner + "-" + year + month + numbers;
 
         console.log();
     }

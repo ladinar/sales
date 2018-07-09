@@ -37,6 +37,7 @@ Route::post('/update/{id_sd}', 'PRESALESController@update');
 
 
 Route::get('/presales_manager','PRESALES_MANAGERController@index');
+Route::post('/presales/store', 'PRESALES_MANAGERController@store');
 
 Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');

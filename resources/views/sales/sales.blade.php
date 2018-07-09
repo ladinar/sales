@@ -29,7 +29,9 @@
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>
+                  @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
                   <th>Action</th>
+                  @endif
                 </tr>
               </thead>
               <tbody id="products-list" name="products-list">
@@ -42,7 +44,9 @@
                   <td>{{ $data->name }}</td>
                   <td>{{ $data->amount }}</td>
                   <td><div class="status-initial">Initial</div></td>
+                  @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
                   <td><a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a></td>
+                  @endif
                 </tr>
                 @endforeach
               </tbody>
@@ -122,7 +126,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
   <script type="text/javascript">
     function copytextbox(){

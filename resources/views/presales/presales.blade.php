@@ -7,16 +7,16 @@
         <li class="breadcrumb-item">
           <a href="#">Presales</a>
         </li>
-        
       </ol>
 
+      @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
       <div class="row">
-    <div class="col-md-12">
-      <button class="btn btn-warning margin-bottom float-right">Attend</button>
-    </div>
+        <div class="col-md-12">
+           <button class="btn btn-primary margin-bottom float-left" id="btn_add_presales">Add</button>
+        </div>
       </div>
-
-<div class="card mb-3">
+      @endif
+      <div class="card mb-3">
         <div class="card-header">
           <i ></i> Lead Table</div>
         <div class="card-body">
@@ -24,7 +24,6 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <td></td>
                   <th>Lead id</th>
                   <th>Contact</th>
                   <th>Opty name</th>
@@ -40,7 +39,6 @@
               <tbody>
                 @foreach($lead as $data)
                 <tr>
-                  <td></td>
                   <td><a href="{{url('/detail_presales', $data->lead_id)}}">{{$data->lead_id}}</a></td>
                   <td>{{$data->name_contact}}</td>
                   <td>{!!substr($data->opp_name,0,10)!!}...</td>
@@ -57,9 +55,78 @@
             </table>
           </div>
         </div>
-        
+        <div class="card-footer small text-muted">Updated yesterday at 00:01 AM</div>
       </div>
   </div>
+</div>
+
+<!--MODAL ADD PROJECT-->
+<div class="modal fade" id="modal_lead" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content modal-md">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Project</h4>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{url('presales/store')}}" id="modalSalesLead" name="modalSalesLead">
+            @csrf
+          <div class="form-group">
+            <label for="lead_id">Lead Id</label>
+            <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id" readonly required>
+          </div>
+
+          <div class="form-group">
+            <label for="">Contact</label>
+            <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact" required>
+              <option>-- Choose Contact --</option>
+              @foreach($contact_name as $data)
+              <option value="{{$data->id_contact}}">{{$data->name_contact}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+          <label for="">Opportunity Name</label>
+          <input type="text" class="form-control" placeholder="Enter Opportunity Name" name="opp_name" id="opp_name" required>
+         </div>
+
+          <div class="form-group">
+            <label for="">Owner</label>
+            <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner" required>
+              <option>-- Choose Owner --</option>
+               @foreach($owner as $data)
+              <option value="{{$data->nik}}">{{$data->name}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="">Closing Date</label>
+            <input type="date" id="closing_date" class="form-control" name="closing_date" onkeyup="copytextbox();" name="closing_date">
+          </div>
+
+          <div class="form-group  modalIcon inputIconBg">
+            <label for="">Amount</label>
+            <input type="text" class="form-control" placeholder="Enter Amount" name="amount" id="amount" required>
+            <i class="" aria-hidden="true">Rp.</i>
+          </div>
+
+          <div class="form-group modalIcon inputIconBg">
+            <label for="">Kurs To Dollar</label>
+            <input type="text" class="form-control" disabled="disabled" placeholder="Kurs">
+            <i class="" aria-hidden="true">&nbsp$&nbsp </i>
+          </div>       
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <!--  <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
+              <input type="hidden" id="lead_id" name="lead_id" value="0"> -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
 </div>
 
 <div class="modal fade" id="assignModal" role="dialog">
@@ -93,6 +160,18 @@
   </div>
 
 <script type="text/javascript">
+  function copytextbox(){
+        var contact = $("#contact option:selected").text();
+        var owner = $("#owner option:selected").text();
+        var d = new Date();
+        var year = d.getUTCFullYear();
+        var month = d.getUTCMonth() + 1;
+
+        document.getElementById('lead_id').value = contact.substr(0, 1)+ contact.substr(4, 4)+ "-" + contact + "-"+ owner + "-" + year + month;
+
+        console.log();
+    }
+
    function s_replace(){
         var s_r = $("#dataTable #lead_replace").text();
         console.log(s_r);

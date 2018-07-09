@@ -12,23 +12,6 @@
         $("#modalAsign").modal({backdrop: true});
     });
 
- $("#btn-View").click(function(){
-      $("#modalView").modal({backdrop: true});
-
-        var nik = $(this).val();
-       
-        $.get(url + '/' + nik, function (data) {
-            //success data
-            console.log(data);
-            $('#nik').val(data.nik);
-            $('#name').val(data.name);
-            $('#email').val(data.email);
-            $('#address').val(data.address);
-            $('#btn-save').val("update");
-            $('#modalView').modal('show');
-        }) 
-  });
-
 $("#myform").tooltip({
  
       // place tooltip on the right edge
@@ -77,4 +60,3 @@ var step = 0;
     $('#' + stepItem[step + 1].dataset.id).removeClass('out');
     step++;
   });
-

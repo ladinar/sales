@@ -10,11 +10,13 @@
         <li class="breadcrumb-item active">Direktur</li> -->
       </ol>
 
+      @if(Auth::User()->id_position == 'HR')
       <div class="row">
     		<div class="col-md-12">
     			<button class="btn btn-primary margin-bottom float-left" id="btnAdd">Add</button>
     		</div>
       </div>
+      @endif
 
       <!-- Example DataTables Card-->
       <div class="card mb-3">
@@ -334,19 +336,13 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <!-- <button type="submit" class="btn btn-primary" id="submitAdd">Add</button> -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">
+                      {{ __('Register') }}
+                  </button>
+                </div>
+          </form>
         </div>
       </div>
     </div>
@@ -368,12 +364,14 @@
                     <img src="https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2F%2Fcdn-img.instyle.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F684xflex%2Fpublic%2Fimages%2F2017%2F08%2F080817-shawn-mendes-lead.jpg%3Fitok%3DUFqhB4bh&w=700&q=85" alt="Avatar" style="width:75%" >
                   </div>
                   <div class="col-md-6 margin-top ">
-                      <h6><b>Name : </b></h6>
-                      <input type="" name="" class="input-style" value="Shawn Mendes"><br>
-                      <h6><b>Division : </b></h6>
-                      <input type="" name="" class="input-style" value="Software Engineer"><br>
-                      <h6><b>Salary : </b></h6>
-                      <input type="" name="" class="input-style" value="Rp 4.000.000,00">
+                      <h6><b>NIK : </b></h6>
+                      <input type="text" id="nik" name="nik" class="input-style" value=""><br>
+                      <h6><b>NAME : </b></h6>
+                      <input type="text" id="name" name="name" class="input-style" value=""><br>
+                      <h6><b>DIVISION : </b></h6>
+                      <input type="text" id="division" name="division" class="input-style" value="">
+                      <h6><b>POSITION : </b></h6>
+                      <input type="text" id="position" name="position" class="input-style" value="">
                   </div>
               </div>
             </div>

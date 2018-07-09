@@ -10,6 +10,7 @@ use Response;
 use Illuminate\Support\Facades\input;
 use App\http\Requests;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class HRController extends Controller
 {
@@ -63,10 +64,25 @@ class HRController extends Controller
             'date_of_birth' => 'required',
         ]); 
 
+        // return User::create([
+        //     'nik' => $request['nik'],
+        //     'name' => $request['name'],
+        //     'email' => $request['email'],
+        //     'password' => Hash::make($request['password']),
+        //     'id_company' => $request['company'],
+        //     'id_division' => $request['division'],
+        //     'id_position' => $request['position'],
+        //     'id_territory' => $request['territory'],
+        //     'date_of_entry' => $request['date_of_entry'],
+        //     'date_of_birth' => $request['date_of_birth'],
+        //     'address' => $request['address'],
+        //     'phone' => $request['phone_number'],
+        // ]);
+
         $tambah = new User();
         $tambah->nik = $request['nik'];
         $tambah->name = $request['name'];
-        $tambah->password = $request['password'];
+        $tambah->password = Hash::make($request['password']);
         $tambah->email = $request['email'];
         $tambah->id_company = $request['company'];
         $tambah->id_division = $request['division'];
@@ -77,7 +93,7 @@ class HRController extends Controller
         $tambah->address = $request['address'];
         $tambah->phone = $request['phone_number'];
         $tambah->save();
-
+        
         return redirect('hu_rec');
     }
 

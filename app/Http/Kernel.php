@@ -59,5 +59,9 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'HRMiddleware' => \App\Http\Middleware\HRMiddleware::class,
+        'SalesMiddleware' => \App\Http\Middleware\SalesMiddleware::class,
+        'TechnicalPresalesMiddleware' => \App\Http\Middleware\TechnicalPresalesMiddleware::class,
+        'ManagerStaffMiddleware' => \App\Http\Middleware\ManagerStaffMiddleware::class,
     ];
 }

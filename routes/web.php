@@ -24,18 +24,15 @@ Route::post('/salesAddLead', 'SALESController@store');
 
 Route::get('/','DASHBOARDController@index');
 
-Route::get('/sales','SALESController@index');
+Route::get('/sales','SALESController@index')->middleware('SalesMiddleware', 'ManagerStaffMiddleware');
 Route::get('/detail_sales/{lead_id}','SALESController@detail_sales');
 
-Route::get('/presales','PRESALESController@index');
+Route::get('/presales','PRESALESController@index')->middleware('TechnicalPresalesMiddleware', 'ManagerStaffMiddleware');
 Route::get('/detail_presales/{lead_id}','PRESALESController@detail_presales');
 Route::get('/presales_manager','PRESALES_MANAGERController@index');
 
 Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');
 
-Route::get('/hu_rec','HRController@index');
+Route::get('/hu_rec','HRController@index')->middleware('HRMiddleware');
 Route::post('/hu_rec/store', 'HRController@store');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

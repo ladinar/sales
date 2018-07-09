@@ -31,7 +31,9 @@
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>
+                  @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
                   <th>Action</th>
+                  @endif
                 </tr>
               </thead>
               <tbody>
@@ -44,7 +46,9 @@
                   <td></td>
                   <td>{{$data->amount}}</td>
                   <td><div class="status-initial">Initial</div></td>
-                  <td></td>
+                  @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
+                  <td><button type="button" class="btn btn-sm sho" data-toggle="modal" data-target="#assignModal">Assign</button></td>
+                  @endif
                 </tr>
                 @endforeach
               </tbody>
@@ -55,6 +59,36 @@
       </div>
   </div>
 </div>
+
+<div class="modal fade" id="assignModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <!-- Modal content-->
+      <div class="modal-content modal-md">
+        <div class="modal-header">
+          <h4 class="modal-title">Presales Assignment</h4>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="" id="modalAssign" name="modalAssign">
+          <div class="form-group row">
+            <label for="">Choose Presales Staff</label><br>
+            <select class="form-control-small margin-left-custom" id="owner" onkeyup="copytextbox();" name="owner" required>
+              <option>-- Choose Owner --</option>
+               @foreach($owner as $data)
+              <option value="{{$data->nik}}">{{$data->name}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <!--  <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
+              <input type="hidden" id="lead_id" name="lead_id" value="0"> -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script type="text/javascript">
    function s_replace(){

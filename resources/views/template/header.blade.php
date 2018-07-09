@@ -11,30 +11,71 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
+        @if(Auth::User()->id_position == 'DIRECTOR')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="{{url('/sales')}}">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
+        @elseif(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="{{url('/sales')}}">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Sales</span>
+          </a>
+        </li>
+        @elseif(Auth::User()->id_position == 'STAFF' && Auth::User()->id_division == 'SALES')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="{{url('/sales')}}">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Sales</span>
+          </a>
+        </li>
+        @endif
+        @if(Auth::User()->id_position == 'DIRECTOR')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="{{url('/presales')}}">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Presales</span>
           </a>
         </li>
+        @elseif(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="{{url('/presales')}}">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Presales</span>
+          </a>
+        </li>
+        @elseif(Auth::User()->id_position == 'STAFF' && Auth::User()->id_division == 'TECHNICAL PRESALES')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="{{url('/presales')}}">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Presales</span>
+          </a>
+        </li>
+        @endif
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="{{url('/sho')}}">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Sales Handover</span>
           </a>
         </li>
+        @if(Auth::User()->id_position == 'HR')
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="{{url('/hu_rec')}}">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Human Resource</span>
           </a>
         </li>
+        @elseif(Auth::User()->id_position == 'DIRECTOR')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="{{url('/hu_rec')}}">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Human Resource</span>
+          </a>
+        </li>
+        @endif
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="{{url('/presales_manager')}}">
             <i class="fa fa-fw fa-table"></i>

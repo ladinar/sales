@@ -283,8 +283,8 @@ input[type=text]:focus{
 }
 .circle-container span { display: block; width: 100%; }
 .deg45 { transform: rotate(-21deg) translate(9.9em) rotate(-60deg); }
-.deg135 { transform: rotate(196deg) translate(11.8em) rotate(-135deg); }
-.deg180 { transform: rotate(385deg) translate(10.5em) rotate(-185deg); }
+.deg135 { transform: rotate(185deg) translate(8.1em) rotate(-135deg); }
+.deg180 { transform: rotate(405deg) translate(7.1em) rotate(-185deg);; }
 .deg225 { transform: rotate(145deg) translate(10.5em) rotate(-185deg); }
 .deg315 { transform: rotate(280deg) translate(7.3em) rotate(-185deg); }
 
@@ -301,7 +301,7 @@ input[type=text]:focus{
 
  .degopen
  {
-  transform: translate(11.8em, 2em);
+  transform: translate(6.8em, 3.8em);
   color: #1b3868; 
  }
  .degTP
@@ -316,7 +316,7 @@ input[type=text]:focus{
  }
  .degwin
  {
-  transform: translate(-0.6em,-2.4em);
+  transform: translate(-2.5em,-0.5em);
   color:  #1b3868; 
  }
 

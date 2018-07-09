@@ -39,7 +39,7 @@
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small">
-                <h4 class="pull-left">{{ $tampilkan->contact }}</h4>
+                <h4 class="pull-left">{{ $tampilkan->name_contact }}</h4>
                 <h5 class="pull-right">Owner : <i>{{$tampilkan->name}}</i></h5>
               </div>
               <div class="card-body small bg-faded">
@@ -76,18 +76,14 @@
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design" onkeypress="myFunction()" />
 		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
 		         </div>
-		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
-                	<label for="project_management" class="margin-top-form">-- Project Management --</label>
-                	<input class="form-control-medium float-left" id="trucated" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_management" disabled="disabled" id="project_management" />
-                	<i class="" aria-hidden="true">Rp.</i>
-                	<input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_management'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
-              	   </div>
-               	   <div class="form-group margin-left-right inputWithIcon inputIconBg">
-                	<label for="maintenance" class="margin-top-form">-- Maintenance --</label>
-                	<input class="form-control-medium float-left" type="text" aria-describedby="" placeholder="Enter Maintenance" name="maintenance" disabled="disabled" id="maintenance"/>
-                	<i class="" aria-hidden="true">Rp.</i>
-                	<input type="checkbox" class="float-right" onclick="var input = document.getElementById('maintenance'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
-              	   </div>
+
+	           <div class="form-group margin-left-right inputWithIcon inputIconBg">
+              	<label for="project_budget" class="margin-top-form">-- Project Budget --</label>
+              	<input class="form-control-medium float-left" id="trucated" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_budget" disabled="disabled" id="project_budget" />
+              	<i class="" aria-hidden="true">Rp.</i>
+              	<input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_budget'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+            </div>
+
 		           <div class="form-group margin-left-right">
 		            <label for="priority" class="margin-top-form">-- Priority --</label>
 		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" id="priority"/>
@@ -104,7 +100,9 @@
       		<div class="card mb-3">
               <h3 class="margin-left-right margin-top">Tender Project</h3>
               <hr class="">
-      			<form method="POST" action="{{ url('add_tp')}}">
+      			<form method="POST" action="{{ url('store_tp')}}">
+              <input type="" name="id_sd" id="id_sd" value="">
+              <input type="" name="nik" id="nik" value="">
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">--No Doc. Lelang--</label>
 		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" id="lelang" onkeypress="" required/>

@@ -11,7 +11,7 @@
 
       <div class="row">
 		    <div class="col-md-12">
-			     <button class="btn btn-primary margin-bottom float-left" id="btn_add_sales">Add</button>
+			     <button class="btn btn-primary margin-bottom margin-left-sales" id="btn_add_sales">Add</button>
 		    </div>
       </div>
       <div class="card mb-3">
@@ -68,7 +68,7 @@
             @csrf
           <div class="form-group">
             <label for="lead_id">Lead Id</label>
-            <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id" required>
+            <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id" readonly required>
           </div>
 
           <div class="form-group">

@@ -35,15 +35,14 @@ class SALESController extends Controller
 
     public function detail_sales($lead_id)
     {
-        $tampilkan = Sales::find($lead_id);
-        return view('sales/detail_sales')->with('tampilkan', $tampilkan);
-        // $tampilkan = DB::table('sales_lead_register')
-        //         ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
-        //         ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
-        //         ->select('sales_lead_register.lead_id', 'tb_contact.name_contact', 'sales_lead_register.opp_name',
-        //         'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
-        //         ->get();
-        // return view('sales/detail_sales')->with('tampilkan', $tampilkan);
+        $tampilkan = DB::table('sales_lead_register')
+                    ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                    ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                    ->select('sales_lead_register.lead_id','sales_lead_register.nik','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                    'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                    ->where('lead_id',$lead_id)
+                    ->first();
+        return view('sales/detail_sales')->with('tampilkan',$tampilkan);
     }
 
     /**
@@ -80,6 +79,31 @@ class SALESController extends Controller
         $tambah->opp_name = $request['opp_name'];
         $tambah->closing_date = $request['closing_date'];
         $tambah->amount = $request['amount'];
+        $tambah->save();
+
+        return redirect('sales');
+    }
+
+     public function store_tp(Request $request)
+    {
+        $this->validate($request, [
+            'lead_id' => 'required',
+            'contact' => 'required',
+            'opp_name' => 'required',
+            'closing_date' => 'required',
+            'owner'   => 'required',
+            'amount' => 'required'
+        ]); 
+
+        $tambah = new Sales();
+        $tambah->id_sd = $request['id_sd'];
+        $tambah->nik = $request['nik'];
+        $tambah->auction_number = $request['lelang'];
+        $tambah->submit_price = $request['submit_price'];
+        $tambah->win_prob = $request['contact'];
+        $tambah->project_name = $request['opp_name'];
+        $tambah->submit_date = $request['closing_date'];
+        $tambah->quote_number = $request['amount'];
         $tambah->save();
 
         return redirect('sales');

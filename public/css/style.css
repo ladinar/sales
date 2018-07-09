@@ -23,6 +23,10 @@
   margin-left:10px;
  }
 
+ .margin-left-sales{
+  margin-left: -45px;
+ }
+
 .margin-top-form{
   margin-top: 15px;
  }
@@ -50,8 +54,8 @@
 
 .circle-container {
     position: relative;
-    width: 24em;
-    height: 24em;
+    width: 17em;
+    height: 17em;
     padding: 2.8em;
     border: solid 3px;
     border-radius: 50%;
@@ -278,15 +282,15 @@ input[type=text]:focus{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .circle-container span { display: block; width: 100%; }
-.deg45 { transform: rotate(-24deg) translate(13.5em) rotate(-52deg); }
+.deg45 { transform: rotate(-21deg) translate(9.9em) rotate(-60deg); }
 .deg135 { transform: rotate(196deg) translate(11.8em) rotate(-135deg); }
 .deg180 { transform: rotate(385deg) translate(10.5em) rotate(-185deg); }
 .deg225 { transform: rotate(145deg) translate(10.5em) rotate(-185deg); }
-.deg315 { transform: rotate(275deg) translate(10.5em) rotate(-185deg); }
+.deg315 { transform: rotate(280deg) translate(7.3em) rotate(-185deg); }
 
  .deginitial
  {
-  transform: translate(0.1em, -10.6em );
+  transform: translate(0.5em, -7.3em );
   color: #cccccc;
  }
 
@@ -611,4 +615,12 @@ img{
 
 .step-content .step-content-body.out {
   display: none;
+}
+/*
+td.details-control {
+    background: url('../resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('../resources/details_close.png') no-repeat center center;*/
 }

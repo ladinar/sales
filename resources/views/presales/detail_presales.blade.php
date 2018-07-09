@@ -83,29 +83,33 @@
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
 
-               <div class="form-group margin-left-right inputWithIcon inputIconBg">
-                <label for="project_management" class="margin-top-form">-- Project Management --</label>
-                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_management" disabled="disabled" id="project_management"/>
+              <div class="form-group margin-left-right inputWithIcon inputIconBg">
+                <label for="project_budget" class="margin-top-form">-- Project Budget --</label>
+                <input class="form-control-medium float-left" id="trucated" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_budget" disabled="disabled" id="project_budget" />
                 <i class="" aria-hidden="true">Rp.</i>
-                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_management'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
-              </div>
-
-               <div class="form-group margin-left-right  inputWithIcon inputIconBg">
-                <label for="maintenance" class="margin-top-form">-- Maintenance --</label>
-                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Maintenance" name="maintenance" disabled="disabled" id="maintenance"/>
-                <i class="" aria-hidden="true">Rp.</i>
-                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('maintenance'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_budget'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
 
                <div class="form-group margin-left-right">
                 <label for="priority" class="margin-top-form">-- Priority --</label>
-                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" disabled="disabled" id="priority"/>
+                <select class="form-control-medium float-left" id="priority"  name="priority" disabled required>
+                  <option>-- Choose Priority --</option>
+                  <option value="" >Contribute</option>
+                  <option value="" >Fight</option>
+                  <option value="" >Foot Print</option>
+                  <option value="" >Guided</option>
+                </select>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('priority'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
 
               <div class="form-group margin-left-right ">
                 <label for="proyek_size" class="margin-top-form">-- Project size --</label>
-                <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" disabled="disabled" id="proyek_size"/>
+                <select class="form-control-medium float-left margin-bottom" id="proyek_size"  name="proyek_size" disabled required>
+                  <option>-- Choose Project Size --</option>
+                  <option value="" >Small</option>
+                  <option value="" >Medium</option>
+                  <option value="" >Advance</option>
+                </select>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('proyek_size'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
 

@@ -39,8 +39,8 @@
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small">
-                <h4 class="pull-left">{{ $tampilkan->contact }}</h4>
-                <h5 class="pull-right">Owner : <i>{{$tampilkan->name}}</i></h5>
+                <h4 class="pull-left">{{ $tampilkan->name_contact}}</h4>
+                <h5 class="pull-right">Owner : {{ $tampilkan->name}}</i></h5>
               </div>
               <div class="card-body small bg-faded">
                 <div class="media">
@@ -59,49 +59,59 @@
               <div class="card mb-3">
               <h3 class="margin-left-right margin-top">Solution Design</h3>
             <hr class="">
-            <form action="{{ url('store') }}" method="POST">
+            <form action="{{ url('store_sd')}}" method="POST">
+              {!! csrf_field() !!}
               <fieldset>
+              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" hidden>
+              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" hidden>
               <div class="form-group margin-left-right">
-                <label for="assesment">-- Assesment --</label>
+                <label for="assesment">-- Assessment --</label>
                <!--  <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/> -->
-                <textarea class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"></textarea>
-                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+                <textarea class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" id="assesment" disabled="disabled"></textarea>
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>
               </div>
+
                <div class="form-group margin-left-right">
-                <label for="proof of value" class="margin-top-form">-- Proof Of Value --</label><!--<input class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov"/> -->
-                 <textarea class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov"></textarea>
-                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
-              </div>
-               <div class="form-group margin-left-right">
-                <label for="propossed_design" class="margin-top-form">-- Proposed Design --</label>
-                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design" onkeypress="myFunction()" />
+                <label for="proof of value" class="margin-top-form">-- Proposed Design--</label>
+                 <textarea class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design"></textarea>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
+
+               <div class="form-group margin-left-right">
+                <label for="propossed_design" class="margin-top-form">--Proof Of Value --</label>
+                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov" />
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+              </div>
+
                <div class="form-group margin-left-right inputWithIcon inputIconBg">
                 <label for="project_management" class="margin-top-form">-- Project Management --</label>
                 <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_management" disabled="disabled" id="project_management"/>
                 <i class="" aria-hidden="true">Rp.</i>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_management'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
+
                <div class="form-group margin-left-right  inputWithIcon inputIconBg">
                 <label for="maintenance" class="margin-top-form">-- Maintenance --</label>
                 <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Maintenance" name="maintenance" disabled="disabled" id="maintenance"/>
                 <i class="" aria-hidden="true">Rp.</i>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('maintenance'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
+
                <div class="form-group margin-left-right">
                 <label for="priority" class="margin-top-form">-- Priority --</label>
                 <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" disabled="disabled" id="priority"/>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('priority'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
+
               <div class="form-group margin-left-right ">
                 <label for="proyek_size" class="margin-top-form">-- Project size --</label>
                 <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" disabled="disabled" id="proyek_size"/>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('proyek_size'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
               </div>
+
               <div class="margin-left-right margin-top">
                 <button class="btn btn-md btn-sd btn-primary float-left margin-bottom" type="submit">Submit</button>
-                <button class="btn btn-md btn-sd btn-success float-right margin-bottom">Raise To Tender</button>
+                <button class="btn btn-md btn-sd btn-success float-right margin-bottom disabled">Raise To Tender</button>
               </div>
               </fieldset>
             </form>

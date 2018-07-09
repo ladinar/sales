@@ -24,6 +24,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                  <td></td>
                   <th>Lead id</th>
                   <th>Contact</th>
                   <th>Opty name</th>
@@ -39,9 +40,10 @@
               <tbody>
                 @foreach($lead as $data)
                 <tr>
+                  <td></td>
                   <td><a href="{{url('/detail_presales', $data->lead_id)}}">{{$data->lead_id}}</a></td>
                   <td>{{$data->name_contact}}</td>
-                  <td>{!!substr($data->opp_name,0,25)!!}...</td>
+                  <td>{!!substr($data->opp_name,0,10)!!}...</td>
                   <td>{{$data->closing_date}}</td>
                   <td></td>
                   <td>{{$data->amount}}</td>

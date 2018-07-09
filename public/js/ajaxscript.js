@@ -26,7 +26,7 @@ var url = "http://localhost/sales/trunk/public/salesAddLead"
         }
         //used to determine the http verb to use [add=POST], [update=PUT]
         var state = $('#btn-save').val();
-        var type = "GET"; //for creating new resource
+        var type = "POST"; //for creating new resource
         var id = $('#lead_id').val();
         var my_url = url;
         if (state == "update"){
@@ -57,3 +57,18 @@ var url = "http://localhost/sales/trunk/public/salesAddLead"
             }
         });
     });
+
+  var url = "http://localhost/sales/trunk/public/addSolutiondesign"
+
+
+    $.get(url + '/' + lead_id, function (data) {
+            //success data
+            console.log(data);
+            $('#assesment').val(data.lead_id);
+            $('#pov').val(data.pov);
+            $('#propossed_design').val(data.pd);
+            $('#project_management').val(data.pm);
+            $('#maintenance').val(data.ms);
+            $('#priority').val(data.priority);
+            $('#proyek_size').val(data.project_size);
+        })

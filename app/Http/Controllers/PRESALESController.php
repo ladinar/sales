@@ -32,7 +32,13 @@ class PRESALESController extends Controller
 
     public function detail_presales($lead_id)
     {
-        $tampilkan = Sales::find($lead_id);
+        $tampilkan = DB::table('sales_lead_register')
+                    ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                    ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                    ->select('sales_lead_register.lead_id','sales_lead_register.nik','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                    'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                    ->where('lead_id',$lead_id)
+                    ->first();
         return view('presales/detail_presales')->with('tampilkan',$tampilkan);
     }
 
@@ -54,18 +60,11 @@ class PRESALESController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'assesment' => 'required',
-            'pov' => 'required',
-            'propossed_design' => 'required',
-            'project_management' => 'required',
-            'maintenance'   => 'required',
-            'priority' => 'required',
-            'proyek_size' => 'required'
-        ]); 
-
+    
         $tambah = new solution_design();
-        $tambah->assesment = $request('assesment');
+        $tambah->lead_id = $request['lead_id'];
+        $tambah->nik = $request['nik'];
+        $tambah->assessment = $request['assesment'];
         $tambah->pov = $request['pov'];
         $tambah->pd = $request['propossed_design'];
         $tambah->pm = $request['project_management'];
@@ -74,7 +73,8 @@ class PRESALESController extends Controller
         $tambah->project_size = $request['proyek_size'];
         $tambah->save();
 
-        return redirect()->to('sales/sales');
+        return redirect()->to('/presales');
+        
         //
     }
     
@@ -87,7 +87,7 @@ class PRESALESController extends Controller
      */
     public function show($lead_id)
     {
-        //
+
     }
 
     /**
@@ -96,8 +96,10 @@ class PRESALESController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_sd)
     {
+        $tampiledit = solution_design::where('id_sd', $id_sd)->first();
+        return view('edit')->with('tampiledit', $tampiledit);  
         //
     }
 
@@ -108,8 +110,20 @@ class PRESALESController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_sd)
     {
+        $update = solution_design::where('id_sd', $id_sd)->first();
+        $update->assessment = $request['assesment'];
+        $update->pov = $request['pov'];
+        $update->pd = $request['propossed_design'];
+        $update->pm = $request['project_management'];
+        $update->ms = $request['maintenance'];
+        $update->priority = $request['priority'];
+        $update->project_size = $request['proyek_size'];
+        $update->update();
+
+        return redirect()->to('/presales/presales');
+
         //
     }
 
@@ -124,7 +138,7 @@ class PRESALESController extends Controller
         //
     }
 
-      public function s_replace(){
+    public function s_replace(){
 
         $s_r = DB::table('sales_lead_register')
                         ->select('lead_id')
@@ -132,4 +146,5 @@ class PRESALESController extends Controller
 
         return view('sales/sales')->with('s_r', $s_r);
     }
+
 }

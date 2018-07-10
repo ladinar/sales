@@ -29,7 +29,7 @@
 				$view->with('territory', TB_Territory::all());		
 			});
 			view()->composer('*', function($view){
-				$view->with('contact_name', TB_Contact::all());
+				$view->with('name_code', TB_Contact::all());
 			});
 			view()->composer('*', function($view){
 				$view->with('owner', User::all());

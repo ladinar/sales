@@ -2513,6 +2513,24 @@ fieldset:disabled a.btn {
   border-color: #0062cc;
 }
 
+.btn-warning {
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:after {
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:active:after {
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
 .btn-primary:focus, .btn-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }

@@ -24,7 +24,7 @@
               <thead>
                 <tr>
                   <th>Lead id</th>
-                  <th>Contact</th>
+                  <th>Costumer</th>
                   <th>Opty name</th>
                   <th>Create date</th>
                   <th>Owner</th>
@@ -37,9 +37,9 @@
                 @foreach($lead as $data)
                 <tr>
                   <td><a href="{{ url ('/detail_project', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
-                  <td>{{ $data->name_contact }}</td>
+                  <td>{{ $data->code_name }}</td>
                   <td>{!!substr($data->opp_name,0,5)!!}...</td>
-                  <td>{{ $data->created_at}}</td>
+                  <td>{!!substr($data->created_at,0,10)!!}</td>
                   <td>{{ $data->name }}</td>
                   <td>{{ $data->amount }}</td>
                   <td><div class="status-initial">Initial</div></td>
@@ -79,10 +79,10 @@
           </div>
 
           <div class="form-group">
-            <label for="">Customer</label>
+            <label for="">Costumer</label>
              <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact" required>
-              @foreach($contact_name as $data)
-                <option value="{{$data->id_contact}}">{{$data->name_contact}}</option>
+              @foreach($name_code as $data)
+                <option value="{{$data->id_contact}}">{{$data->code_name}}</option>
                 @endforeach
             </select>
           </div>
@@ -195,11 +195,11 @@
         var owner = $("#owner option:selected").text();
         var d = new Date();
         var year = d.getFullYear().toString().substr(-2);
-        var month = d.getUTCMonth() + 1;
+        var month = d.getMonth() + 1;
 
-        document.getElementById('lead_id').value = contact.substr(5) + year + '0' + month;
+        document.getElementById('lead_id').value = contact + year + '0' + month;
 
-        console.log();
+        console.log(c);
     }
 
     function s_replace(){

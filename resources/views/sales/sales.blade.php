@@ -29,24 +29,26 @@
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>
-                  @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
                   <th>Action</th>
-                  @endif
                 </tr>
               </thead>
               <tbody id="products-list" name="products-list">
                 @foreach($lead as $data)
                 <tr>
-                  <td><a href="{{ url ('/detail_sales', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
+                  <td><a href="{{ url ('/detail_project', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
                   <td>{{ $data->name_contact }}</td>
                   <td>{!!substr($data->opp_name,0,5)!!}...</td>
                   <td>{{ $data->created_at}}</td>
                   <td>{{ $data->name }}</td>
                   <td>{{ $data->amount }}</td>
                   <td><div class="status-initial">Initial</div></td>
-                  @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
-                  <td><a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a></td>
-                  @endif
+                  <td>
+                    @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
+                    <a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a>
+                    @elseif(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
+                    <button type="button" class="btn btn-sm sho" data-toggle="modal" data-target="#assignModal">Assign</button>
+                    @endif
+                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -118,6 +120,36 @@
       </div>
     </div>
 </div>
+
+  <div class="modal fade" id="assignModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <!-- Modal content-->
+      <div class="modal-content modal-md">
+        <div class="modal-header">
+          <h4 class="modal-title">Presales Assignment</h4>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="" id="modalAssign" name="modalAssign">
+          <div class="form-group row">
+            <label for="">Choose Presales Staff</label><br>
+            <select class="form-control-small margin-left-custom" id="owner" onkeyup="copytextbox();" name="owner" required>
+              <option>-- Choose Owner --</option>
+               @foreach($owner as $data)
+              <option value="{{$data->nik}}">{{$data->name}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <!--  <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
+              <input type="hidden" id="lead_id" name="lead_id" value="0"> -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script type="text/javascript">
     function copytextbox(){

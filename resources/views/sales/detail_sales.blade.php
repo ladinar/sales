@@ -35,7 +35,7 @@
       			<div class="card mb-3">
               <div class="card-body">
                 <h6 class="card-title mb-1 pull-left">{{ $tampilkan->lead_id }}</h6>
-                <h6 class="card-title mb-1 pull-right">{{ $tampilkan->closing_date }}</h6>
+                <h6 class="card-title mb-1 pull-right">{{ $tampilkan->created_at }}</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small">
@@ -54,55 +54,92 @@
             </div>
       		</div>
       </div>
+
       <div class="row margin-top">
       	<div class="col-md-6">
-      		<div class="card mb-3">
-      				<h3 class="margin-left-right margin-top">Solution Design</h3>
-      			<hr class="">
-      			<form id="myForm" title="Please Fill Tender Project Form !!!">
-      				<fieldset disabled="disabled">
-		          <div class="form-group margin-left-right">
-		            <label for="assesment">-- Assesment --</label>
-		            <textarea class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"></textarea>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
-		          </div>
-		           <div class="form-group margin-left-right">
-		            <label for="proof of value" class="margin-top-form">-- Proof Of Value --</label>
-		             <textarea class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov"></textarea>
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
-		          </div>
-		           <div class="form-group margin-left-right">
-		            <label for="propossed_design" class="margin-top-form">-- Proposed Design --</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design" onkeypress="myFunction()" />
-		            <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
-		         </div>
+              <div class="card mb-3">
+              <h3 class="margin-left-right margin-top">Solution Design</h3>
+            <hr class="">
+            <form action="{{ url('store_sd')}}" method="POST">
+              {!! csrf_field() !!}
+              @if(Auth::User()->id_division == 'TECHNICAL PRESALES')
+              <fieldset>
+              @else
+              <fieldset disabled>
+              @endif
+              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" hidden>
+              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" hidden>
+              <div class="form-group margin-left-right">
+                <label for="assesment">-- Assessment --</label>
+               <!--  <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/> -->
+                <textarea class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" id="assesment" disabled="disabled"></textarea>
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>
+              </div>
 
-	           <div class="form-group margin-left-right inputWithIcon inputIconBg">
-              	<label for="project_budget" class="margin-top-form">-- Project Budget --</label>
-              	<input class="form-control-medium float-left" id="trucated" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_budget" disabled="disabled" id="project_budget" />
-              	<i class="" aria-hidden="true">Rp.</i>
-              	<input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_budget'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+               <div class="form-group margin-left-right">
+                <label for="proof of value" class="margin-top-form">-- Proposed Design--</label>
+                 <textarea class="form-control-medium float-left" type="email" aria-describedby="" placeholder="Enter Propossed Design" name="propossed_design" disabled="disabled" id="propossed_design"></textarea>
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('propossed_design'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+              </div>
+
+               <div class="form-group margin-left-right">
+                <label for="propossed_design" class="margin-top-form">--Proof Of Value --</label>
+                <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Proof Of Value" name="pov" disabled="disabled" id="pov" />
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('pov'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+              </div>
+
+              <div class="form-group margin-left-right inputWithIcon inputIconBg">
+                <label for="project_budget" class="margin-top-form">-- Project Budget --</label>
+                <input class="form-control-medium float-left" id="trucated" type="text" aria-describedby="emailHelp" placeholder="Enter Project Management" name="project_budget" disabled="disabled" id="project_budget" />
+                <i class="" aria-hidden="true">Rp.</i>
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('project_budget'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+              </div>
+
+               <div class="form-group margin-left-right">
+                <label for="priority" class="margin-top-form">-- Priority --</label>
+                <select class="form-control-medium float-left" id="priority"  name="priority" disabled required>
+                  <option>-- Choose Priority --</option>
+                  <option value="" >Contribute</option>
+                  <option value="" >Fight</option>
+                  <option value="" >Foot Print</option>
+                  <option value="" >Guided</option>
+                </select>
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('priority'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+              </div>
+
+              <div class="form-group margin-left-right ">
+                <label for="proyek_size" class="margin-top-form">-- Project size --</label>
+                <select class="form-control-medium float-left margin-bottom" id="proyek_size"  name="proyek_size" disabled required>
+                  <option>-- Choose Project Size --</option>
+                  <option value="" >Small</option>
+                  <option value="" >Medium</option>
+                  <option value="" >Advance</option>
+                </select>
+                <input type="checkbox" class="float-right" onclick="var input = document.getElementById('proyek_size'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />
+              </div>
+
+              <div class="margin-left-right margin-top">
+                <button class="btn btn-md btn-sd btn-primary float-left margin-bottom" type="submit">Submit</button>
+                <button class="btn btn-md btn-sd btn-success float-right margin-bottom disabled">Raise To Tender</button>
+              </div>
+              </fieldset>
+            </form>
+              </div>
             </div>
 
-		           <div class="form-group margin-left-right">
-		            <label for="priority" class="margin-top-form">-- Priority --</label>
-		            <input class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter priority" name="priority" id="priority"/>
-		          </div>
-		          <div class="form-group margin-left-right ">
-		            <label for="proyek_size" class="margin-top-form">-- Project size --</label>
-		            <input class="form-control-medium float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Project size" name="proyek_size" id="proyek_size"/>
-		          </div>
-      				</fieldset>
-        		</form>
-      		</div>	
-      	</div>
       	<div class="col-md-6">
       		<div class="card mb-3">
               <h3 class="margin-left-right margin-top">Tender Project</h3>
               <hr class="">
       			<form action="{{ url('store_tp') }}"  method="POST" >
-              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}">
-              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}">
+              {!! csrf_field() !!}
+              @if(Auth::User()->id_division == 'SALES')
+              <fieldset>
+              @else
+              <fieldset disabled>
+              @endif
+              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" hidden>
+              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" hidden>
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">--No Doc. Lelang--</label>
 		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" id="lelang" onkeypress="" />
@@ -136,6 +173,7 @@
         		</form>
       		</div>	
       	</div>
+
       </div>
   </div>
 </div>

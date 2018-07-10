@@ -9,6 +9,7 @@ use DB;
 use App\TenderProcess;
 use Illuminate\Support\Collection;
 use Auth;
+use PDF;
 
 class SALESController extends Controller
 {
@@ -166,5 +167,22 @@ class SALESController extends Controller
     public function customer_index()
     {
         return view('sales/customer');   
+    }
+
+    public function downloadPdf()
+    {
+        $nik = Auth::User()->nik;
+        $territory = DB::table('users')->select('id_territory', 'id_division', 'id_position')->where('nik', $nik)->first();
+        $ter = $territory->id_territory;
+        $lead_id = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.name_contact', 'sales_lead_register.opp_name',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
+                ->where('id_territory', $ter)
+                ->get();
+
+        $pdf = PDF::loadView('report.ter_pdf', compact('lead_id'));
+        return $pdf->download('report.pdf');
     }
 }

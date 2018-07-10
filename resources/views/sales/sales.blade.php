@@ -12,7 +12,8 @@
       <div class="row">
 		    <div class="col-md-12">
 			     <button class="btn btn-primary margin-bottom margin-left-sales" id="btn_add_sales">Add</button>
-           <button class="btn btn-success-sales pull-right" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">Add Customer</button>
+           <a href="{{action('SalesController@downloadPdf')}}" class="btn btn-warning margin-bottom">Export</a>
+           <button class="btn btn-primary-sales pull-right" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">+ Customer</button>
 		    </div>
       </div>
       <div class="card mb-3">

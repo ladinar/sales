@@ -76,9 +76,9 @@
           </div>
 
           <div class="form-group">
-            <label for="">Contact</label>
+            <label for="">Costumer</label>
             <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact" required>
-              <option>-- Choose Contact --</option>
+              <option>-- Choose Costumer --</option>
               @foreach($contact_name as $data)
               <option value="{{$data->id_contact}}">{{$data->name_contact}}</option>
               @endforeach

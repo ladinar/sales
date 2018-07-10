@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sales;
 use DB;
+use App\TenderProcess;
 use Illuminate\Support\Collection;
 
 class SALESController extends Controller
@@ -86,27 +87,19 @@ class SALESController extends Controller
 
      public function store_tp(Request $request)
     {
-        $this->validate($request, [
-            'lead_id' => 'required',
-            'contact' => 'required',
-            'opp_name' => 'required',
-            'closing_date' => 'required',
-            'owner'   => 'required',
-            'amount' => 'required'
-        ]); 
-
-        $tambah = new Sales();
-        $tambah->id_sd = $request['id_sd'];
+        
+        $tambah = new TenderProcess();
+        $tambah->lead_id = $request['lead_id'];
         $tambah->nik = $request['nik'];
         $tambah->auction_number = $request['lelang'];
         $tambah->submit_price = $request['submit_price'];
-        $tambah->win_prob = $request['contact'];
-        $tambah->project_name = $request['opp_name'];
-        $tambah->submit_date = $request['closing_date'];
-        $tambah->quote_number = $request['amount'];
+        $tambah->win_prob = $request['win_prob'];
+        $tambah->project_name = $request['project_name'];
+        $tambah->submit_date = $request['submit_date'];
+        $tambah->quote_number = $request['q_num'];
         $tambah->save();
 
-        return redirect('sales');
+        return redirect()->to('/sales');
     }
 
     /**

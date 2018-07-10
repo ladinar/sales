@@ -19,9 +19,9 @@
               <span class="deginitial"><b>Initial</b></span> 
             </a>
 				    <a href='#' class='deg45'><span class="dot"></span></a>
-				    <span class="degopen"><b>Open/Pending</b></span>
+				    <span class="degopen"><b>Open</b></span>
 				    <a href='#' class='deg180'><span class="dot"></span></a>
-				    <span class="degSD"><b>Sales Design</b></span>
+				    <span class="degSD"><b>Solution Design</b></span>
 				    <a href='#' class='deg225'><span class="dot"></span></a>
 				    <span class="degTP"><b>Tender Project</b></span>
 				    <a href='#' class='deg135'><span class="dot"></span></a>
@@ -100,21 +100,21 @@
       		<div class="card mb-3">
               <h3 class="margin-left-right margin-top">Tender Project</h3>
               <hr class="">
-      			<form method="POST" action="{{ url('store_tp')}}">
-              <input type="" name="id_sd" id="id_sd" value="">
-              <input type="" name="nik" id="nik" value="">
+      			<form action="{{ url('store_tp') }}"  method="POST" >
+              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}">
+              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}">
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">--No Doc. Lelang--</label>
-		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" id="lelang" onkeypress="" required/>
+		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" id="lelang" onkeypress="" />
 		          </div>
 		           <div class="form-group margin-left-right inputWithIcon inputIconBg">
 		            <label for="submitted price" class="margin-top-form">--Submitted Price--</label>
-		            <input class="form-control float-left" type="text" aria-describedby="" placeholder="Enter Submitted Price" name="submit_price" id="submit_price"  pattern="[0-9]*" required />
+		            <input class="form-control float-left" type="text" aria-describedby="" placeholder="Enter Submitted Price" name="submit_price" id="submit_price"  pattern="[0-9]*"/>
 		            <i class="" aria-hidden="true">Rp.</i>
 		          </div>
 		           <div class="form-group margin-left-right  percentageIcon inputIconBg">
 		            <label for="win probability" class="margin-top-form">--Win Probability--</label>
-		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Win Probability" name="win_prob" id="win_prob" maxlength="3" required />
+		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter Win Probability" name="win_prob" id="win_prob" maxlength="3"/>
 		            <i class="" aria-hidden="true">%</i>
 		          </div>
 		           <div class="form-group margin-left-right">
@@ -123,11 +123,11 @@
 		          </div>
 		          <div class="form-group margin-left-right">
 		            <label for="date" class="margin-top-form">--Submit Date--</label>
-		            <input class="form-control float-left" type="date" aria-describedby="emailHelp" placeholder="Enter Submit Date" name="date"  id="date"/>
+		            <input class="form-control float-left" type="date" aria-describedby="emailHelp" placeholder="Enter Submit Date" name="submit_date"  id="submit_date"/>
 		          </div>
 		          <div class="form-group margin-left-right">
 		            <label for="quote number" class="margin-top-form">--Quote Number--</label>
-		            <input class="form-control float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Quote Number" name="q_num" disabled="disabled" id="q_num"/>
+		            <input class="form-control float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Quote Number" name="q_num" readonly id="q_num"/>
 		          </div>
 		          <div class="margin-left-right margin-top">
                 <button type="submit" class="btn btn-md btn-primary float-left margin-bottom">Submit</button>

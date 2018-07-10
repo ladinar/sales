@@ -8,5 +8,5 @@ class TenderProcess extends Model
 {
     protected $table = 'sales_tender_process';
     protected $primaryKey = 'id_tp';
-    protected $fillable = ['id_tp', 'id_sd', 'nik', 'auction_number', 'submit_price', 'win_prob', 'nama_project', 'submit_date', 'quote_number'];
+    protected $fillable = ['lead_id', 'nik', 'auction_number', 'submit_price', 'win_prob', 'nama_project', 'submit_date', 'quote_number'];
 }

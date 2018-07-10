@@ -27,6 +27,8 @@ Route::get('/','DASHBOARDController@index');
 
 Route::get('/project','SalesController@index')->middleware('SalesPresalesMiddleware', 'ManagerStaffMiddleware');
 Route::get('/detail_project/{lead_id}','SalesController@detail_sales');
+Route::get('/customer', 'SalesController@customer_index');
+
 Route::get('/presales','SalesController@index')->middleware('TechnicalPresalesMiddleware', 'ManagerStaffMiddleware');
 Route::get('/detail_presales/{lead_id}','PRESALESController@detail_presales');
 Route::post('/store_sd', 'PRESALESController@store');

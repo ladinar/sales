@@ -489,6 +489,14 @@ img{
     padding-top: 2px;
 }
 
+.btn-primary-sales {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    height: 38px;
+    width: 130px;
+    margin-right: -25px;
+}
 
 .circle-container .dot:after {
   z-index: 2;

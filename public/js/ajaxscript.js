@@ -7,13 +7,7 @@ var url = "http://localhost/sales/trunk/public/salesAddLead"
         $('#modalSalesLead').trigger("reset");
         $('#modal_lead').modal('show');
     });
-
-  $('#btn_add_presales').click(function () {
-        $('#btn-save').val("add");
-        $('#modalSalesLead').trigger("reset");
-        $('#modal_lead').modal('show');
-    });
-
+  
 //create and update
   $("#btn-save").click(function (e) {
        /* $.ajaxSetup({

@@ -163,7 +163,8 @@ class SALESController extends Controller
         //
     }
 
-    public function s_replace(){
+    public function s_replace()
+    {
 
         $s_r = DB::table('sales_lead_register')
                         ->select('lead_id')
@@ -172,4 +173,8 @@ class SALESController extends Controller
         return view('sales/sales')->with('s_r', $s_r);
     }
 
+    public function customer_index()
+    {
+        return view('sales/customer');   
+    }
 }

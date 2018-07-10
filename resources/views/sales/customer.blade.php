@@ -11,7 +11,7 @@
 
       <div class="row">
 		    <div class="col-md-12">
-           <button class="btn btn-primary-sales pull-left" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">+ Customer</button>
+           <button class="btn btn-success-sales pull-left" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">+ Customer</button>
 		    </div>
       </div><br>
       <div class="card mb-3">

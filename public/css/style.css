@@ -489,10 +489,10 @@ img{
     padding-top: 2px;
 }
 
-.btn-primary-sales {
+.btn-success-sales {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #4caf50;
+    border-color: #4caf50;
     height: 38px;
     width: 130px;
     margin-right: -25px;

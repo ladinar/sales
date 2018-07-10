@@ -9,7 +9,7 @@
         </li>
       </ol>
 
-      @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
+      @if(Auth::User()->id_division == 'TECHNICAL PRESALES')
       <div class="row">
         <div class="col-md-12">
            <button class="btn btn-primary margin-bottom float-left" id="btn_add_presales">Add</button>
@@ -27,7 +27,7 @@
                   <th>Lead id</th>
                   <th>Contact</th>
                   <th>Opty name</th>
-                  <th>Close date</th>
+                  <th>Create date</th>
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>
@@ -43,7 +43,7 @@
                   <td>{{$data->name_contact}}</td>
                   <td>{!!substr($data->opp_name,0,10)!!}...</td>
                   <td>{{$data->closing_date}}</td>
-                  <td></td>
+                  <td>{{$data->name}}</td>
                   <td>{{$data->amount}}</td>
                   <td><div class="status-initial">Initial</div></td>
                   @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')

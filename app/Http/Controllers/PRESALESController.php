@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\solution_design;
 use App\Sales;
 use DB;
+use Auth;
 
 class PRESALESController extends Controller
 {
@@ -21,12 +22,25 @@ class PRESALESController extends Controller
     
     public function index()
     {
-        $lead = DB::table('sales_lead_register')
+        $nik = Auth::User()->nik;
+        $division = DB::table('users')->select('id_division')->where('nik', $nik)->first();
+        $div = $division->id_division;
+        if($div == 'TECHNICAL PRESALES'){
+            $lead = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                ->where('id_division', $div)
+                ->get();
+        } else {
+            $lead = DB::table('sales_lead_register')
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
                 'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
                 ->get();
+        }
         return view('presales/presales')->with('lead', $lead);
     }
 

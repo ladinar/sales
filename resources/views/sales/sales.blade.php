@@ -25,7 +25,7 @@
                   <th>Lead id</th>
                   <th>Contact</th>
                   <th>Opty name</th>
-                  <th>Closing date</th>
+                  <th>Create date</th>
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>

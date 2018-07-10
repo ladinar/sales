@@ -79,6 +79,7 @@
     <script type="" src="{{asset('js/jquery.samask-masker.js')}}"></script>
     <script src="{{asset('js/sb-admin-charts.min.js')}}"></script>
     <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+    <script type="" src="{{asset('js/jquery.mask.min.js')}}"></script>
      
   </div>
 </body>

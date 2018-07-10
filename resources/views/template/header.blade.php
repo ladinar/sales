@@ -76,12 +76,6 @@
           </a>
         </li>
         @endif
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="{{url('/presales_manager')}}">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Presales Manager</span>
-          </a>
-        </li>
         
       </ul>
       <ul class="navbar-nav sidenav-toggler">

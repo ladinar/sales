@@ -171,9 +171,11 @@
             <label for="">Choose Presales Staff</label><br>
             <select class="form-control-small margin-left-custom" id="owner" onkeyup="copytextbox();" name="owner" required>
               <option>-- Choose Owner --</option>
-               @foreach($owner as $data)
-              <option value="{{$data->nik}}">{{$data->name}}</option>
-              @endforeach
+                @foreach($owner as $data)
+                  @if($data->id_division == 'TECHNICAL PRESALES' && $data->id_position == 'STAFF')
+                    <option value="{{$data->nik}}">{{$data->name}}</option>
+                  @endif
+                @endforeach
             </select>
           </div>
           <div class="modal-footer">

@@ -23,7 +23,7 @@ Route::post('/store', 'SalesController@store');
 Route::post('/salesAddLead', 'SalesController@store');
 Route::get('/sales','SalesController@index');
 Route::get('/detail_sales/{lead_id}','SalesController@detail_sales');
-Route::post('/store_tp', 'SalesController@store_tp');
+Route::post('/update_tp/{lead_id}', 'SalesController@update_tp');
 
 Route::get('/','DASHBOARDController@index');
 
@@ -35,6 +35,7 @@ Route::get('/show/{lead_id}','SalesController@show');
 /*Route::get('/presales','SalesController@index')->middleware('TechnicalPresalesMiddleware', 'ManagerStaffMiddleware')*/;
 Route::post('/update_sd/{lead_id}', 'SalesController@update_sd');
 Route::post('/assign_to_presales','SalesController@assign_to_presales');
+Route::post('/raise_to_tender', 'SalesController@raise_to_tender');
 /*Route::get('/detail_presales/{lead_id}','PRESALESController@detail_presales');*/
 /*
 Route::get('/edit/{id_sd}', 'PRESALESController@edit');

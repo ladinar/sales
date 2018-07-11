@@ -61,8 +61,6 @@ class SALESController extends Controller
         return view('sales/sales')->with('lead', $lead);
     }
 
-
-
     public function detail_sales($lead_id)
     {
         $tampilkan = DB::table('sales_lead_register')
@@ -79,7 +77,12 @@ class SALESController extends Controller
                     ->where('lead_id',$lead_id)
                     ->first();
 
-        return view('sales/detail_sales',compact('tampilkan','tampilkans'));
+        $tampilkanc = DB::table('sales_tender_process')
+                    ->select('sales_tender_process.lead_id','auction_number','submit_price','win_prob','project_name','submit_date','quote_number')
+                    ->where('lead_id',$lead_id)
+                    ->first();
+
+        return view('sales/detail_sales',compact('tampilkan','tampilkans','tampilkanc'));
     }
 
     /**
@@ -168,11 +171,20 @@ class SALESController extends Controller
         $tambah->save();
 
         return redirect('project');
+
+        // echo $request['coba_lead'];
+    }
+
+    public function raise_to_tender(Request $request){
+        $tambah = new TenderProcess();
+        $tambah->lead_id = $request['lead_id'];
+        $tambah->save();
+
+        return redirect()->back();
     }
 
     public function update_sd(Request $request, $lead_id)
     {
-
         $update = solution_design::where('lead_id', $lead_id)->first();
         if (is_null( $request['assesment'])) {
            $update->assessment = $request['assesment'];
@@ -225,21 +237,58 @@ class SALESController extends Controller
         return redirect()->back();
     }
 
-    public function store_tp(Request $request)
+    public function update_tp(Request $request, $lead_id)
     {
-        
-        $update = new TenderProcess();
-        $update->lead_id = $request['lead_id'];
-        $update->nik = $request['nik'];
-        $update->auction_number = $request['lelang'];
-        $update->submit_price = $request['submit_price'];
-        $update->win_prob = $request['win_prob'];
-        $update->project_name = $request['project_name'];
-        $update->submit_date = $request['submit_date'];
-        $update->quote_number = $request['q_num'];
-        $update->update();
+        $update = TenderProcess::where('lead_id', $lead_id)->first();
+        if (is_null( $request['lelang'])) {
+           $update->auction_number = $request['lelang'];
+           $update->update();
+        }else if ($request['lelang'] == TRUE) {
+            $update->auction_number = $request['lelang'];
+            $update->update();
+        }
 
-        return redirect()->to('/sales');
+        if (is_null($request['submit_price'])) {
+           $update->submit_price = $request['submit_price'];
+           $update->update();
+        }else if ($request['submit_price'] == TRUE) {
+           $update->submit_price = $request['submit_price'];
+           $update->update(); 
+        }
+
+        if ( is_null($request['win_prob'])) {
+          $update->win_prob = $request['win_prob'];
+          $update->update();  
+        }else if ( $request['win_prob'] == TRUE) {
+           $update->win_prob = $request['win_prob'];
+           $update->update();   
+        }
+
+        if (is_null($request['project_name'])) {   
+            $update->project_name = $request['project_name'];
+            $update->update();
+        }else if ( $request['project_name'] == TRUE) {
+           $update->project_name = $request['project_name'];
+           $update->update();   
+        }
+
+        if ( is_null($request['submit_date'])) {
+          $update->submit_date = $request['submit_date'];
+          $update->update();  
+        }else if ( $request['submit_date'] == TRUE) {
+           $update->submit_date = $request['submit_date'];
+           $update->update();   
+        }
+
+        if ($request['q_num'] == '') {   
+            $update->quote_number = $request['q_num'];
+            $update->update();
+        }else if ( $request['q_num'] == TRUE) {
+           $update->quote_number = $request['q_num'];
+           $update->update();   
+        }
+
+        return redirect()->back();
     }
 
     /**

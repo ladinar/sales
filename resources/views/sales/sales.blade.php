@@ -46,7 +46,7 @@
                     @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
                     <a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a>
                     @elseif(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
-                    <button type="button" class="btn btn-sm sho" onclick="assign(' {{$data->lead_id}}')" data-toggle="modal" data-target="#assignModal">Assign</button>
+                    <button type="button" class="btn btn-sm sho" onclick="assign('{{$data->lead_id}}')" data-toggle="modal" data-target="#assignModal">Assign</button>
                     @endif
                   </td>
                 </tr>

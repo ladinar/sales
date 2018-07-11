@@ -12,6 +12,7 @@
       <div class="row">
 		    <div class="col-md-12">
 			     <button class="btn btn-primary margin-bottom margin-left-sales" id="btn_add_sales">Add</button>
+           <button class="btn btn-success-sales pull-right" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">+ Customer</button>
 		    </div>
       </div>
       <div class="card mb-3">
@@ -203,11 +204,5 @@
         document.getElementById('lead_id').value = contact + year + '0' + month;
 
         console.log(c);
-    }
-
-    function s_replace(){
-        var s_r = $("#dataTable #lead_replace").text();
-        console.log(s_r);
-
     }
   </script>

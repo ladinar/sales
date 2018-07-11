@@ -41,7 +41,11 @@ Route::post('/raise_to_tender', 'SalesController@raise_to_tender');
 Route::get('/edit/{id_sd}', 'PRESALESController@edit');
 Route::post('/update/{id_sd}', 'PRESALESController@update');*/
 
-Route::get('/downloadPdf', 'SalesController@downloadPdf');
+Route::get('/downloadPdf', 'ReportController@downloadPdflead');
+Route::get('/view_lead', 'ReportController@view_lead');
+Route::get('/view_open', 'ReportController@view_open');
+Route::get('/view_win', 'ReportController@view_win');
+Route::get('/view_lose', 'ReportController@view_lose');
 
 /*Route::get('/presales_manager','PRESALES_MANAGERController@index');
 Route::post('/presales/store', 'PRESALES_MANAGERController@store');*/

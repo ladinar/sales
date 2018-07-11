@@ -82,6 +82,12 @@
             <span class="nav-link-text">Customer Data</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="{{url('/view_lead')}}">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Report</span>
+          </a>
+        </li>
         
       </ul>
       <ul class="navbar-nav sidenav-toggler">

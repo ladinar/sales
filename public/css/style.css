@@ -359,8 +359,7 @@ button{
 
 .status-open{
     border-radius: 10%;
-    background-color: #57ed40
-;
+    background-color: #f4c242;
     text-align: center;
     width: 75px;
     height: 30px;
@@ -396,7 +395,7 @@ button{
 }
 .status-win{
     border-radius: 10%;
-    background-color: #b79114;
+    background-color: #44f441;
     text-align: center;
     width: 75px;
     height: 30px;

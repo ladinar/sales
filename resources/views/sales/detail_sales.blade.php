@@ -67,8 +67,8 @@
               @else
               <fieldset disabled>
               @endif
-              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" hidden>
-              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" hidden>
+              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" >
+              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" >
               <div class="form-group margin-left-right">
                 <label for="assesment">-- Assessment --</label>
                <!--  <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/> -->
@@ -138,8 +138,8 @@
               @else
               <fieldset disabled>
               @endif
-              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" hidden>
-              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" hidden>
+              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" >
+              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" >
 		          <div class="form-group margin-left-right">
 		            <label for="assesment">--No Doc. Lelang--</label>
 		            <input class="form-control float-left" type="text" aria-describedby="emailHelp" placeholder="Enter No Doc. Lelang" name="lelang" id="lelang" onkeypress="" />

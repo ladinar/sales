@@ -60,19 +60,17 @@
               <div class="card mb-3">
               <h3 class="margin-left-right margin-top">Solution Design</h3>
             <hr class="">
-            <form action="{{ url('store_sd')}}" method="POST">
+            @csrf
+            <form action="{{ url('update_sd', $tampilkans->lead_id)}}" method="POST">
               {!! csrf_field() !!}
               @if(Auth::User()->id_division == 'TECHNICAL PRESALES')
               <fieldset>
               @else
               <fieldset disabled>
               @endif
-              <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" >
-              <input type="" name="nik" id="nik" value="{{$tampilkan->nik}}" >
               <div class="form-group margin-left-right">
                 <label for="assesment">-- Assessment --</label>
-               <!--  <input class="form-control-medium float-left" type="email" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" disabled="disabled" id="assesment"/> -->
-                <textarea class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" id="assesment" disabled="disabled"></textarea>
+                <textarea class="form-control-medium float-left" type="text" aria-describedby="emailHelp" placeholder="Enter assesment" name="assesment" id="assesment" disabled="disabled">{{$tampilkans->assessment}}</textarea>
                 <input type="checkbox" class="float-right" onclick="var input = document.getElementById('assesment'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>
               </div>
 

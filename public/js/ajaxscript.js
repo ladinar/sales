@@ -1,6 +1,6 @@
 //add lead register
 
-var url = "http://localhost/sales/trunk/public/salesAddLead"
+/*var url = "http://localhost/sales/trunk/public/salesAddLead"*/
 
   $('#btn_add_sales').click(function () {
         $('#btn-save').val("add");
@@ -58,7 +58,8 @@ var url = "http://localhost/sales/trunk/public/salesAddLead"
         });
     });
 
-  var url = "http://localhost/sales/trunk/public/addSolutiondesign"
+
+/*  var url = "http://localhost/sales/trunk/public/addSolutiondesign"
 
 
     $.get(url + '/' + lead_id, function (data) {
@@ -72,3 +73,10 @@ var url = "http://localhost/sales/trunk/public/salesAddLead"
             $('#priority').val(data.priority);
             $('#proyek_size').val(data.project_size);
         })
+
+
+   */
+
+   function assign(lead_id){
+        $('#coba_lead').val(lead_id);
+   }

@@ -30,18 +30,20 @@ Route::get('/','DASHBOARDController@index');
 Route::get('/project','SalesController@index')->middleware('SalesPresalesMiddleware', 'ManagerStaffMiddleware');
 Route::get('/detail_project/{lead_id}','SalesController@detail_sales');
 Route::get('/customer', 'SalesController@customer_index');
-Route::post('/assign', 'SalesController@assign');
+Route::get('/show/{lead_id}','SalesController@show');
 
-Route::get('/presales','SalesController@index')->middleware('TechnicalPresalesMiddleware', 'ManagerStaffMiddleware');
-Route::get('/detail_presales/{lead_id}','PRESALESController@detail_presales');
-Route::post('/store_sd', 'SalesController@store_sd');
+/*Route::get('/presales','SalesController@index')->middleware('TechnicalPresalesMiddleware', 'ManagerStaffMiddleware')*/;
+Route::post('/update_sd/{$lead_id}', 'SalesController@update_sd');
+Route::post('/assign_to_presales','SalesController@assign_to_presales');
+/*Route::get('/detail_presales/{lead_id}','PRESALESController@detail_presales');*/
+/*
 Route::get('/edit/{id_sd}', 'PRESALESController@edit');
-Route::post('/update/{id_sd}', 'PRESALESController@update');
+Route::post('/update/{id_sd}', 'PRESALESController@update');*/
 
 Route::get('/downloadPdf', 'SalesController@downloadPdf');
 
-Route::get('/presales_manager','PRESALES_MANAGERController@index');
-Route::post('/presales/store', 'PRESALES_MANAGERController@store');
+/*Route::get('/presales_manager','PRESALES_MANAGERController@index');
+Route::post('/presales/store', 'PRESALES_MANAGERController@store');*/
 
 Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');

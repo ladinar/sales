@@ -22,10 +22,10 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Lead ID</th>
+                  <th>Lead id</th>
                   <th>Customer</th>
-                  <th>Opty Name</th>
-                  <th>Create Date</th>
+                  <th>Opty name</th>
+                  <th>Create date</th>
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>
@@ -46,7 +46,7 @@
                     @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
                     <a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a>
                     @elseif(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
-                    <button type="button" class="btn btn-sm sho" data-toggle="modal" data-target="#assignModal">Assign</button>
+                    <button type="button" class="btn btn-sm sho" onclick="assign(' {{$data->lead_id}}')" data-toggle="modal" data-target="#assignModal">Assign</button>
                     @endif
                   </td>
                 </tr>
@@ -76,21 +76,9 @@
             <label for="lead_id">Lead Id</label>
             <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id" readonly required>
           </div> -->
-          @if(Auth::User()->id_division != 'SALES')
-          <div class="form-group">
-            <label for="">Owner</label>
-             <select class="form-control" id="owner_sales" onkeyup="copytextbox();" name="owner_sales" required>
-              @foreach($owner as $data)
-                @if($data->id_division == 'SALES')
-                  <option value="{{$data->nik}}">{{$data->name}}</option>
-                @endif
-              @endforeach
-            </select>
-          </div>
-          @endif
 
           <div class="form-group">
-            <label for="">Customer</label>
+            <label for="">Costumer</label>
              <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact" required>
               @foreach($name_code as $data)
                 <option value="{{$data->id_contact}}">{{$data->code_name}}</option>
@@ -144,6 +132,7 @@
         <div class="modal-body">
           <form method="POST" action="" id="modalCustomer" name="modalCustomer">
             @csrf
+          
           <div class="form-group">
             <label for="code_name">Code Name</label>
             <input type="text" class="form-control" id="code_name" name="code_name" placeholder="Code Name" required>
@@ -177,11 +166,12 @@
           <h4 class="modal-title">Presales Assignment</h4>
         </div>
         <div class="modal-body">
-          <form method="POST" action="{{ url('assign') }}" id="modalAssign" name="modalAssign">
+          <form method="POST" action="{{url('assign_to_presales')}}" id="modalAssign" name="modalAssign">
             @csrf
           <div class="form-group row">
+            <input type="text" name="coba_lead" id="coba_lead" value="" hidden>
             <label for="">Choose Presales Staff</label><br>
-            <select class="form-control-small margin-left-custom" id="owner" onkeyup="copytextbox();" name="owner" required>
+            <select class="form-control-small margin-left-custom" id="owner" name="owner" required>
               <option>-- Choose Owner --</option>
                 @foreach($owner as $data)
                   @if($data->id_division == 'TECHNICAL PRESALES' && $data->id_position == 'STAFF')

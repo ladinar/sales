@@ -72,7 +72,13 @@ class SALESController extends Controller
                     'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
                     ->where('lead_id',$lead_id)
                     ->first();
-        return view('sales/detail_sales')->with('tampilkan',$tampilkan);
+
+        $tampilkans = DB::table('sales_solution_design')
+                    ->select('lead_id','nik','assessment','pov','pd','pb','priority','project_size')
+                    ->where('lead_id',$lead_id)
+                    ->first();
+
+        return view('sales/detail_sales',compact('tampilkan','tampilkans'));
     }
 
     /**
@@ -153,24 +159,44 @@ class SALESController extends Controller
         // return redirect('project');
     }
 
-    public function assign(Request $request)
-    {
+    public function assign_to_presales(Request $request){
+
         $tambah = new solution_design();
-        $tambah->lead_id = $lead;
-        $tambah->nik = Auth::User()->nik;
+        $tambah->lead_id = $request['coba_lead'];
+        $tambah->nik = $request['owner'];
         $tambah->save();
 
         return redirect('project');
     }
 
-    public function store_sd(Request $request)
+    public function update_sd(Request $request, $lead_id)
     {
-        //
+        $update = solution_design::where('lead_id', $lead_id)->first();
+        $update->assessment = $request['assesment'];
+        $update->pd = $request['propossed_design'];
+        $update->pov = $request['pov'];
+        $update->pb = $request['project_budget'];
+        $update->priority = $request['priority'];
+        $update->project_size = $request['proyek_size'];
+        $update->update();
+
     }
 
     public function store_tp(Request $request)
     {
-        //
+        
+        $update = new TenderProcess();
+        $update->lead_id = $request['lead_id'];
+        $update->nik = $request['nik'];
+        $update->auction_number = $request['lelang'];
+        $update->submit_price = $request['submit_price'];
+        $update->win_prob = $request['win_prob'];
+        $update->project_name = $request['project_name'];
+        $update->submit_date = $request['submit_date'];
+        $update->quote_number = $request['q_num'];
+        $update->update();
+
+        return redirect()->to('/sales');
     }
 
     /**
@@ -179,9 +205,9 @@ class SALESController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($lead_id)
     {
-
+         
         //
     }
 
@@ -205,6 +231,7 @@ class SALESController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         //
     }
 

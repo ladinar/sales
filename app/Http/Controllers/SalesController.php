@@ -11,6 +11,7 @@ use Illuminate\Support\Collection;
 use Auth;
 use Month;
 use PDF;
+use App\solution_design;
 
 class SALESController extends Controller
 {
@@ -136,7 +137,24 @@ class SALESController extends Controller
         // return redirect('project');
     }
 
-     public function store_tp(Request $request)
+    public function store_sd(Request $request)
+    {
+    
+        $tambah = new solution_design();
+        $tambah->lead_id = $request['lead_id'];
+        $tambah->nik = $request['nik'];
+        $tambah->assessment = $request['assesment'];
+        $tambah->pd = $request['propossed_design'];
+        $tambah->pov = $request['pov'];
+        $tambah->pb = $request['project_budget'];
+        $tambah->priority = $request['priority'];
+        $tambah->project_size = $request['proyek_size'];
+        $tambah->save();
+
+        return redirect()->to('/presales');
+    }
+
+    public function store_tp(Request $request)
     {
         
         $tambah = new TenderProcess();

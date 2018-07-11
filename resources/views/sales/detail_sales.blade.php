@@ -35,7 +35,7 @@
       			<div class="card mb-3">
               <div class="card-body">
                 <h6 class="card-title mb-1 pull-left">{{ $tampilkan->lead_id }}</h6>
-                <h6 class="card-title mb-1 pull-right">{{ $tampilkan->created_at }}</h6>
+                <h6 class="card-title mb-1 pull-right">{!!substr( $tampilkan->created_at,0,10 )!!}</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small">

@@ -19,9 +19,11 @@ Route::get('custom-login', 'LOGINController@showLoginForm')->name('custom.login'
 Route::post('custom-attempt', 'LOGINController@attempt')->name('custom.attempt');
 
 //salescontroller
-Route::post('/store', 'SalesController@store');
-Route::post('/add_tp','SalesController@add_tender_process');
-Route::post('/salesAddLead', 'SalesController@store');
+Route::post('/store', 'SALESController@store');
+Route::post('/salesAddLead', 'SALESController@store');
+Route::get('/sales','SALESController@index');
+Route::get('/detail_sales/{lead_id}','SALESController@detail_sales');
+Route::post('/store_tp', 'SALESController@store_tp');
 
 Route::get('/','DASHBOARDController@index');
 

@@ -12,8 +12,6 @@
       <div class="row">
 		    <div class="col-md-12">
 			     <button class="btn btn-primary margin-bottom margin-left-sales" id="btn_add_sales">Add</button>
-           <a href="{{action('SalesController@downloadPdf')}}" class="btn btn-warning margin-bottom">Export</a>
-           <button class="btn btn-primary-sales pull-right" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">+ Customer</button>
 		    </div>
       </div>
       <div class="card mb-3">
@@ -38,7 +36,7 @@
                 @foreach($lead as $data)
                 <tr>
                   <td><a href="{{ url ('/detail_project', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
-                  <td>{{ $data->code_name }}</td>
+                  <td>{{ $data->name_contact}}</td>
                   <td>{{ $data->opp_name }}</td>
                   <td>{!!substr($data->created_at,0,10)!!}</td>
                   <td>{{ $data->name }}</td>

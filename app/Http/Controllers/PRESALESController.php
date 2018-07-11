@@ -30,7 +30,7 @@ class PRESALESController extends Controller
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
-                'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
                 ->where('id_division', $div)
                 ->get();
         } else {
@@ -50,7 +50,7 @@ class PRESALESController extends Controller
                     ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                     ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                     ->select('sales_lead_register.lead_id','sales_lead_register.nik','tb_contact.name_contact', 'sales_lead_register.opp_name',
-                    'sales_lead_register.closing_date', 'sales_lead_register.amount', 'users.name')
+                    'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
                     ->where('lead_id',$lead_id)
                     ->first();
         return view('presales/detail_presales')->with('tampilkan',$tampilkan);
@@ -80,9 +80,7 @@ class PRESALESController extends Controller
         $tambah->nik = $request['nik'];
         $tambah->assessment = $request['assesment'];
         $tambah->pov = $request['pov'];
-        $tambah->pd = $request['propossed_design'];
-        $tambah->pm = $request['project_management'];
-        $tambah->ms = $request['maintenance'];
+        $tambah->pb = $request['project_budget'];
         $tambah->priority = $request['priority'];
         $tambah->project_size = $request['proyek_size'];
         $tambah->save();

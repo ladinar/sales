@@ -30,6 +30,10 @@ class SALESController extends Controller
         $nik = Auth::User()->nik;
         $territory = DB::table('users')->select('id_territory')->where('nik', $nik)->first();
         $ter = $territory->id_territory;
+        $division = DB::table('users')->select('id_division')->where('nik', $nik)->first();
+        $div = $division->id_division;
+        $position = DB::table('users')->select('id_position')->where('nik', $nik)->first();
+        $pos = $position->id_position;
         if($ter != null){
             $lead = DB::table('sales_lead_register')
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
@@ -37,6 +41,14 @@ class SALESController extends Controller
                 ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
                 'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
                 ->where('id_territory', $ter)
+                ->get();
+        } elseif($div == 'TECHNICAL PRESALES' && $pos == 'STAFF') {
+            $lead = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
+                ->where('id_division', $div)
                 ->get();
         } else {
             $lead = DB::table('sales_lead_register')
@@ -100,7 +112,11 @@ class SALESController extends Controller
 
         $tambah = new Sales();
         $tambah->lead_id = $lead;
-        $tambah->nik = Auth::User()->nik;
+        if(Auth::User()->id_division == 'SALES'){
+            $tambah->nik = Auth::User()->nik;
+        } else {
+            $tambah->nik = $request['owner_sales'];
+        }
         $tambah->id_contact = $request['contact'];
         $tambah->opp_name = $request['opp_name'];
         $tambah->month = date("n");
@@ -137,38 +153,24 @@ class SALESController extends Controller
         // return redirect('project');
     }
 
-    public function store_sd(Request $request)
+    public function assign(Request $request)
     {
-    
         $tambah = new solution_design();
-        $tambah->lead_id = $request['lead_id'];
-        $tambah->nik = $request['nik'];
-        $tambah->assessment = $request['assesment'];
-        $tambah->pd = $request['propossed_design'];
-        $tambah->pov = $request['pov'];
-        $tambah->pb = $request['project_budget'];
-        $tambah->priority = $request['priority'];
-        $tambah->project_size = $request['proyek_size'];
+        $tambah->lead_id = $lead;
+        $tambah->nik = Auth::User()->nik;
         $tambah->save();
 
-        return redirect()->to('/presales');
+        return redirect('project');
+    }
+
+    public function store_sd(Request $request)
+    {
+        //
     }
 
     public function store_tp(Request $request)
     {
-        
-        $tambah = new TenderProcess();
-        $tambah->lead_id = $request['lead_id'];
-        $tambah->nik = $request['nik'];
-        $tambah->auction_number = $request['lelang'];
-        $tambah->submit_price = $request['submit_price'];
-        $tambah->win_prob = $request['win_prob'];
-        $tambah->project_name = $request['project_name'];
-        $tambah->submit_date = $request['submit_date'];
-        $tambah->quote_number = $request['q_num'];
-        $tambah->save();
-
-        return redirect()->to('/sales');
+        //
     }
 
     /**

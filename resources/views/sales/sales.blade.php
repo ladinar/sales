@@ -22,10 +22,10 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Lead id</th>
+                  <th>Lead ID</th>
                   <th>Customer</th>
-                  <th>Opty name</th>
-                  <th>Create date</th>
+                  <th>Opty Name</th>
+                  <th>Create Date</th>
                   <th>Owner</th>
                   <th>Amount</th>
                   <th>Status</th>
@@ -76,9 +76,21 @@
             <label for="lead_id">Lead Id</label>
             <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id" readonly required>
           </div> -->
+          @if(Auth::User()->id_division != 'SALES')
+          <div class="form-group">
+            <label for="">Owner</label>
+             <select class="form-control" id="owner_sales" onkeyup="copytextbox();" name="owner_sales" required>
+              @foreach($owner as $data)
+                @if($data->id_division == 'SALES')
+                  <option value="{{$data->nik}}">{{$data->name}}</option>
+                @endif
+              @endforeach
+            </select>
+          </div>
+          @endif
 
           <div class="form-group">
-            <label for="">Costumer</label>
+            <label for="">Customer</label>
              <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact" required>
               @foreach($name_code as $data)
                 <option value="{{$data->id_contact}}">{{$data->code_name}}</option>
@@ -132,7 +144,6 @@
         <div class="modal-body">
           <form method="POST" action="" id="modalCustomer" name="modalCustomer">
             @csrf
-          
           <div class="form-group">
             <label for="code_name">Code Name</label>
             <input type="text" class="form-control" id="code_name" name="code_name" placeholder="Code Name" required>
@@ -166,7 +177,8 @@
           <h4 class="modal-title">Presales Assignment</h4>
         </div>
         <div class="modal-body">
-          <form method="POST" action="" id="modalAssign" name="modalAssign">
+          <form method="POST" action="{{ url('assign') }}" id="modalAssign" name="modalAssign">
+            @csrf
           <div class="form-group row">
             <label for="">Choose Presales Staff</label><br>
             <select class="form-control-small margin-left-custom" id="owner" onkeyup="copytextbox();" name="owner" required>

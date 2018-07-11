@@ -17,7 +17,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-comments"></i>
               </div>
-              <div class="mr-5">{{$count}} Lead ID</div>
+              <div class="mr-5">{{ $count }} Lead ID!</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">View Details</span>

@@ -18,9 +18,6 @@ class DASHBOARDController extends Controller
     }
 
     public function index()
-    {
-        $count = Sales::count();
-        return view('dashboard/dashboard')->with('count', $count);
     }
 
     /**

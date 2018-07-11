@@ -33,7 +33,7 @@ Route::get('/customer', 'SalesController@customer_index');
 Route::get('/show/{lead_id}','SalesController@show');
 
 /*Route::get('/presales','SalesController@index')->middleware('TechnicalPresalesMiddleware', 'ManagerStaffMiddleware')*/;
-Route::post('/update_sd/{$lead_id}', 'SalesController@update_sd');
+Route::post('/update_sd/{lead_id}', 'SalesController@update_sd');
 Route::post('/assign_to_presales','SalesController@assign_to_presales');
 /*Route::get('/detail_presales/{lead_id}','PRESALESController@detail_presales');*/
 /*

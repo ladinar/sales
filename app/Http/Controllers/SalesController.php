@@ -74,7 +74,8 @@ class SALESController extends Controller
                     ->first();
 
         $tampilkans = DB::table('sales_solution_design')
-                    ->select('lead_id','nik','assessment','pov','pd','pb','priority','project_size')
+                    ->join('users','users.nik','=','sales_solution_design.nik')
+                    ->select('sales_solution_design.lead_id','sales_solution_design.nik','sales_solution_design.assessment','sales_solution_design.pov','sales_solution_design.pd','sales_solution_design.pb','sales_solution_design.priority','sales_solution_design.project_size','users.name')
                     ->where('lead_id',$lead_id)
                     ->first();
 
@@ -171,15 +172,57 @@ class SALESController extends Controller
 
     public function update_sd(Request $request, $lead_id)
     {
-        $update = solution_design::where('lead_id', $lead_id)->first();
-        $update->assessment = $request['assesment'];
-        $update->pd = $request['propossed_design'];
-        $update->pov = $request['pov'];
-        $update->pb = $request['project_budget'];
-        $update->priority = $request['priority'];
-        $update->project_size = $request['proyek_size'];
-        $update->update();
 
+        $update = solution_design::where('lead_id', $lead_id)->first();
+        if (is_null( $request['assesment'])) {
+           $update->assessment = $request['assesment'];
+           $update->update();
+        }else if ($request['assesment'] == TRUE) {
+            $update->assessment = $request['assesment'];
+            $update->update();
+        }
+
+        if (is_null($request['propossed_design'])) {
+           $update->pd = $request['propossed_design'];
+           $update->update();
+        }else if ($request['propossed_design'] == TRUE) {
+           $update->pd = $request['propossed_design'];
+           $update->update(); 
+        }
+
+        if ( is_null($request['pov'])) {
+          $update->pov = $request['pov'];
+          $update->update();  
+        }else if ( $request['pov'] == TRUE) {
+           $update->pov = $request['pov'];
+           $update->update();   
+        }
+
+        if (is_null($request['project_budget'])) {   
+            $update->pb = $request['project_budget'];
+            $update->update();
+        }else if ( $request['project_budget'] == TRUE) {
+           $update->pb = $request['project_budget'];
+           $update->update();   
+        }
+
+        if ( is_null($request['priority'])) {
+          $update->priority = $request['priority'];
+          $update->update();  
+        }else if ( $request['priority'] == TRUE) {
+           $update->priority = $request['priority'];
+           $update->update();   
+        }
+
+        if ($request['proyek_size'] == '') {   
+            $update->project_size = $request['proyek_size'];
+            $update->update();
+        }else if ( $request['proyek_size'] == TRUE) {
+           $update->project_size = $request['proyek_size'];
+           $update->update();   
+        }
+
+        return redirect()->back();
     }
 
     public function store_tp(Request $request)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sales;
 
 class DASHBOARDController extends Controller
 {
@@ -18,7 +19,8 @@ class DASHBOARDController extends Controller
 
     public function index()
     {
-        return view('dashboard/dashboard');
+        $count = Sales::count();
+        return view('dashboard/dashboard')->with('count', $count);
     }
 
     /**

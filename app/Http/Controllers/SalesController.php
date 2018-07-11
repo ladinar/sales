@@ -9,6 +9,7 @@ use DB;
 use App\TenderProcess;
 use Illuminate\Support\Collection;
 use Auth;
+use Month;
 use PDF;
 
 class SALESController extends Controller
@@ -79,16 +80,60 @@ class SALESController extends Controller
      */
     public function store(Request $request)
     {
-       
+        $contact = $request['contact'];
+        $name = DB::table('tb_contact')
+                    ->select('code_name')
+                    ->where('id_contact', $contact)
+                    ->first();
+        $inc = DB::table('sales_lead_register')
+                    ->select('lead_id')
+                    ->where('id_contact', $contact)
+                    ->where('month', date("n"))
+                    ->get();
+        $increment = count($inc);
+        $nomor = $increment+1;
+        if($nomor < 10){
+            $nomor = '0' . $nomor;
+        }
+        $lead = $name->code_name . date('y') . date('m') . $nomor;
+
         $tambah = new Sales();
-        $tambah->lead_id = $request['lead_id'];
-        $tambah->nik = $request['owner'];
+        $tambah->lead_id = $lead;
+        $tambah->nik = Auth::User()->nik;
         $tambah->id_contact = $request['contact'];
         $tambah->opp_name = $request['opp_name'];
+        $tambah->month = date("n");
         $tambah->amount = $request['amount'];
         $tambah->save();
 
-        return redirect('sales');
+        return redirect('project');
+
+        // $contact = $request['contact'];
+        // $inc = DB::table('sales_lead_register')
+        //             ->select(DB::raw('count(lead_id) as jumlah'))
+        //             // ->select('lead_id')
+        //             ->where('id_contact', $contact)
+        //             // ->where(DB::raw("MONTH('created_at')") ," = ", date("n"))
+        //             ->get();
+        // // $inc2 = DB::raw("SELECT COUNT(*) FROM `sales_lead_register` WHERE Month(`created_at`) = " . date("n"));
+        // $increment = var_dump($inc);
+
+        // // echo "<pre>";
+        // // print_r($inc2);
+        // // echo "<pre>";
+
+        // // $increment = $inc2; 
+        // $nomor = $increment+1;
+        // $lead = $request['contact'] . date('y') . date('m') . $nomor;
+        // $tambah = new Sales();
+        // $tambah->lead_id = $lead;
+        // $tambah->nik = $request['owner'];
+        // $tambah->id_contact = $request['contact'];
+        // $tambah->opp_name = $request['opp_name'];
+        // $tambah->amount = $request['amount'];
+        // $tambah->save();
+
+        // return redirect('project');
     }
 
      public function store_tp(Request $request)

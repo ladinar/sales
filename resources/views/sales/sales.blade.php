@@ -25,7 +25,7 @@
               <thead>
                 <tr>
                   <th>Lead id</th>
-                  <th>Costumer</th>
+                  <th>Customer</th>
                   <th>Opty name</th>
                   <th>Create date</th>
                   <th>Owner</th>
@@ -39,7 +39,7 @@
                 <tr>
                   <td><a href="{{ url ('/detail_project', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
                   <td>{{ $data->code_name }}</td>
-                  <td>{!!substr($data->opp_name,0,5)!!}...</td>
+                  <td>{{ $data->opp_name }}</td>
                   <td>{!!substr($data->created_at,0,10)!!}</td>
                   <td>{{ $data->name }}</td>
                   <td>{{ $data->amount }}</td>
@@ -74,10 +74,10 @@
         <div class="modal-body">
           <form method="POST" action="{{url('store')}}" id="modalSalesLead" name="modalSalesLead">
             @csrf
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="lead_id">Lead Id</label>
             <input type="text" class="form-control" id="lead_id" name="lead_id" placeholder="Lead Id" readonly required>
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label for="">Costumer</label>
@@ -93,12 +93,12 @@
           <input type="text" class="form-control" placeholder="Enter Opportunity Name" name="opp_name" id="opp_name" required>
          </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="">Owner</label>
             <select class="form-control" id="owner" onkeyup="copytextbox();" name="owner" required>
               <option value="{{Auth::User()->nik}}">{{Auth::User()->name}}</option>
             </select>
-          </div>
+          </div> -->
 
           <div class="form-group  modalIcon inputIconBg">
             <label for="">Amount</label>

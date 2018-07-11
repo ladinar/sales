@@ -45,3 +45,9 @@ Route::get('/detail_sho','SHOController@detail_sho');
 
 Route::get('/hu_rec','HRController@index')->middleware('HRMiddleware');
 Route::post('/hu_rec/store', 'HRController@store');
+
+Route::get('/getMountNow',function(){
+
+	echo date("n");
+
+});

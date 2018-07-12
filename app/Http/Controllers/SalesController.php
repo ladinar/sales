@@ -12,6 +12,7 @@ use Auth;
 use Month;
 use PDF;
 use App\solution_design;
+use App\TB_Contact;
 
 class SALESController extends Controller
 {
@@ -39,7 +40,7 @@ class SALESController extends Controller
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
-                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name', 'sales_lead_register.result')
                 ->where('id_territory', $ter)
                 ->get();
         } elseif($div == 'TECHNICAL PRESALES' && $pos == 'STAFF') {
@@ -47,7 +48,7 @@ class SALESController extends Controller
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
-                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name', 'sales_lead_register.result')
                 ->where('id_division', $div)
                 ->get();
         } else {
@@ -55,7 +56,7 @@ class SALESController extends Controller
                 ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
-                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name', 'sales_lead_register.result')
                 ->get();
         }
         return view('sales/sales')->with('lead', $lead);
@@ -73,12 +74,12 @@ class SALESController extends Controller
 
         $tampilkans = DB::table('sales_solution_design')
                     ->join('users','users.nik','=','sales_solution_design.nik')
-                    ->select('sales_solution_design.lead_id','sales_solution_design.nik','sales_solution_design.assessment','sales_solution_design.pov','sales_solution_design.pd','sales_solution_design.pb','sales_solution_design.priority','sales_solution_design.project_size','users.name')
+                    ->select('sales_solution_design.lead_id','sales_solution_design.nik','sales_solution_design.assessment','sales_solution_design.pov','sales_solution_design.pd','sales_solution_design.pb','sales_solution_design.priority','sales_solution_design.project_size','users.name','sales_solution_design.status')
                     ->where('lead_id',$lead_id)
                     ->first();
 
         $tampilkanc = DB::table('sales_tender_process')
-                    ->select('sales_tender_process.lead_id','auction_number','submit_price','win_prob','project_name','submit_date','quote_number')
+                    ->select('lead_id','auction_number','submit_price','win_prob','project_name','submit_date','quote_number','status')
                     ->where('lead_id',$lead_id)
                     ->first();
 
@@ -131,6 +132,7 @@ class SALESController extends Controller
         $tambah->opp_name = $request['opp_name'];
         $tambah->month = date("n");
         $tambah->amount = $request['amount'];
+        $tambah->result = 'OPEN';
         $tambah->save();
 
         return redirect('project');
@@ -170,15 +172,41 @@ class SALESController extends Controller
         $tambah->nik = $request['owner'];
         $tambah->save();
 
+        $tambahtp = new TenderProcess();
+        $tambahtp->lead_id = $request['coba_lead'];
+        $tambahtp->save();
+
+        $lead_id = $request['coba_lead'];
+
+        $update = Sales::where('lead_id', $lead_id)->first();
+        $update->result = '';
+        $update->update();
+
         return redirect('project');
 
         // echo $request['coba_lead'];
     }
 
     public function raise_to_tender(Request $request){
-        $tambah = new TenderProcess();
-        $tambah->lead_id = $request['lead_id'];
-        $tambah->save();
+        $lead_id = $request['lead_id'];
+
+        $update = TenderProcess::where('lead_id', $lead_id)->first();
+        $update->status = 'ready';
+        $update->update();
+
+        $update = solution_design::where('lead_id', $lead_id)->first();
+        $update->status = 'ready';
+        $update->update();
+
+        return redirect()->back();
+    }
+
+    public function update_result(Request $request){
+        $lead_id = $request['lead_id_result'];        
+
+        $update = Sales::where('lead_id', $lead_id)->first();
+        $update->result = $request['result'];
+        $update->update();
 
         return redirect()->back();
     }
@@ -340,6 +368,18 @@ class SALESController extends Controller
 
     public function customer_index()
     {
-        return view('sales/customer');   
+        $data = TB_Contact::all();
+        return view('sales/customer')->with('data', $data);   
+    }
+
+    public function customer_store(Request $request)
+    {
+        $tambah = new TB_Contact();
+        $tambah->code_name = $request['code_name'];
+        $tambah->name_contact = $request['name_contact'];
+        $tambah->brand_name = $request['brand_name'];
+        $tambah->save();
+
+        return redirect('customer');
     }
 }

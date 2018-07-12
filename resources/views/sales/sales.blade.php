@@ -12,7 +12,6 @@
       <div class="row">
 		    <div class="col-md-12">
 			     <button class="btn btn-primary margin-bottom margin-left-sales" id="btn_add_sales">Add</button>
-           <button class="btn btn-success-sales pull-right" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">+ Customer</button>
 		    </div>
       </div>
       <div class="card mb-3">
@@ -36,7 +35,13 @@
               <tbody id="products-list" name="products-list">
                 @foreach($lead as $data)
                 <tr>
-                  <td><a href="{{ url ('/detail_project', $data->lead_id) }}">{{ $data->lead_id }}</a></td>
+                  <td>
+                    @if($data->result != 'OPEN')
+                    <a href="{{ url ('/detail_project', $data->lead_id) }}">{{ $data->lead_id }}</a>
+                    @else
+                    {{ $data->lead_id }}
+                    @endif
+                  </td>
                   <td>{{ $data->name_contact}}</td>
                   <td>{{ $data->opp_name }}</td>
                   <td>{!!substr($data->created_at,0,10)!!}</td>
@@ -79,7 +84,20 @@
           </div> -->
 
           <div class="form-group">
-            <label for="">Costumer</label>
+            @if(Auth::User()->id_division == 'TECHNICAL PRESALES')
+            <label for="">Owner</label>
+            <select class="form-control" id="owner_sales" onkeyup="copytextbox();" name="owner_sales" required>
+              @foreach($owner as $data)
+                @if($data->id_division == 'SALES')
+                  <option value="{{$data->nik}}">{{$data->name}}</option>
+                @endif
+              @endforeach
+            </select>
+            @endif
+          </div>
+
+          <div class="form-group">
+            <label for="">Customer</label>
              <select class="form-control" id="contact" onkeyup="copytextbox();" name="contact" required>
               @foreach($name_code as $data)
                 <option value="{{$data->id_contact}}">{{$data->code_name}}</option>
@@ -175,7 +193,7 @@
             <select class="form-control-small margin-left-custom" id="owner" name="owner" required>
               <option>-- Choose Owner --</option>
                 @foreach($owner as $data)
-                  @if($data->id_division == 'TECHNICAL PRESALES' && $data->id_position == 'STAFF')
+                  @if($data->id_division == 'TECHNICAL PRESALES')
                     <option value="{{$data->nik}}">{{$data->name}}</option>
                   @endif
                 @endforeach

@@ -25,11 +25,16 @@ Route::get('/sales','SalesController@index');
 Route::get('/detail_sales/{lead_id}','SalesController@detail_sales');
 Route::post('/update_tp/{lead_id}', 'SalesController@update_tp');
 
+Route::post('/update_result', 'SalesController@update_result');
+
 Route::get('/','DASHBOARDController@index');
 
 Route::get('/project','SalesController@index')->middleware('SalesPresalesMiddleware', 'ManagerStaffMiddleware');
 Route::get('/detail_project/{lead_id}','SalesController@detail_sales');
+
 Route::get('/customer', 'SalesController@customer_index');
+Route::post('customer/store', 'SalesController@customer_store');
+
 Route::get('/show/{lead_id}','SalesController@show');
 
 /*Route::get('/presales','SalesController@index')->middleware('TechnicalPresalesMiddleware', 'ManagerStaffMiddleware')*/;

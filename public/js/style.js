@@ -28,10 +28,6 @@ $("#myform").tooltip({
  
       });
 
-$("#btn-result").click(function(){
-        $("#ModalResult").modal({backdrop: true});
-    });
-
 /*var step = 0;
   var stepItem = $('.step-progress .step-slider .step-slider-item');
 

@@ -63,7 +63,7 @@
             @csrf
             <form action="{{ url('update_sd', $tampilkans->lead_id)}}" method="POST">
               {!! csrf_field() !!}
-              @if(Auth::User()->id_division == 'TECHNICAL PRESALES')
+              @if(Auth::User()->id_division == 'TECHNICAL PRESALES' && $tampilkans->status != 'ready')
               <fieldset>
               @else
               <fieldset disabled>
@@ -117,13 +117,17 @@
               </div>
 
               <div class="margin-left-right margin-top">
+                @if($tampilkans->status != 'ready' && Auth::User()->id_division != 'SALES')   
                 <button class="btn btn-md btn-sd btn-primary float-left margin-bottom" type="submit">Submit</button>
+                @endif
             </form>
+                @if($tampilkans->status != 'ready' && Auth::User()->id_division != 'SALES')
                 <form action="{{ url('raise_to_tender')}}" method="POST">
                   {!! csrf_field() !!}
                   <input type="" name="lead_id" id="lead_id" value="{{$tampilkan->lead_id}}" hidden>
                   <button class="btn btn-md btn-sd btn-success float-right margin-bottom" type="submit">Raise To Tender</button>
                 </form>
+                @endif
               </div>
               </fieldset>
               </div>
@@ -133,9 +137,10 @@
       		<div class="card mb-3">
               <h3 class="margin-left-right margin-top">Tender Project</h3>
               <hr class="">
+              @csrf
       			<form action="{{ url('update_tp', $tampilkanc->lead_id)}}"  method="POST" >
               {!! csrf_field() !!}
-              @if(Auth::User()->id_division == 'SALES')
+              @if(Auth::User()->id_division == 'SALES' && $tampilkanc->status == 'ready')
               <fieldset>
               @else
               <fieldset disabled>
@@ -169,7 +174,8 @@
 		          </div>
 		          <div class="margin-left-right margin-top">
                 <button type="submit" class="btn btn-md btn-primary float-left margin-bottom">Submit</button>
-                <button class="btn btn-md btn-success float-right margin-bottom disabled" id="btn-result">Result</button>
+                <!-- <button class="btn btn-md btn-success float-right margin-bottom" id="btn-result" data-toggle="modal" data-target="#formResult">Result</button> -->
+                <button type="button" class="btn btn-md btn-success float-right margin-bottom" data-toggle="modal" data-target="#formResult">Result</button>
               </div>
         		</form>
       		</div>	
@@ -179,6 +185,37 @@
   </div>
 </div>
 @endsection
+
+<div class="modal fade" id="formResult" role="dialog">
+    <div class="modal-dialog modal-md">
+      <!-- Modal content-->
+      <div class="modal-content modal-md">
+        <div class="modal-header">
+          <h4 class="modal-title">Result</h4>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{url('update_result')}}" id="modalResult" name="modalResult">
+            @csrf
+          <div class="form-group row">
+            <input type="" name="lead_id_result" id="lead_id_result" value="{{$tampilkan->lead_id}}" hidden>
+            <label for="">Result</label><br>
+            <select class="form-control-small margin-left-custom" id="result" name="result" required>
+              <option value="">-- Choose Result --</option>
+                    <option value="WIN">WIN</option>
+                    <option value="LOSE">LOSE</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <!--  <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
+              <input type="hidden" id="lead_id" name="lead_id" value="0"> -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -193,23 +230,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
-  <div class="modal fade" id="ModalResult" role="dialog">
-    <div class="modal-dialog modal-md">
-    
-      <!-- Modal content-->
-      <div class="modal-content ">
-        <div class="modal-header">
-          <h4 class="modal-title">Result</h4>
-        </div>
-        <div class="modal-body center">
-          <a href="" class="btn btn-danger btn-lose"><b>LOSE</b></a>
-          <a href="{{url('/sales')}}" class="btn btn-success btn-win margin-left"><b>WIN</b></a>
         </div>
       </div>
       

@@ -22,27 +22,21 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Lead id</th>
-                  <th>Contact</th>
-                  <th>Opty name</th>
-                  <th>Create date</th>
-                  <th>Owner</th>
-                  <th>Amount</th>
-                  <th>Status</th>
+                  <th>Code Name</th>
+                  <th>Name Contact</th>
+                  <th>Brand Name</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach($data as $datas)
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ $datas->code_name }}</td>
+                  <td>{{ $datas->name_contact }}</td>
+                  <td>{{ $datas->brand_name }}</td>
                   <td></td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -62,7 +56,7 @@
           <h4 class="modal-title">Add Customer</h4>
         </div>
         <div class="modal-body">
-          <form method="POST" action="" id="modalCustomer" name="modalCustomer">
+          <form method="POST" action="{{url('customer/store')}}" id="modalCustomer" name="modalCustomer">
             @csrf
           
           <div class="form-group">

@@ -4,6 +4,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
+          <a href="{{action('ReportController@downloadPdfwin')}}" class="btn btn-warning pull-right margin-bottom">Export</a>
         </div>
       </div>
       <div class="card mb-3">

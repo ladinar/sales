@@ -56,10 +56,10 @@
     }
 	</style>
   <link rel="stylesheet" href="">
-	<title>Laporan Lead Register</title>
+	<title>Laporan Status Win</title>
 </head>
 <body>
-<h1 class="center">LAPORAN LEAD REGISTER</h1>
+<h1 class="center">LAPORAN STATUS WIN</h1>
  <table id="pseudo-demo">
                       <thead>
                         <tr>
@@ -87,7 +87,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                      @foreach($lead as $data)
+                      @foreach($win as $data)
                         <tr>
                           <td class="py-1">
                             {{$data->lead_id}}
@@ -108,13 +108,7 @@
                             {{$data->amount}}
                           </td>
                           <td>
-                            @if($data->result == 'OPEN')
-                              <label class="status-open">Open</label>
-                            @elseif($data->result == 'WIN')
-                              <label class="status-win">Win</label>
-                            @else($data->result == 'LOSE')
-                              <label class="status-lose">Lose</label>
-                            @endif
+                              <label class="status-open">Win</label>
                           </td>
                         </tr>
                       @endforeach

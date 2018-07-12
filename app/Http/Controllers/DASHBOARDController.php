@@ -65,7 +65,7 @@ class DASHBOARDController extends Controller
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
                 'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
-                ->where('result', 'open')
+                ->where('result', '')
                 ->where('id_territory', $ter)
                 ->get();
             $opens = count($open);
@@ -75,7 +75,7 @@ class DASHBOARDController extends Controller
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
                 'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
-                ->where('result', 'open')
+                ->where('result', '')
                 ->where('id_division', $div)
                 ->get();
             $opens = count($open);
@@ -85,7 +85,7 @@ class DASHBOARDController extends Controller
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
                 'sales_lead_register.created_at', 'sales_lead_register.amount', 'users.name')
-                ->where('result', 'open')
+                ->where('result', '')
                 ->get();
             $opens = count($open);
         }

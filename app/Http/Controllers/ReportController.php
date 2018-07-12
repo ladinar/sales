@@ -77,7 +77,7 @@ class ReportController extends Controller
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
                 'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
-                ->where('result', 'open')
+                ->where('result', '')
                 ->where('id_territory', $ter)
                 ->get();
         } elseif($div == 'TECHNICAL PRESALES' && $pos == 'STAFF') {
@@ -86,7 +86,7 @@ class ReportController extends Controller
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
                 'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
-                ->where('result', 'open')
+                ->where('result', '')
                 ->where('id_division', $div)
                 ->get();
         } else {
@@ -95,7 +95,7 @@ class ReportController extends Controller
                 ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
                 ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
                 'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
-                ->where('result', 'open')
+                ->where('result', '')
                 ->get();
         }
         return view('report/open_status', compact('open'));
@@ -221,7 +221,131 @@ class ReportController extends Controller
         return $pdf->download('report.pdf');
     }
 
-    public function getClient(Request $request)
+    public function downloadPdfopen()
+    {
+        $nik = Auth::User()->nik;
+        $territory = DB::table('users')->select('id_territory')->where('nik', $nik)->first();
+        $ter = $territory->id_territory;
+        $division = DB::table('users')->select('id_division')->where('nik', $nik)->first();
+        $div = $division->id_division;
+        $position = DB::table('users')->select('id_position')->where('nik', $nik)->first();
+        $pos = $position->id_position;
+
+        if($ter != null){
+            $open = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', '')
+                ->where('id_territory', $ter)
+                ->get();
+        } elseif($div == 'TECHNICAL PRESALES' && $pos == 'STAFF') {
+            $open = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', '')
+                ->where('id_division', $div)
+                ->get();
+        } else {
+            $open = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', '')
+                ->get();
+        }
+
+        $pdf = PDF::loadView('report.open_pdf', compact('open'));
+        return $pdf->download('report.pdf');
+    }
+
+    public function downloadPdfwin()
+    {
+        $nik = Auth::User()->nik;
+        $territory = DB::table('users')->select('id_territory')->where('nik', $nik)->first();
+        $ter = $territory->id_territory;
+        $division = DB::table('users')->select('id_division')->where('nik', $nik)->first();
+        $div = $division->id_division;
+        $position = DB::table('users')->select('id_position')->where('nik', $nik)->first();
+        $pos = $position->id_position;
+
+        if($ter != null){
+            $win = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', 'win')
+                ->where('id_territory', $ter)
+                ->get();
+        } elseif($div == 'TECHNICAL PRESALES' && $pos == 'STAFF') {
+            $win = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', 'win')
+                ->where('id_division', $div)
+                ->get();
+        } else {
+            $win = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', 'win')
+                ->get();
+        }
+        $pdf = PDF::loadView('report.win_pdf', compact('win'));
+        return $pdf->download('report.pdf');
+    }
+
+    public function downloadPdflose()
+    {
+        $nik = Auth::User()->nik;
+        $territory = DB::table('users')->select('id_territory')->where('nik', $nik)->first();
+        $ter = $territory->id_territory;
+        $division = DB::table('users')->select('id_division')->where('nik', $nik)->first();
+        $div = $division->id_division;
+        $position = DB::table('users')->select('id_position')->where('nik', $nik)->first();
+        $pos = $position->id_position;
+
+        if($ter != null){
+            $lose = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', 'lose')
+                ->where('id_territory', $ter)
+                ->get();
+        } elseif($div == 'TECHNICAL PRESALES' && $pos == 'STAFF') {
+            $lose = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id','tb_contact.name_contact', 'sales_lead_register.opp_name',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', 'lose')
+                ->where('id_division', $div)
+                ->get();
+        } else {
+            $lose = DB::table('sales_lead_register')
+                ->join('users', 'users.nik', '=', 'sales_lead_register.nik')
+                ->join('tb_contact', 'sales_lead_register.id_contact', '=', 'tb_contact.id_contact')
+                ->select('sales_lead_register.lead_id', 'tb_contact.id_contact', 'tb_contact.code_name', 'sales_lead_register.opp_name','tb_contact.name_contact',
+                'sales_lead_register.created_at', 'sales_lead_register.amount', 'sales_lead_register.result', 'users.name')
+                ->where('result', 'lose')
+                ->get();
+        }
+        $pdf = PDF::loadView('report.lose_pdf', compact('lose'));
+        return $pdf->download('report.pdf');
+    }
+
+    public function getDropdown(Request $request)
     {
         if($request->id_client=='customer'){
             return array(DB::table('tb_contact')

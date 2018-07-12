@@ -10,6 +10,8 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Lead Table
+          @if(Auth::User()->id_position == 'DIRECTOR')
+          <a href="" class="btn btn-success float-right margin-left-custom">Show</a>
            <select class="form-control-report float-right margin-left-custom" id="dropdown2">
              <option value=""></option>
              <option value=""></option>
@@ -22,6 +24,7 @@
              <option value="territory">Territory</option>
              <option value="status">Status</option>
            </select>
+           @endif
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -34,7 +37,7 @@
                   <th>Create Date</th>
                   <th>Owner</th>
                   <th>Amount</th>
-                  <th>Status</th>>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody id="products-list" name="products-list">
@@ -47,12 +50,18 @@
                   <td>{{ $data->name }}</td>
                   <td>{{ $data->amount }}</td>
                   <td>
-                    @if($data->result == 'open')
-                      <label class="status-open">Open</label>
-                    @elseif($data->result == 'win')
-                      <label class="status-win">Win</label>
-                    @else($data->result == 'lose')
-                      <label class="status-lose">Lose</label>
+                    @if($data->result == 'OPEN')
+                      <label class="status-initial">INITIAL</label>
+                    @elseif($data->result == '')
+                      <label class="status-open">OPEN</label>
+                    @elseif($data->result == 'SD')
+                      <label class="status-sd">SD</label>
+                    @elseif($data->result == 'TP')
+                      <label class="status-tp">TP</label>
+                    @elseif($data->result == 'WIN')
+                      <label class="status-win">WIN</label>
+                    @else
+                      <label class="status-lose">LOSE</label>
                     @endif
                   </td>
                 </tr>
@@ -82,7 +91,7 @@
               success: function(result){
                 var append = "";
                 $('#dropdown2').html(append)
-                var append = "<option selected='selected'>Selec Option</option>";
+                var append = "<option selected='selected'>Select Option</option>";
 
                 if (result[1] == 'customer') {
                 $.each(result[0], function(key, value){

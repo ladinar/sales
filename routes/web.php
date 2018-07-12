@@ -50,6 +50,7 @@ Route::get('/view_lose', 'ReportController@view_lose');
 /*Route::get('/presales_manager','PRESALES_MANAGERController@index');
 Route::post('/presales/store', 'PRESALES_MANAGERController@store');*/
 
+Route::get('/client', 'ReportController@getClient');
 Route::get('/sho','SHOController@index');
 Route::get('/detail_sho','SHOController@detail_sho');
 

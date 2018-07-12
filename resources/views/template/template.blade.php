@@ -76,11 +76,12 @@
     <script src="{{asset('js/bootstrap-slider.js')}}"></script>
     <script src="{{asset('js/style.js')}}"></script>
     <script src="{{asset('js/ajaxscript.js')}}"></script>
-    <script type="" src="{{asset('js/jquery.samask-masker.js')}}"></script>
+    <!-- <script src="{{asset('js/jquery.samask-masker.js')}}"></script> -->
     <script src="{{asset('js/sb-admin-charts.min.js')}}"></script>
     <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
-    <script type="" src="{{asset('js/jquery.mask.min.js')}}"></script>
-     
+    <!-- <script src="{{asset('js/jquery.mask.min.js')}}"></script> -->
+    
+    @yield('script')
   </div>
 </body>
 </html>

@@ -5,13 +5,13 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Sales</a>
+          <a href="#">Customer Data</a>
         </li>
       </ol>
 
       <div class="row">
 		    <div class="col-md-12">
-           <button class="btn btn-success-sales pull-left" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal">+ Customer</button>
+           <button class="btn btn-success-sales pull-left margin-left-sales" id="btn_add_customer" data-target="#modal_customer" data-toggle="modal"><i class="fa fa-plus"> </i> &nbspCustomer</button>
 		    </div>
       </div><br>
       <div class="card mb-3">
@@ -73,10 +73,10 @@
           </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal"><i class=" fa fa-times"></i>&nbspClose</button>
              <!--  <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
               <input type="hidden" id="lead_id" name="lead_id" value="0"> -->
-              <button type="submit" class="btn btn-primary">Add</button>
+              <button type="submit" class="btn btn-primary"><i class="fa fa-plus"> </i>&nbspAdd</button>
             </div>
         </form>
         </div>

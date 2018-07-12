@@ -15,21 +15,21 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="{{url('/project')}}">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Sales</span>
+            <span class="nav-link-text">Lead Register</span>
           </a>
         </li>
         @elseif(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="{{url('/project')}}">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Sales</span>
+            <span class="nav-link-text">Lead Register</span>
           </a>
         </li>
         @elseif(Auth::User()->id_position == 'STAFF' && Auth::User()->id_division == 'SALES')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="{{url('/project')}}">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Sales</span>
+            <span class="nav-link-text">Lead Register</span>
           </a>
         </li>
         @endif
@@ -37,21 +37,21 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="{{url('/project')}}">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Presales</span>
+            <span class="nav-link-text">Lead Register</span>
           </a>
         </li>
         @elseif(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'TECHNICAL PRESALES')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="{{url('/project')}}">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Presales</span>
+            <span class="nav-link-text">Lead Register</span>
           </a>
         </li>
         @elseif(Auth::User()->id_position == 'STAFF' && Auth::User()->id_division == 'TECHNICAL PRESALES')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="{{url('/project')}}">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Presales</span>
+            <span class="nav-link-text">Lead Register</span>
           </a>
         </li>
         @endif

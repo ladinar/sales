@@ -13,7 +13,7 @@
       @if(Auth::User()->id_position == 'HR')
       <div class="row">
     		<div class="col-md-12">
-    			<button class="btn btn-primary margin-bottom float-left" id="btnAdd">Add</button>
+    			<button class="btn btn-primary margin-bottom float-left margin-left-sales" id="btnAdd">Add</button>
     		</div>
       </div>
       @endif
@@ -47,7 +47,7 @@
                   <td>{{ $data->id_territory }}</td>
                   <td>
                     <button class="btn btn-sm btn-danger fa fa-trash fa-lg" style="width: 40px;height: 40px"></button>
-                    <button class="btn btn-sm btn-primary fa fa-search-plus fa-lg" style="width: 40px;height: 40px"></button>
+                    <button class="btn btn-sm btn-primary fa fa-search-plus fa-lg" data-target="#modalView" data-toggle="modal" style="width: 40px;height: 40px"></button>
                   </td>
                 </tr>
                 @endforeach
@@ -288,11 +288,10 @@
         <div class="modal-body">
           <form method="" action="">
                         @csrf
-
                         <div class="form-group row">
                             <label for="nik" class="col-md-4 col-form-label text-md-right">{{ __('NIK') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="nik" type="text" class="form-control{{ $errors->has('nik') ? ' is-invalid' : '' }}" name="nik" value="{{ old('nik') }}" readonly required autofocus>
 
                                 @if ($errors->has('nik'))
@@ -304,10 +303,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Employees Name') }}</label>
+                            <label for="name" class="col-md-4.5 col-form-label text-md-left">{{ __('Employees Name') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                            <div class="col-md-8">
+                                <input id="name" type="text" class="form-control margin-left-custom{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
@@ -320,7 +319,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
@@ -334,7 +333,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -346,17 +345,17 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4.5 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <div class="col-md-8">
+                                <input id="password-confirm" type="password" class="form-control margin-left-custom2" name="password_confirmation" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="company" class="col-md-4 col-form-label text-md-right">{{ __('Company') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <select id="company" class="form-control{{ $errors->has('company') ? ' is-invalid' : '' }}" name="company" value="{{ old('company') }}" onkeyup="copytextbox();" required autofocus>
                                     <option value="">-- Select Company --</option>
                                     @foreach($company as $data)
@@ -374,7 +373,7 @@
                         <div class="form-group row">
                             <label for="division" class="col-md-4 col-form-label text-md-right">{{ __('Division') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <select id="division" class="form-control{{ $errors->has('division') ? ' is-invalid' : '' }}" name="division" value="{{ old('division') }}" autofocus>
                                     <option value="">-- Select division --</option>
                                     @foreach($division as $data)
@@ -392,7 +391,7 @@
                         <div class="form-group row">
                             <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <select id="position" class="form-control{{ $errors->has('position') ? ' is-invalid' : '' }}" name="position" value="{{ old('position') }}" autofocus>
                                     <option value="">-- Select position --</option>
                                     @foreach($position as $data)
@@ -410,7 +409,7 @@
                         <div class="form-group row">
                             <label for="territory" class="col-md-4 col-form-label text-md-right">{{ __('Territory') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <select id="territory" class="form-control{{ $errors->has('territory') ? ' is-invalid' : '' }}" name="territory" value="{{ old('territory') }}" autofocus>
                                     <option value="">-- Select territory --</option>
                                     @foreach($territory as $data)
@@ -428,7 +427,7 @@
                         <div class="form-group row">
                             <label for="date_of_entry" class="col-md-4 col-form-label text-md-right">{{ __('Date Of Entry') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="date_of_entry" type="date" class="form-control{{ $errors->has('date_of_entry') ? ' is-invalid' : '' }}" name="date_of_entry" value="{{ old('date_of_entry') }}" onkeyup="copytextbox();" required autofocus>
 
                                 @if ($errors->has('date_of_entry'))
@@ -442,7 +441,7 @@
                         <div class="form-group row">
                             <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date Of Birth') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="date_of_birth" type="date" class="form-control{{ $errors->has('date_of_birth') ? ' is-invalid' : '' }}" name="date_of_birth" value="{{ old('date_of_birth') }}" onkeyup="copytextbox();" required autofocus>
 
                                 @if ($errors->has('date_of_birth'))
@@ -456,7 +455,7 @@
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <textarea id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" autofocus></textarea>
 
                                 @if ($errors->has('address'))
@@ -470,7 +469,7 @@
                         <div class="form-group row">
                             <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="phone_number" type="number" class="form-control{{ $errors->has('phone_number') ? ' is-invalid' : '' }}" name="phone_number" value="{{ old('phone_number') }}" autofocus>
 
                                 @if ($errors->has('phone_number'))

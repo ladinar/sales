@@ -11,7 +11,7 @@
 
       <div class="row">
 		    <div class="col-md-12">
-			     <button class="btn btn-primary margin-bottom margin-left-sales" id="btn_add_sales">Add</button>
+			     <button class="btn btn-primary-lead margin-bottom margin-left-sales " id="btn_add_sales"><i class="fa fa-plus"> </i> &nbspAdd Lead Register</button>
 		    </div>
       </div>
       <div class="card mb-3">
@@ -47,7 +47,17 @@
                   <td>{!!substr($data->created_at,0,10)!!}</td>
                   <td>{{ $data->name }}</td>
                   <td>{{ $data->amount }}</td>
-                  <td><div class="status-initial">Initial</div></td>
+                  <td>
+                     @if($data->result == 'OPEN')
+                    <label class="status-initial">Initial</label>
+                     @elseif($data->result == '')
+                    <label class="status-open">Open</label>
+                    @elseif($data->result == 'WIN')
+                    <label class="status-win">Win</label>
+                    @elseif($data->result == 'LOSE')
+                    <label class="status-lose">Lose</label>
+                    @endif
+                  </td>
                   <td>
                     @if(Auth::User()->id_position == 'MANAGER' && Auth::User()->id_division == 'SALES')
                     <a href="{{url('/sho')}}" class="btn btn-sm sho">Handover</a>
@@ -129,10 +139,10 @@
             <i class="" aria-hidden="true">&nbsp$&nbsp </i>
           </div>       
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal"><i class=" fa fa-times"></i>&nbspClose</button>
              <!--  <button type="submit" class="btn btn-primary" id="btn-save" value="add"  data-dismiss="modal" >Submit</button>
               <input type="hidden" id="lead_id" name="lead_id" value="0"> -->
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary-custom" id="add_lead_register"><i class="fa fa-check">&nbsp</i>Submit</button>
             </div>
         </form>
         </div>

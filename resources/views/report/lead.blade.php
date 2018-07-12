@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12 form-group">
-           <a href="{{action('ReportController@downloadPdflead')}}" class="btn btn-warning pull-right margin-bottom">Export</a>
+           <a href="{{action('ReportController@downloadPdflead')}}" class="btn btn-warning pull-right margin-right-sales margin-bottom"><i class="fa fa-cloud-download"></i>&nbsp&nbspExport</a>
         </div>
       </div>
       <div class="card mb-3">

@@ -173,9 +173,9 @@
 		            <input class="form-control float-left margin-bottom" type="text" aria-describedby="emailHelp" placeholder="Enter Quote Number" name="q_num" readonly id="q_num" value="{{$tampilkanc->quote_number}}"/>
 		          </div>
 		          <div class="margin-left-right margin-top">
-                <button type="submit" class="btn btn-md btn-primary float-left margin-bottom">Submit</button>
+                <button type="submit" class="btn btn-md btn-primary float-left margin-bottom disabled">Submit</button>
                 <!-- <button class="btn btn-md btn-success float-right margin-bottom" id="btn-result" data-toggle="modal" data-target="#formResult">Result</button> -->
-                <button type="button" class="btn btn-md btn-success float-right margin-bottom" data-toggle="modal" data-target="#formResult">Result</button>
+                <button type="button" class="btn btn-md btn-success float-right margin-bottom disabled" data-toggle="modal" data-target="#formResult">Result</button>
               </div>
         		</form>
       		</div>	

@@ -22,7 +22,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Lead id</th>
+                  <th>Lead id bosq</th>
                   <th>Customer</th>
                   <th>Opty name</th>
                   <th>Create date</th>
